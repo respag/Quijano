@@ -1,0 +1,270 @@
+﻿@using ULA.Quijano.ProcesoLegal.Resources
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Quijano & Associates</title>    
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+  
+    <script>
+       window.moveTo(0, 0);
+       window.resizeTo(screen.availWidth, screen.availHeight);  
+    </script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/dashboard")
+    @Styles.Render("~/Content/awesome")
+    @Styles.Render("~/Content/toastr")
+    @Styles.Render("~/Content/jquery-dataTables")
+    @Styles.Render("~/Content/bootstrap-switch")
+    @Styles.Render("~/Scripts/jquery.ui.plupload/css/jquery.ui.plupload.css")
+    @Styles.Render("~/Jqwidgets/styles")
+</head>
+<body>
+    <div id="toast-container" class="toast-top-right">
+    </div>
+    @RenderSection("Modals", required: false)
+    <!-- Modal -->
+    <div class="modal fade" id="modalBitacora" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg" style="width:900px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Bitácora de Comentarios</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label ControlsForms">Observaciones</label>
+                                <div class="col-sm-7 ">
+                                    <textarea id="txtComentarioBitacora" name="txtComentarioBitacora" class="form-control" rows="1"></textarea>
+                                </div>
+                                <button id="btnSaveComment" type="button" class="btn btn-success btn-xs col-sm-3"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Guardar Comentario</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <table id="tableBitacora" class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Fecha</th>
+                                <th>Bitácora</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    but
+    <div class="scroll-header">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron BaseHeader" style="width:100%">
+            <div class="container" style="background-color:white">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="@Url.Action("Logo", "Home")" class="logo" />
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="infoUltimus">
+                            <span><strong>Incidente:</strong> @ViewBag.Incident </span>|
+                            @if (ViewBag.Deudor != null)
+                            {
+                                <span><strong>Deudor :</strong> @ViewBag.Deudor </span> @ViewBag.Pipe
+
+                            }
+                            <span><strong>Fecha :</strong> @DateTime.Now.ToString("dd-MMMM-yyyy") </span>
+                            <br />
+                            <span><strong>Etapa:</strong> @ViewBag.Step </span>|
+                            <span><strong>Usuario :</strong> @ViewBag.UserFullName </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center>
+            <div class="MenuBar">
+                <div class="container MenuBarContent">
+                    @if (ViewBag.Menu != null)
+                    {
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+                            <ul class="nav navbar-nav" id="TabsClienteCentrico">
+                                @foreach (var items in ViewBag.Menu)
+                                {
+                                    if (items.FormName == ViewBag.CurrentTab)
+                                    {
+                                        <li class="active">
+                                            <a href="@items.FormPath" data-toggle="tab" class="nav-active">
+                                                <i class="fa fa-university"></i>&nbsp;@items.FormName
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a href="@string.Concat(items.FormPath, ViewBag.QueryEncripted)" onclick="try { return GuardarTab(this); } catch (err) { return true; }">
+                                                <i class="fa fa-university"></i>&nbsp;@items.FormName
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    @RenderSection("MenuTab", required: false)
+                </div>
+            </div>
+        </center>
+        <div style=" padding-top:5px;padding-bottom:5px;" class="container" id="barraMenu">
+            <div class="btn-group" style="background-color:white;box-shadow: 0 6px 10px #888888;">
+
+
+                @if (ViewBag.Process == General.ProcesoTDC) { ViewBag.UrlSolicitudReturn = string.Concat("Http://", Request.Url.Host, "/ULA.Banesco.TarjetaCredito/Solicitante/Index", ViewBag.QueryEncripted); }
+                else { ViewBag.UrlSolicitudReturn = string.Concat(Url.Action("Index", "CotizacionPrestamo", null), ViewBag.QueryEncripted); }
+
+
+             @*  @if (!(ViewBag.CurrentTab == "Datos del Cliente"))
+    {
+    <button type="button" class="btn btn-primary btn-sm" id="btnVolver" onclick="location.href = '@ViewBag.UrlSolicitudReturn'">
+         <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>&nbsp;&nbsp;Volver a la Solicitud
+     </button>
+               }
+            *@
+                @if (!(ViewBag.Process == "ServiciosLegales" && ViewBag.CurrentTab == "Solicitud Mesa de Operacion"))
+                {
+                <button type="button" class="btn btn-default btn-sm" id="btnBitacoraComentarios">
+                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>&nbsp;<strong>Comentarios</strong>                    
+                </button>
+
+                <button type="button" class="btn btn-success btn-sm @if (ViewBag.Step == "Monitoreo") { @("hide")}" id="btnEnviar">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<strong>Enviar</strong>
+                </button>
+                }
+
+                @RenderSection("ButtonOption", required: false)
+            </div>
+        </div>
+
+    </div>
+    <input type="hidden" id="hiddenTaskId" value="@ViewBag.TaskId" />
+    <input type="hidden" id="hiddenUserID" value="@ViewBag.UserID" />
+
+    <input type="hidden" id="hiddenProcess" value="@ViewBag.Process" />
+    <input type="hidden" id="hiddenStep" value="@ViewBag.Step" />
+    <input type="hidden" id="hiddenIncident" value="@ViewBag.Incident" />
+    <input type="hidden" id="hiddenTempIncident" value="@ViewBag.TempIncident" />
+    <input type="hidden" id="hiddenTaskStatus" value="@ViewBag.TaskStatus" />
+
+    <input type="hidden" id="hiddenIpAdress" value="@ViewBag.IpAdress" />
+    <input type="hidden" id="hiddenMachineName" value="@ViewBag.MachineName" />
+    <input type="hidden" id="hiddenActivityType" value="@ViewBag.ActivityType" />
+    <input type="hidden" id="hiddenHostResponse" value="@ViewBag.HostResponse" />
+
+    <input type="hidden" id="hiddenJobFunction" value="@ViewBag.JobFunction" />
+    <input type="hidden" id="hiddenUserFullName" value="@ViewBag.UserFullName" />
+    <input type="hidden" id="hiddenUserEmail" value="@ViewBag.UserEmail" />
+    <input type="hidden" id="hiddenSupervisor" value="@ViewBag.Supervisor" />
+    <input type="hidden" id="hiddenSupervisorFullName" value="@ViewBag.SupervisorFullName" />
+
+    <input type="hidden" id="hiddenQueryEncripted" value="@ViewBag.QueryEncripted" />
+
+    <input type="hidden" id="hiddensol_co_solicitud" value="@ViewBag.sol_co_solicitud" />
+    <input type="hidden" id="hiddensol_sucursal" value="@ViewBag.sucursal" />
+    <input type="hidden" id="hiddencl_co_cliente" value="@ViewBag.cl_co_cliente" />
+
+    <div class="container">
+        <div class="starter-template">
+            <div id="body" class="l-main">
+                <div class="l-wrapper">
+                    <noscript>
+                        <div class="alert alert-danger" role="alert">
+                            <h3>Javascript Deshabilitado</h3>
+                            Hemos Detectado que su web browser (explorador de Internet) tiene el Javascript deshabilitado. Este Producto funciona con web browsers compatibles con Javascript.
+                            Por favor contactase con su administrador de sistemas para la habilitación del mismo.
+                        </div>
+                    </noscript>
+                    @RenderSection("featured", required: false)
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container -->
+    <footer class="l-footer">
+        <div class="container">
+            <center>
+            <div class="block-copyright">
+                <p>
+                    Copyright © <strong>Quijano & Associates.</strong><br> Todos los derechos reservados.                    
+                </p>
+            </div>
+            </center>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        if (!window.jQuery) {
+            var jq = document.createElement('script'); jq.type = 'text/javascript';
+            // Path to jquery.js file, eg. Google hosted version
+            jq.src = "@Scripts.Url("~/bundles/jquery")";
+            document.getElementsByTagName('head')[0].appendChild(jq);
+        }
+    </script>
+    @Scripts.Render("~/bundles/Modernizr")
+    @Scripts.Render("~/bundles/jquery-migrate")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/maskedinput")
+    @Scripts.Render("~/bundles/moneymask")
+    @Scripts.Render("~/bundles/jquery-dataTables")
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/autoNumeric")
+    @Scripts.Render("~/bundles/bonsai")
+    @Scripts.Render("~/Jqwidgets/scripts")
+    @Scripts.Render("~/Scripts/Ultimus-Framework")
+    @Scripts.Render("~/Scripts/bootstrap-switch-js")
+    @*@Scripts.Render("~/bundles/jquery.ui.plupload")*@
+    @RenderSection("scripts", required: false)
+    <script>
+       $(document).ready(function(){
+        var currentTab = '@ViewBag.CurrentTab';
+        if(currentTab =="Datos de Solicitud"){
+            //$(".jumbotron").css("height", "25px");
+            $(".MenuBar").css("height", "40px");
+            $(".nav-active").css("height", "35px");
+            $(".btn-group").css({ "position": "absolute", "left": "93px" });
+            $("a").css("height", "35px");
+            }else if ($("#lblSolicitud").text() == "Datos de la solicitud"){
+                $(".jumbotron").css("height", "53px");
+               
+            }
+
+        if ("@ViewBag.TaskStatus"=="3")
+            $("body :input").attr("disabled", true);
+
+        });
+    </script>
+</body>
+</html>

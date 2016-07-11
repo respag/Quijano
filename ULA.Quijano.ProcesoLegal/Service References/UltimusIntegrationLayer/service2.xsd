@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTaskResult" type="xs:boolean" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="ui" nillable="true" type="q1:UltimusIncident" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskWithVariables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="variables" nillable="true" type="q2:ArrayOfNodeVariables" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskWithVariablesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTaskWithVariablesResult" type="xs:boolean" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="ui" nillable="true" type="q3:UltimusIncident" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="variables" nillable="true" type="q4:ArrayOfNodeVariables" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskByFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incident" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskByFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTaskByFiltersResult" type="xs:boolean" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="ui" nillable="true" type="q5:UltimusIncident" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUltimusNativeTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUltimusNativeTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUltimusNativeTaskResult" type="xs:boolean" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="unt" nillable="true" type="q6:UltimusNativeTask" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUltimusNativeIncident">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incidentNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUltimusNativeIncidentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUltimusNativeIncidentResult" type="xs:boolean" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="uni" nillable="true" type="q7:UltimusNativeIncident" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompleteTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="summary" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompleteTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompleteTaskResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="incident" type="xs:int" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompleteTaskWithVariables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="summary" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="variables" nillable="true" type="q8:ArrayOfNodeVariables" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompleteTaskWithVariablesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompleteTaskWithVariablesResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="incident" type="xs:int" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbortTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbortTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AbortTaskResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="summary" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="noAbort" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReturnTaskResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIncidentNodeValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="process" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incident" type="xs:int" />
+        <xs:element minOccurs="0" name="node" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIncidentNodeValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIncidentNodeValueResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNodeValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="node" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNodeValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNodeValueResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNodeValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="node" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNodeValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetNodeValueResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Autenticate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutenticateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AutenticateResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isAutenticated" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="urlBase" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSignatureResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="signatureUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsMemberOfGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="group" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsMemberOfGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsMemberOfGroupResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isMemberOfGroup" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsMemberOfJobFunctionGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="jfg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsMemberOfJobFunctionGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsMemberOfJobFunctionGroupResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isMemberOfJobFunctionGroup" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMemberInGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="group" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMemberInGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMemberInGroupResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGroupsForUserResult" type="xs:boolean" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="groups" nillable="true" type="q9:ArrayOfstring" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVariablesForActiveTasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incidentNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="variables" nillable="true" type="q10:ArrayOfNodeVariables" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVariablesForActiveTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetVariablesForActiveTasksResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReassignAllActiveTasksWithVariables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incidentNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newUserName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="variables" nillable="true" type="q11:ArrayOfNodeVariables" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReassignAllActiveTasksWithVariablesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReassignAllActiveTasksWithVariablesResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVariablesForIncident">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incidentNumber" type="xs:int" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="variables" nillable="true" type="q12:ArrayOfNodeVariables" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVariablesForIncidentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetVariablesForIncidentResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbortAllActiveTasksWithFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incidentNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ignoreSteps" nillable="true" type="q13:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbortAllActiveTasksWithFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AbortAllActiveTasksWithFiltersResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserInformationResult" type="xs:boolean" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="usr" nillable="true" type="q14:UltimusUser" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindUserSupervisor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="jobFunction" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindUserSupervisorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindUserSupervisorResult" type="xs:boolean" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="usr" nillable="true" type="q15:UltimusUser" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExclusionDays">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExclusionDaysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetExclusionDaysResult" type="xs:boolean" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="usr" nillable="true" type="q16:ArrayOfExclusionDay" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupUserMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="group" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupUserMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGroupUserMembersResult" type="xs:boolean" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="Members" nillable="true" type="q17:ArrayOfUltimusUser" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOCMembers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOCMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllOCMembersResult" type="xs:boolean" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="Members" nillable="true" type="q18:ArrayOfUltimusUser" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIncidentInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListIncidentNumber" nillable="true" type="q19:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIncidentInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIncidentInformationResult" type="xs:boolean" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="ListIncidents" nillable="true" type="q20:ArrayOfUltimusNativeIncident" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobFunctionGroupMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="JobFunction" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobFunctionGroupMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJobFunctionGroupMembersResult" type="xs:boolean" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="Members" nillable="true" type="q21:ArrayOfUltimusUser" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserForJobFunction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Organization" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="JobFunction" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserForJobFunctionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserForJobFunctionResult" type="xs:boolean" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="usr" nillable="true" type="q22:UltimusUser" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOffDays">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOffDaysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOffDaysResult" type="xs:boolean" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="OffDays" nillable="true" type="q23:ArrayOfDayOfWeekJSON" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIsLogued">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIsLoguedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIsLoguedResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Initiate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitiateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InitiateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevuelveRutaForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevuelveRutaFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DevuelveRutaFormResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSessionIdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDatos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDatosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDatosResult" nillable="true" type="q24:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilterQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilterQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFilterQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssignQueuedTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssignQueuedTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAssignQueuedTaskResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskInitiate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskInitiateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTaskInitiateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAsociados">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAsociadosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" minOccurs="0" name="GetAsociadosResult" nillable="true" type="q25:ArrayOfUserAssociate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetEmailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAsocia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organizacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="usuariosAAsociar" nillable="true" type="q26:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAsociaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAsociaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organizacion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUsersResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReasignaTarea">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReasignaTareaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReasignaTareaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImageBytes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incident" type="xs:int" />
+        <xs:element minOccurs="0" name="version" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImageBytesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetImageBytesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignaTareasFuturas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="usuarios" nillable="true" type="q27:ArrayOfstring" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="nombreProceso" nillable="true" type="q28:ArrayOfstring" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="nombreEtapa" nillable="true" type="q29:ArrayOfstring" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="stepId" nillable="true" type="q30:ArrayOfstring" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="from" nillable="true" type="q31:ArrayOfstring" />
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="until" nillable="true" type="q32:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignaTareasFuturasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AsignaTareasFuturasResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="strError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.100.22/AttachmentService/AttachmentService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="UploadFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incident" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileData" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadFileResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incident" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetFileListResult" nillable="true" type="q1:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incident" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFileResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="incident" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="step" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sourceIncident" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="targetIncident" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MoveFilesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="processName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tmpDirectory" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFilesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,149 @@
+﻿<form id="formRegistrarCorreo">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Nombre del Cliente:</span>
+                <input type="hidden" id="hiddenTxtNombreCliente" name="hiddenTxtNombreCliente" />
+                <input id="txtNombreCliente" type="text" class="form-control upper-case" name="txtNombreCliente" readonly required />
+                <span class="input-group-btn">
+                    <button id="btnAdminCorreoBuscarCliente" class="btn btn-success" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </span>
+            </div><!-- /input-group -->
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm padding-bottom">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Fecha:</span>
+                <input id="txtAdmCorrFecha" type="text" class="form-control" aria-describedby="basic-addon1" name="txtAdmCorrFecha" readonly />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-language"></i>&nbsp;&nbsp;Idioma:</span>
+                <select id="ddlIdioma" class="form-control" aria-label="..." name="ddlIdioma" required>
+                    <option></option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row padding-bottom">
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1">Procedencia</span>
+                <select id="ddlProcedencia" class="form-control" aria-label="..." name="ddlProcedencia" required>
+                    <option></option>
+                </select>
+            </div><!-- /input-group -->
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-area-chart"></i>&nbsp;&nbsp;Área</span>
+                <select id="ddlArea" class="form-control" aria-label="..." name="ddlArea" required>
+                    <option></option>
+                </select>
+            </div><!-- /input-group -->
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-university"></i>&nbsp;&nbsp;Jurisdicción</span>
+                <select id="ddlJurisdiccion" class="form-control" aria-label="..." name="ddlJurisdiccion" required>
+                    <option></option>
+                </select>
+            </div><!-- /input-group -->
+        </div>
+    </div>
+
+    <div class="row padding-bottom">
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-exchange"></i>&nbsp;&nbsp;Trámite</span>
+                <select id="ddlTramite" class="form-control" aria-label="..." name="ddlTramite" required>
+                    <option></option>
+                </select>
+            </div><!-- /input-group -->
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Correo Origen:</span>
+                <input id="txtCorreoOrigen" type="email" class="form-control " aria-describedby="basic-addon1" name="txtCorreoOrigen" required />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div id="divCorreoInfractor" class="input-group padding-bottom input-group-sm" style="display:none;">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Correo Infractor:</span>
+                <input id="txtCorreoInfractor" type="email" class="form-control" aria-describedby="basic-addon1" name="txtCorreoInfractor" email />
+            </div>
+        </div>
+    </div>
+
+    @*----- PopUp Buscar Cliente ------*@
+
+    @Html.Partial("~/Views/AdministracionCorreos/_AdminCorreoBuscarCliente.cshtml")
+
+    <br />
+    <div class="row padding-bottom">
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-male"></i>&nbsp;&nbsp;Abogado</span>
+                <select id="ddlAbogado" class="form-control" aria-label="..." name="ddlAbogado" required>
+                    <option></option>
+                </select>
+            </div><!-- /input-group -->
+        </div>
+        <div class="col-xs-8">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;CC:</span>
+                <input id="txtCC" type="text" class="form-control " aria-describedby="basic-addon1" name="txtCC" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6" style="padding-right: 0px">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-ellipsis-h"></i>&nbsp;&nbsp;Asunto:</span>
+                <input id="txtAsunto" type="text" class="form-control input-sm" aria-describedby="basic-addon1" name="txtAsunto" required />
+            </div>
+        </div>
+        <div class="col-xs-6" style="padding-left: 0px">
+            <img id="BtnAdjuntos" src="~/Images/attach.png" style="cursor:pointer; display:none" title="Adjuntos" onclick="$('#VisorAdjuntos').modal('show');" />            
+        </div>
+    </div>
+
+    <br />
+
+    <center class="form-inline p-subtitle">
+        <input type="hidden" id="hiddenAsuntoOrigen" name="hiddenAsuntoOrigen" />
+        <div class="checkbox padding-bottom">
+            <input id="chkbQueja" name="chkbQueja" type="checkbox" value="1" /> Queja del Cliente
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="chkbDevuelta" name="chkbDevuelta" type="checkbox" value="2" disabled /> Devuelta <img id="imgJustificacion" src="~/Images/warning_16.png" style="display:none" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="chkbBuzonCorreo" name="chkbBuzonCorreo" type="checkbox" value="3" /> No genera Trámite
+        </div>
+    </center>
+
+    <br />
+
+    <div class="input-group padding-bottom">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>&nbsp;&nbsp;Contenido:</span>
+        <textarea id="txtaContenido" class="form-control" style="width:800px; height:120px" rows="5" name="txtaContenido" required></textarea>
+    </div>
+
+</form>
+
+<iframe id="adjuntos" src="/AttachmentPage/?" width="100%" height="250px" style="border: hidden;"></iframe>
+
+<div id="VisorAdjuntos" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="ListaAdjuntos"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

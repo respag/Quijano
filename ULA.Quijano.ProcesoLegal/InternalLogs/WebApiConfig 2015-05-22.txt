@@ -1,0 +1,10 @@
+05/22/2015 08:43:42|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.Exception: GetTask Error ---> userName:QUIJANO.local/ultimusdev|taskId:S052118256c5006997da8da01d679f7:::System.Exception: Initialize Error
+   at UltimusIntegrationLayer.Main.GetTask(String userName, String taskId) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\Main.cs:line 25
+   at UltimusIntegrationLayer.UltimusIntegration.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\UltimusIntegration.svc.cs:line 33
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 78
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)

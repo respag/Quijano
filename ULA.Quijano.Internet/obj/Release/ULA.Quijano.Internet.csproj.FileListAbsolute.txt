@@ -1,0 +1,8 @@
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\bin\ULA.Quijano.Internet.dll.config
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\bin\ULA.Quijano.Internet.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\bin\ULA.Quijano.Internet.pdb
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\bin\Ultimus.Utilidades.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\bin\Ultimus.Utilidades.pdb
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\obj\Release\ULA.Quijano.Internet.csprojResolveAssemblyReference.cache
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\obj\Release\ULA.Quijano.Internet.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Internet\obj\Release\ULA.Quijano.Internet.pdb

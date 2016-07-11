@@ -1,0 +1,12 @@
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\ULA.Quijano.Model.dll.config
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\ULA.Quijano.Model.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\ULA.Quijano.Model.pdb
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\EntityFramework.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\EntityFramework.SqlServer.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\Oracle.ManagedDataAccess.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\Oracle.ManagedDataAccess.EntityFramework.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\EntityFramework.xml
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Release\EntityFramework.SqlServer.xml
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\obj\Release\ULA.Quijano.Model.csprojResolveAssemblyReference.cache
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\obj\Release\ULA.Quijano.Model.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\obj\Release\ULA.Quijano.Model.pdb

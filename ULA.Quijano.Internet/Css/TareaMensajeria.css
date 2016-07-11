@@ -1,0 +1,49 @@
+﻿.modal-vertical-centered {
+    transform: translate(0, 50%) !important;
+    -ms-transform: translate(0, 50%) !important;
+    -webkit-transform: translate(0, 50%) !important;
+}
+
+.barraTitulo {
+    background-color: #072a5e !important;
+    border-radius: 3px;
+    box-shadow: 0 6px 10px #888888;
+    margin: 5px 0px 20px 0px;
+}
+
+.row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    background: #ffffff !important;
+    font-weight: bold !important;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#VisorImagen .modal-dialog
+{
+    width:90%;
+}

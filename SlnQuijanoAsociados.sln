@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULA.Quijano.Model", "ULA.Quijano.Model\ULA.Quijano.Model.csproj", "{311556D6-1F6B-4F96-B445-0F06B42000E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULA.Quijano.ProcesoLegal", "ULA.Quijano.ProcesoLegal\ULA.Quijano.ProcesoLegal.csproj", "{9AA901C0-FCD9-4835-AA26-E1F443B8B114}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{2607128D-2A5F-495D-8C9C-E67E8346CC77}"
+	ProjectSection(SolutionItems) = preProject
+		DLL\APCEncryptLibrary.dll = DLL\APCEncryptLibrary.dll
+		DLL\Oracle.DataAccess.dll = DLL\Oracle.DataAccess.dll
+		DLL\Ultimus.Utilitarios.dll = DLL\Ultimus.Utilitarios.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultimus.Utilidades", "Ultimus.Utilidades\Ultimus.Utilidades.csproj", "{94EFFF04-53FC-4A25-9779-2D547EC4F119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultimus.DataAccessLayer", "Ultimus.DataAccessLayer\Ultimus.DataAccessLayer.csproj", "{B6A3E7E0-D4C1-4C55-83F1-D76C83935B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULA.Quijano.SendMails", "ULA.Quijano.SendMails\ULA.Quijano.SendMails.csproj", "{FBBF4388-945F-4947-8D75-E4A6F9343A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULA.Quijano.Internet", "ULA.Quijano.Internet\ULA.Quijano.Internet.csproj", "{43BFCC6F-6DD6-477D-A101-03A0EF18E210}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{83943B53-5BD6-4AFA-97E0-3807BB0D2F15}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://ulatfssvc/tfs/ultimuspanama
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ULA.Quijano.Model\\ULA.Quijano.Model.csproj
+		SccProjectName1 = ULA.Quijano.Model
+		SccLocalPath1 = ULA.Quijano.Model
+		SccProjectUniqueName2 = ULA.Quijano.ProcesoLegal\\ULA.Quijano.ProcesoLegal.csproj
+		SccProjectName2 = ULA.Quijano.ProcesoLegal
+		SccLocalPath2 = ULA.Quijano.ProcesoLegal
+		SccProjectUniqueName3 = Ultimus.Utilidades\\Ultimus.Utilidades.csproj
+		SccProjectName3 = Ultimus.Utilidades
+		SccLocalPath3 = Ultimus.Utilidades
+		SccProjectUniqueName4 = Ultimus.DataAccessLayer\\Ultimus.DataAccessLayer.csproj
+		SccProjectName4 = Ultimus.DataAccessLayer
+		SccLocalPath4 = Ultimus.DataAccessLayer
+		SccProjectUniqueName5 = ULA.Quijano.SendMails\\ULA.Quijano.SendMails.csproj
+		SccProjectName5 = ULA.Quijano.SendMails
+		SccLocalPath5 = ULA.Quijano.SendMails
+		SccProjectUniqueName6 = ULA.Quijano.Internet\\ULA.Quijano.Internet.csproj
+		SccProjectName6 = ULA.Quijano.Internet
+		SccLocalPath6 = ULA.Quijano.Internet
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{311556D6-1F6B-4F96-B445-0F06B42000E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311556D6-1F6B-4F96-B445-0F06B42000E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311556D6-1F6B-4F96-B445-0F06B42000E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311556D6-1F6B-4F96-B445-0F06B42000E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA901C0-FCD9-4835-AA26-E1F443B8B114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA901C0-FCD9-4835-AA26-E1F443B8B114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA901C0-FCD9-4835-AA26-E1F443B8B114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA901C0-FCD9-4835-AA26-E1F443B8B114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94EFFF04-53FC-4A25-9779-2D547EC4F119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94EFFF04-53FC-4A25-9779-2D547EC4F119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94EFFF04-53FC-4A25-9779-2D547EC4F119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94EFFF04-53FC-4A25-9779-2D547EC4F119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A3E7E0-D4C1-4C55-83F1-D76C83935B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A3E7E0-D4C1-4C55-83F1-D76C83935B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A3E7E0-D4C1-4C55-83F1-D76C83935B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A3E7E0-D4C1-4C55-83F1-D76C83935B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBF4388-945F-4947-8D75-E4A6F9343A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBF4388-945F-4947-8D75-E4A6F9343A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBF4388-945F-4947-8D75-E4A6F9343A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBF4388-945F-4947-8D75-E4A6F9343A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43BFCC6F-6DD6-477D-A101-03A0EF18E210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BFCC6F-6DD6-477D-A101-03A0EF18E210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BFCC6F-6DD6-477D-A101-03A0EF18E210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BFCC6F-6DD6-477D-A101-03A0EF18E210}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

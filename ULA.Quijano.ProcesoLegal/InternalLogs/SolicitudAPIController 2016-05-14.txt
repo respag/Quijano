@@ -1,0 +1,1 @@
+05/14/2016 10:48:08|ULASP20|Error|SolicitudAPIController|||System.NullReferenceException: Object reference not set to an instance of an object. ->    at ULA.Quijano.ProcesoLegal.ControllersWebApi.SolicitudAPIController.GetDatosCliente(String incidente) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\SolicitudAPIController.cs:line 1821

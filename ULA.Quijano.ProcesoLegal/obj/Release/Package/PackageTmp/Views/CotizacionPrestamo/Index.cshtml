@@ -1,0 +1,135 @@
+﻿@section ButtonOption {
+
+
+    <button type="button" class="btn btn-default btn-sm" id="btnNuevaCotizacion">
+        <i class="fa fa-file"></i>&nbsp;<strong>Nueva Solicitud</strong>
+    </button>
+
+    <button type="button" class="btn btn-default btn-sm" id="btnSolisitudesGuardadas">
+        <i class="fa fa-archive"></i>&nbsp;<strong>Solicitudes Guardadas</strong>
+    </button>
+
+    <button type="button" id="btnAgregarParticipante" class="btn btn-primary btn-sm">
+        <i class="fa fa-user-plus"></i>&nbsp;Añadir Participante
+    </button>
+
+    <button type="button" class="btn btn-success btn-sm" id="btnEnviar" disabled>
+        <i class="fa fa-paper-plane"></i>&nbsp;<strong>Enviar Solicitud</strong>
+    </button>
+
+}
+
+<input type="hidden" id="hiddenSolicitudAction" name="hiddenSolicitudAction" value="@string.Concat(Url.Action("Index", "CotizacionPrestamo", null), ViewBag.QueryEncripted)" />
+<input type="hidden" id="hiddenNuevoSolicitanteAction" name="hiddenNuevoSolicitanteAction" value="@string.Concat(Url.Action("DatosGenerales", "Solicitantes", null), ViewBag.QueryEncripted)" />
+<input type="hidden" id="hiddenPreOfertaTDCAction" name="hiddenPreOfertaTDCAction" value="@string.Concat(Url.Action("PreOfertaTDC", "CalculoPrestamo", null), ViewBag.QueryEncripted)" />
+
+
+<div class="tab-content">
+
+    <div class="tab-pane active" id="tabSucursales">
+        @Html.Partial("~/Views/CotizacionPrestamo/_Sucursal.cshtml")
+    </div>
+
+
+    <div class="tab-pane active" id="tabParticipantes">
+        @Html.Partial("~/Views/CotizacionPrestamo/_Participantes.cshtml")
+    </div>
+
+
+    <div class="tab-pane active" id="tabPrestamo">
+        @Html.Partial("~/Views/CotizacionPrestamo/_Prestamos.cshtml")
+    </div>
+
+</div>
+
+@section Modals{
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="modalImprimirDocumentos" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg " style="width:80%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Checklist de Documentos</h4>
+                </div>
+                <div class="modal-body">
+                    <h3><i class="fa fa-home"></i>&nbsp;Hipoteca</h3>
+                    <table id="tableResultadoDocumentos" class="display stripe hover row-border">
+                        <thead>
+                            <tr>
+                                <th>Documento Entregado</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <h3><i class="fa fa-user"></i>&nbsp;Personal</h3>
+                    <table id="tableCheckListPersonal" class="display stripe hover row-border">
+                        <thead>
+                            <tr>
+                                <th>Documento Entregado</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalSolicitudesGuardadas" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg" style="width:80%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Solicitudes Guardadas</h4>
+                </div>
+                <div class="modal-body">
+
+                    <table id="tableSolicitudesGuardadas" class="display stripe hover row-border">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Identificación</th>
+                                <th>Nombre</th>
+                                <th>Ejecutivo</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ucCheckSeleccionar" class="checkbox" style="display:none;">
+        <input type="checkbox" id="chkSeleccionar" />
+    </div>
+
+    <div id="ucSeleccionarSolicitud" style="display:none;">
+        <button type="button" class="btn btn-success btn-xs" onclick="CargarSolicitud_OnClick([$option])"><i class="fa fa-cloud-download"></i>&nbsp;Abrir</button>
+    </div>
+
+}
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-Cotizacion")
+
+}
+
+
+
+

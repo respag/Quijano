@@ -1,0 +1,326 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+
+<center>
+    <div class="padding-bottom">
+        <h4>Datos Generales del Asunto</h4>
+    </div>
+</center>
+
+<hr />
+<br />
+
+<form id="formDatFunAsunto">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">N° Asunto:</span>
+                <input type="text" id="txtDatFunAsunto" name="txtDatFunAsunto" class="form-control " aria-describedby="basic-addon1" required />
+            </div>
+        </div>
+        <div class="col-xs-2">
+            @if (ViewBag.Step == "Monitoreo")
+            {
+                <button id="btnDatFunCrearActualizar" type="button" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<strong>Actualizar</strong>
+                </button>
+            }
+            else
+            {
+                <button id="btnDatFunCrearActualizar" type="button" class="btn btn-primary btn-sm">Consultar</button>
+            }
+        </div>
+        <div class="col-xs-6" style="padding-left: 2px;">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Estado del Asunto:</span>
+                <input type="text" id="txtDatFunEstadoAsunto" name="txtDatFunEstadoAsunto" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-archive"></i>&nbsp;&nbsp;Oficina:</span>
+                        <input type="text" id="txtDatFunCodOficina" name="txtDatFunCodOficina" class="form-control " aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-6" style="padding-left: 2px;">
+                    <input type="text" id="txtDatFunOficina" name="txtDatFunOficina" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-6" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-building"></i>&nbsp;&nbsp;Compañia:</span>
+                        <input type="text" id="txtDatFunCodCompany" name="txtDatFunCodCompany" class="form-control input-sm" aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-6" style="padding-left: 2px;">
+                    <input type="text" id="txtDatFunCompany" name="txtDatFunCompany" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1">Código de Sociedad</span>
+                <input id="txtDatFunCodigoSociedad" name="txtDatFunCodigoSociedad" type="text" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Aplicación:</span>
+                <input type="text" id="txtDatFunAplicacion" name="txtDatFunAplicacion" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <!--<div class="col-md-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-university"></i>&nbsp;&nbsp;Jurisdicción:</span>
+                <input type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>-->
+        <div class="col-md-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Fecha Apertura:</span>
+                <input id="txtDatFunFechaApertura" name="txtDatFunFechaApertura" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-xs-5" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-exchange"></i>&nbsp;&nbsp;Tramite/Materia:</span>
+                        <input type="text" class="form-control " aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-7" style="padding-left: 2px;">
+                    <input type="text" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-language"></i>&nbsp;&nbsp;Idioma:</span>
+                <input type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>-->
+
+    <div class="row">
+        <!--<div class="col-md-6">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-male"></i>&nbsp;&nbsp;Abogado:</span>
+                        <input type="text" class="form-control " aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding-left: 2px;">
+                    <input type="text" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">-->
+        <div class="col-xs-4" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-female"></i>&nbsp;&nbsp;Asistente:</span>
+                <input type="text" id="txtDatFunCodAsistente" name="txtDatFunCodAsistente" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-8" style="padding-left: 2px;">
+            <input type="text" id="txtDatFunAsistente" name="txtDatFunAsistente" class="form-control input-sm" aria-describedby="basic-addon1" />
+        </div>
+        <!--</div>
+        </div>-->
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Sociedad/Fundación:</span>
+                        <input type="text" id="txtDatFunAsuntoCodSociedad" name="txtDatFunAsuntoCodSociedad" class="form-control " aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding-left: 2px;">
+                    <input type="text" id="txtDatFunAsuntoSociedad" name="txtDatFunAsuntoSociedad" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Cliente:</span>
+                        <input type="text" class="form-control" id="txtDatFunAsuntoCodCliente" name="txtDatFunAsuntoCodCliente" aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding-left: 2px;">
+                    <input type="text" id="txtDatFunAsuntoCliente" name="txtDatFunAsuntoCliente" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group padding-bottom input-group-sm">
+        <span class="input-group-addon" id="basic-addon1">Tipo de Fact. As:</span>
+        <select id="ddlDatFunTipoFacturacion" name="ddlDatFunTipoFacturacion" class="form-control" data-original-title="" title="" aria-label="...">
+            <option value=""></option>
+        </select>
+    </div>
+</form>
+
+<!--
+<br />
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <center><h3 class="panel-title">Cargos</h3></center>
+            </div>
+            <div class="col-md-4 text-right hide">
+                <button type="button" class="btn btn-primary btn-xs">Guardar Cargos</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
+                Honorarios facturados
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" readonly />
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
+                Gastos facturados
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" readonly />
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
+                Total Facturado
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" readonly />
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
+                Total Pendiente Facturado
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" readonly />
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+
+    </div>
+</div>
+-->
+<br />
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <center><h3 class="panel-title">Estado de solicitudes</h3></center>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table id="tbDatFunEstadoSolicitudes" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Fecha de Solicitud</th>
+                    <th>Asignado a</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@* ------------- POPUPS ASUNTOS --------------------*@
+<div class="modal-popup fade" id="modalFunAsuntosEncontrados" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-user"></i>&nbsp;&nbsp;Asuntos Encontrados</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseFunAsuntosEncontrados" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <div id="formModalFunAsuntosEncontrados">
+                    <table id="tbFunAsuntosEncontrados" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>NÚMERO ASUNTO</th>
+                                <th>NOMBRE CLIENTE</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8 text-right">
+                        * Doble click para seleccionar el Asunto
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

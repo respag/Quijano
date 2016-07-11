@@ -1,0 +1,241 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "SolicitudDeMesaDeOperacion";
+}
+
+@*<center><h3>Solicitud de Mesa de Operación</h3></center>
+<br />*@
+<form id="formSolMesaOperacion" role="form">
+    <div class="row padding-bottom">
+        <div class="col-md-8">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>&nbsp;&nbsp;Solicitar a:</span>
+                <select id="ddlSolicita" name="ddlSolicita" class="form-control" aria-label="..." required></select>                
+            </div><!-- /input-group -->
+        </div>
+    </div>
+
+    @if (ViewBag.Process == "Mensajeria" && (ViewBag.Step == "MesaOperaciones" || ViewBag.Step == "RecibeSolicitud"))
+    {
+    <div class="row padding-bottom">
+        <div class="col-md-8">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white">Solicitado por:</span>
+                <input id="txtSolicitadoPor" name="txtSolicitadoPor" type="text" class="form-control" disabled />
+            </div>
+        </div>
+    </div>
+    }
+
+
+    <br />
+
+    <div id="divSolicitudPasante" style="display: none;">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Solicitud de Pasante</h3>
+            </div>
+            <div class="panel-body panel-body-bg">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon"><span class="fa fa-users" aria-hidden="true"></span>&nbsp;&nbsp;Lista de Entidades:</span>
+                            <select id="ddlListaEntidades" name="ddlListaEntidades" class="form-control" aria-label="..." required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="divDetallarEntidad" class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Sociedad / Entidad / Empresa:</span>
+                            <input id="txtDetallarEntidad" name="txtDetallarEntidad" type="text" class="form-control" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group padding-bottom">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-bus"></i>&nbsp;&nbsp;Dirección:</span>
+                            <input id="txtDireccion" name="txtDireccion" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-exchange"></i>&nbsp;&nbsp;Trámite:</span>
+                            <input id="txtTramite" name="txtTramite" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group padding-bottom">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-comments"></i>&nbsp;&nbsp;Instrucciones:</span>
+                            <textarea id="txtaDetalles" name="txtaDetalles" class="form-control" rows="14" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                @if (ViewBag.Process == "Mensajeria")
+                {
+                    <iframe id="adjuntos" src="/AttachmentPage/?@ViewBag.MensajeriaAttachmentParam" width="100%" height="250px" style="border: hidden;"></iframe>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <div id="divSolicitudMensajero" style="display: none;">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Solicitud de Mensajero</h3>
+            </div>
+            <div class="panel-body panel-body-bg">
+                <br />
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Sociedad / Entidad / Empresa:</span>
+                            <input id="txtEntidad" name="txtEntidad" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Para:</span>
+                            <input id="txtPara" name="txtPara" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;De:</span>
+                            <input id="txtDe" name="txtDe" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-bus"></i>&nbsp;&nbsp;Dirección:</span>
+                            <input id="txtDireccion2" name="txtDireccion2" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-street-view"></i>&nbsp;&nbsp;Piso:</span>
+                            <input id="txtPiso" name="txtPiso" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-road"></i>&nbsp;&nbsp;Calle:</span>
+                            <input id="txtCalle" name="txtCalle" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group padding-bottom">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-at"></i>&nbsp;&nbsp;Referencias del lugar de envío:</span>
+                            <textarea id="txtReferenciaLugarEnvio" name="txtReferenciaLugarEnvio" class="form-control" rows="3" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;Horarios:</span>
+                            <input id="txtHorarios" name="txtHorarios" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone"></i>&nbsp;&nbsp;Teléfonos:</span>
+                            <input id="txtTelefonos" name="txtTelefonos" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-7">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-ellipsis-h"></i>&nbsp;&nbsp;Asunto:</span>
+                            <input id="txtAsunto" name="txtAsunto" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="input-group padding-bottom input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-bolt"></i>&nbsp;&nbsp;Acciones:</span>
+                            <select id="ddlAcciones" name="ddlAcciones" class="form-control" aria-label="..." required>
+                                <option></option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                @if (ViewBag.Process == "Mensajeria")
+                {
+                    <iframe id="adjuntos2" src="/AttachmentPage/?@ViewBag.MensajeriaAttachmentParam" width="100%" height="250px" style="border: hidden;"></iframe>
+                }
+                
+            </div>
+        </div>
+        <br />
+    </div>
+
+
+    @if (ViewBag.Process == "ServiciosLegales" && ViewBag.CurrentTab == "Solicitud Mesa de Operacion")
+    {
+        <div class="row padding-bottom">
+            <div class="col-md-2 col-md-offset-10">
+                <button type="button" class="btn btn-success btn-sm" id="btnEnviarSolicitudMesaOperacion">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<strong>Enviar</strong>
+                </button>
+            </div>
+        </div>
+    }
+
+
+    @if (ViewBag.Process == "Mensajeria" && (ViewBag.Step == "MesaOperaciones" || ViewBag.Step == "RecibeSolicitud"))
+    {
+        @Html.Partial("~/Views/Shared/_SolMesaOpeSeccionParaEt2.cshtml")
+    }
+    
+    @if (ViewBag.Process == "Mensajeria" && (ViewBag.Step == "MesaOperaciones" || ViewBag.Step == "RecibeSolicitud"))
+    {
+        @Html.Partial("~/Views/Shared/_SolMesaOpeSeccionResolucion.cshtml")
+    }
+
+</form>
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-SolicitudDeMesaDeOperacion")    
+
+}

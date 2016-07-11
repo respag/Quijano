@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e2167d30-6555-409f-a6f3-fcbb52f65b5a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CustomerCentric.disco" MetadataType="Disco" ID="b072926a-fe35-4028-a00d-7467e212ab08" SourceId="1" SourceUrl="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc?disco" />
+    <MetadataFile FileName="CustomerCentric.wsdl" MetadataType="Wsdl" ID="b97c8040-65a0-4d76-87bc-7b8c6ccd7d01" SourceId="1" SourceUrl="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CustomerCentric1.wsdl" MetadataType="Wsdl" ID="443e0162-1fba-4feb-98a6-7a7016e754ae" SourceId="1" SourceUrl="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc?wsdl" />
+    <MetadataFile FileName="CustomerCentric.xsd" MetadataType="Schema" ID="c609a10c-083b-49d5-b7a0-88c966fdbc68" SourceId="1" SourceUrl="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc?xsd=xsd2" />
+    <MetadataFile FileName="CustomerCentric1.xsd" MetadataType="Schema" ID="37c01fec-db97-4138-b696-cca4542e208a" SourceId="1" SourceUrl="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc?xsd=xsd3" />
+    <MetadataFile FileName="CustomerCentric2.xsd" MetadataType="Schema" ID="d66c3645-bc9f-4cd1-91dd-deb2fd663765" SourceId="1" SourceUrl="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc?xsd=xsd0" />
+    <MetadataFile FileName="CustomerCentric3.xsd" MetadataType="Schema" ID="36069108-dfaa-4a0f-8cf7-43bcc9062b1f" SourceId="1" SourceUrl="http://10.1.6.153/ClienteCentrico/CustomerCentric.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

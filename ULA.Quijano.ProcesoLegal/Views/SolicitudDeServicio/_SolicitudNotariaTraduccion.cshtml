@@ -1,0 +1,202 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 id="TituloSolcitudNotariaTraduccion" class="panel-title text-center">Solicitud Notaria/Traducción</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Tipo de Solicitud:</span>
+                    <select class="form-control" aria-label="...">
+                        <option></option>
+                        <option value="PA">Nombre 1</option>
+                        <option value="CT">Nombre 2</option>
+                        <option value="NY">Nombre 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group padding-bottom">
+                    <span class="input-group-addon" id="basic-addon1">Nro. Solicitud:</span>
+                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-4" style="padding-right: 2px;">
+                        <div class="input-group padding-bottom form-inline input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-exchange"></i>&nbsp;&nbsp;Tramite/Materia:</span>
+                            <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-xs-8" style="padding-left: 2px;">
+                        <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <label>
+                    <input type="checkbox" /> Autenticación?
+                </label>  
+                &nbsp;&nbsp;&nbsp;
+                <label>
+                    <input type="checkbox" /> Se Inscribe
+                </label>      
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Protocoliza:</span>
+                    <select class="form-control" aria-label="...">
+                        <option></option>
+                        <option value="PA">Nombre 1</option>
+                        <option value="CT">Nombre 2</option>
+                        <option value="NY">Nombre 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <label>
+                    <input type="checkbox" /> Apostilla(MINREX)
+                </label>
+                &nbsp;&nbsp;&nbsp;
+                <label>
+                    <input type="checkbox" /> Consulado
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-4" style="padding-right: 2px;">
+                        <div class="input-group padding-bottom form-inline input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1">Notaria:</span>
+                            <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-xs-8" style="padding-left: 2px;">
+                        <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <label>
+                    <input type="checkbox" /> Gobierno y Justicia
+                </label>   
+                &nbsp;&nbsp;&nbsp;
+                <label>
+                    <input type="checkbox" /> Traducción?
+                </label>   
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Sección Depto.:</span>
+                    <select class="form-control" aria-label="...">
+                        <option></option>
+                        <option value="PA">Nombre 1</option>
+                        <option value="CT">Nombre 2</option>
+                        <option value="NY">Nombre 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <label>
+                    <input type="checkbox" /> Notaria?
+                </label>
+                &nbsp;&nbsp;&nbsp;
+                <label>
+                    <input type="checkbox" /> Alteración de Turno?
+                </label>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-xs-4" style="padding-right: 2px;">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-archive"></i>&nbsp;&nbsp;Oficina:</span>
+                    <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-8" style="padding-left: 2px;">
+                <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Ficha:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Fecha de Entrega:</span>
+                    <input id="txtSolNotTraFechaEntrega" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Modelo:</span>
+                    <select class="form-control" aria-label="...">
+                        <option></option>
+                        <option value="PA">Nombre 1</option>
+                        <option value="CT">Nombre 2</option>
+                        <option value="NY">Nombre 3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Comparece:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Refrenda:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Fundadora:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <label>Observaciones</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-footer">        
+        <button type="button" class="btn btn-info btn-lg btn-block">Guardar Solicitud</button>            
+    </div>
+</div>

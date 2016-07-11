@@ -1,0 +1,27 @@
+﻿@using ULA.Quijano.ProcesoLegal.Resources
+<div class="btn-group" id="OpcionesSolicitante">
+    <button type="button" id="btnOpciones" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+        <i class="fa fa-wrench"></i> &nbsp;Opciones del Participante <span class="caret"></span>
+    </button>
+
+    <ul id="bulletedListOpciones" class="dropdown-menu" role="menu">
+        @*<li><a href="@string.Concat(Url.Action("Index", "CotizacionPrestamo", null), ViewBag.QueryEncripted)"><i class="fa  fa-home"></i>&nbsp;&nbsp;Cliente Céntrico</a>
+            <hr />*@
+
+        @if (ViewBag.Process == General.ProcesoTDC)
+        {
+            <li><a href="@string.Concat("Http://", Request.Url.Host, "/ULA.Banesco.TarjetaCredito/Solicitante/DatosGenerales", ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente)"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Datos Generales</a></li>
+            <li><a href="@string.Concat("Http://", Request.Url.Host, "/ULA.Banesco.TarjetaCredito/Solicitante/InfoLaboral", ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente)"><i class=" fa fa-briefcase"></i>&nbsp;&nbsp;Información Laboral</a></li>
+            <li><a href="@string.Concat("Http://", Request.Url.Host, "/ULA.Banesco.TarjetaCredito/Solicitante/Compromisos", ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente)"><i class=" fa fa-university"></i>&nbsp;&nbsp;Compromisos</a></li>
+            <li><a href="@string.Concat("Http://", Request.Url.Host, "/ULA.Banesco.TarjetaCredito/Solicitante/ReferenciasPersonales", ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente)"><i class=" fa fa-users"></i>&nbsp;&nbsp;Referencias Personales</a></li>
+        }
+        else //cliente centrico
+        {
+            <li><a href="@string.Concat(Url.Action("DatosGenerales", "Solicitantes", null), ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente)"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Datos Generales</a></li>
+            <li><a href="@string.Concat(Url.Action("InfoLaboral", "Solicitantes", null), ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente) "><i class=" fa fa-briefcase"></i>&nbsp;&nbsp;Información Laboral</a></li>
+            <li><a href="@string.Concat(Url.Action("Compromisos", "Solicitantes", null), ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente)"><i class=" fa fa-university"></i>&nbsp;&nbsp;Compromisos</a></li>
+            <li><a href="@string.Concat(Url.Action("ReferenciasPersonales", "Solicitantes", null), ViewBag.QueryEncripted, "&cl_co_cliente=", ViewBag.cl_co_cliente)"><i class=" fa fa-users"></i>&nbsp;&nbsp;Referencias Personales</a></li>
+        }
+        
+        </ul>
+    </div>

@@ -1,0 +1,376 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Detalles de Instrucciones</h3>
+    </div>
+    <div class="panel-body">
+        <div role="tabpanel">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs pestanias" role="tablist">
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation" class="active">
+                        <a href="#homeMig" aria-controls="home" role="tab" data-toggle="tab" class="nav-active">Datos Migración</a>
+                    </li>
+                }
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation">
+                        <a href="#profileMig" aria-controls="profile" role="tab" data-toggle="tab">Datos de Facturación y Entrega</a>
+                    </li>
+                }
+                
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                    <li role="presentation" @if (ViewBag.Step == "Monitoreo") { @("class=active")   }>
+                        <a href="#asuntosMig" aria-controls="abrirAsuntos" role="tab" data-toggle="tab" @if (ViewBag.Step == "Monitoreo") { @("class=nav-active")   }>Abrir Asunto</a>
+                    </li>
+                }
+
+                @*<li role="presentation" @if (ViewBag.Step == "Monitoreo") { @("class=hide")        } else { @("class=active")        }><a href="#CheckListControlMig" aria-controls="CheckListControl" role="tab" data-toggle="tab">Check List Control.</a></li>*@
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <div role="tabpanel" class="tab-pane  active" id="homeMig">
+                        <br />
+                        <form id="formInstMigDatosMigracion">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title text-center">Instrucciones Generales</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center">Cheques:</h3>
+                                                </div>
+                                                <div class="panel-body">
+
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                                                <span class="input-group-addon" id="basic-addon1" style="width:331px">Depósito de Repatriación:</span>
+                                                                <input type="text" id="txtMigDepRepatriacion" name="txtMigDepRepatriacion" class="form-control input-sm" aria-describedby="basic-addon1" disabled required />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input id="chkMigDepRepatriacion" name="chkMigDepRepatriacion" type="checkbox" onchange="CalcularTotalTramiteMigracion();" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                                                <span class="input-group-addon" id="basic-addon1" style="width:331px">Cambio de Categoría Migratoria:</span>
+                                                                <input type="text" id="txtMigCambioCateMigr" name="txtMigCambioCateMigr" class="form-control input-sm" aria-describedby="basic-addon1" disabled required />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input id="chkMigCambiosCatMig" name="chkMigCambiosCatMig" type="checkbox" onchange="CalcularTotalTramiteMigracion();" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                                                <span class="input-group-addon" id="basic-addon1" style="width:331px">Carné de Trámite:</span>
+                                                                <input type="text" id="txtMigCarneTramite" name="txtMigCarneTramite" class="form-control input-sm" aria-describedby="basic-addon1" disabled required />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input id="chkMigCarneTramite" name="chkMigCarneTramite" type="checkbox" onchange="CalcularTotalTramiteMigracion();" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                                                <span class="input-group-addon" id="basic-addon1" style="width:331px">Visa Multiple de Entrada y Salida:</span>
+                                                                <input type="text" id="txtMigVisaMultiple" name="txtMigVisaMultiple" class="form-control input-sm" aria-describedby="basic-addon1" disabled required />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input id="chkMigVisaMultiple" name="chkMigVisaMultiple" type="checkbox" onchange="CalcularTotalTramiteMigracion();" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div id="divOpcionCheque"></div>
+                                            <br />
+                                            <a class="btn btn-default" id="btnMigAgregarCheque">Agregar nueva opción para cheques</a><br /><br />
+
+                                            <div id="divMigCheques" class="hidden">
+                                                <input id="txtMigChequesTitulo" name="txtMigChequesTitulo" class="form-control input-sm hidden" placeholder="Escriba la etiqueta de la nueva opción" />
+                                                <br /><a class="btn btn-default btn-sm hidden" id="btnMigAgregar">Agregar</a><br /><br />
+                                            </div>
+
+
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center">Caja Menuda</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                                        <span class="input-group-addon" id="basic-addon1" style="width:331px">Registro:</span>
+                                                        <input type="text" id="txtMigRegistro" name="txtMigRegistro" class="form-control input-sm" aria-describedby="basic-addon1" required />
+                                                    </div>
+                                                    <br />
+                                                    <div class="text-center">
+                                                        <label>Aplica Dependientes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <label class="radio-inline">
+                                                            <input id="rbMigTieneDependiente" type="radio" name="inlineRadioOptions6" value="option1" required /> Si&nbsp;&nbsp;&nbsp;
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input id="rbMigNoTieneDependiente" type="radio" name="inlineRadioOptions6" value="option2" required /> No
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center">Notas:</h3>
+                                                </div>
+                                                <div class="alert alert-warning">
+                                                    <ul>
+                                                        <li>TODOS LOS DOCUMENTOS EMITIDOS EN UN IDIOMA DIFERENTE AL ESPAÑOL DEBEN ESTAR TRADUCIDOS.</li>
+                                                        <li>LOS DOCUMENTOS SEÑALADOS COMO APOSTILLADO O LEGALIZADO, PUEDEN SER PRESENTADOS CON UNA DE LAS DOS CERTIFICACIONES.</li>
+                                                    </ul>
+                                                </div>
+                                                <br />
+                                                <div id="prorroga" class="panel panel-info hidden">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title text-center" style="display:inline">Prórroga:</h3>
+                                                        <span>Certificación de las ultimas 9 cuotas del seguro social y paz y salvo nacional de rentas del solicitante</span>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="input-group padding-bottom form-inline input-group-sm">
+                                                    <span class="input-group-addon" id="basic-addon1" @*style="width:480px"*@>FECHA PROGRAMADA DE REGISTRO:</span>
+                                                    <input type="text" id="txtMigFechaProgRegistro" name="txtMigFechaProgRegistro" class="form-control input-sm" aria-describedby="basic-addon1" required />
+                                                </div>
+                                                <div class="input-group padding-bottom form-inline input-group-sm">
+                                                    <span class="input-group-addon" id="basic-addon1" @*style="width:480px"*@>FECHA PROGRAMADA DE PRESENTACIÓN:</span>
+                                                    <input type="text" id="txtMigFechaProgPresentacion" name="txtMigFechaProgPresentacion" class="form-control input-sm" aria-describedby="basic-addon1" required />
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center">Gastos</h3>
+                                                </div>
+                                                <div class="panel-body">
+
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon span-input-white" id="basic-addon1">Honorarios</span>
+                                                        <input id="txtDatMigHonorarios" name="txtDatMigHonorarios" type="number" class="form-control" aria-describedby="basic-addon1" required />
+                                                    </div>
+
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon span-input-white" id="basic-addon1">Gastos</span>
+                                                        <input id="txtDatMigGastos" name="txtDatMigGastos" type="number" class="form-control" aria-describedby="basic-addon1" required />
+                                                    </div>
+
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon span-input-white" id="basic-addon1">Desembolso</span>
+                                                        <input id="txtDatMigDesembolso" name="txtDatMigDesembolso" type="text" class="form-control" aria-describedby="basic-addon1" readonly />
+                                                    </div>
+
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon span-input-white" id="basic-addon1">Total</span>
+                                                        <input id="txtDatMigTotal" name="txtDatMigTotal" type="text" class="form-control" aria-describedby="basic-addon1" readonly />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="row">
+                        <div class="col-md-8">
+                            <span>Comentarios:</span><br />
+                            <textarea rows="4" style="width:100%"></textarea>
+                        </div>
+                    </div>*@
+                                    <br />
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4">
+                                                    <center><h3 class="panel-title">Solicitantes</h3></center>
+                                                </div>
+                                                <div class="col-md-12 text-right">
+                                                    <button id="btnMigAgregarSolicitantes" type="button" class="btn btn-primary btn-sm">
+                                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Agregar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <table id="tbMigSolicitantes" class="table table-hover table-condensed">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nombre</th>
+                                                        <th>Identificación</th>
+                                                        <th>Tipo</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <br />
+                                            @*@Html.Partial("PartialSolicitantes")*@
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center">Requisitos</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div id="jqxgridRequisitos"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+                
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <div role="tabpanel" class="tab-pane " id="profileMig">
+                        @Html.Partial("~/Views/SolicitudDeServicio/_DatosFacturacionEntregaMig.cshtml")
+                    </div>
+                }
+                
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                    <div role="tabpanel" class="@if (ViewBag.Step == "Monitoreo") { @("tab-pane active") } else { @("tab-pane") }" id="asuntosMig">
+                        @Html.Partial("~/Views/SolicitudDeServicio/_AbrirAsuntoMig.cshtml")
+                    </div>
+                }
+
+                @*
+                <div id="CheckListControlMig" role="tabpanel" class="tab-pane ">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_CheckListControl.cshtml")
+                </div>
+                *@
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@* ------------- POPUPS SOLICITANTES --------------------*@
+<div class="modal-popup fade" id="modalAddSolicitantes" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-reply"></i>&nbsp;&nbsp;Agregar Solicitante</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseAddSolicitantes" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalAddSolicitantes">
+
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                        <input id="txtAddSolicitantesNombre" name="txtAddSolicitantesNombre" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Identificación</span>
+                        <input id="txtAddSolicitantesIdentificacion" name="txtAddSolicitantesIdentificacion" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Tipo</span>
+                        <select id="ddlAddSolicitantesTipo" name="ddlAddSolicitantesTipo" class="form-control" aria-label="..." required>
+                            <option></option>
+                        </select>
+                        @*<input id="txtAddSolicitantesTipo" name="txtAddSolicitantesTipo" type="text" class="form-control" aria-describedby="basic-addon1" required />*@
+                    </div>
+
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalAgregarSolicitante" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Guardar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal-popup fade" id="modalUpdSolicitantes" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-reply"></i>&nbsp;&nbsp;Modificar Solicitante</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseUpdSolicitantes" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalUpdSolicitantes">
+
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                        <input id="txtUpdSolicitantesNombre" name="txtUpdSolicitantesNombre" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Identificación</span>
+                        <input id="txtUpdSolicitantesIdentificacion" name="txtUpdSolicitantesIdentificacion" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Tipo</span>
+                        <select id="ddlUpdSolicitantesTipo" name="ddlUpdSolicitantesTipo" class="form-control" aria-label="..." required>
+                            <option></option>
+                        </select>
+                        @*<input id="txtUpdSolicitantesTipo" name="txtUpdSolicitantesTipo" type="text" class="form-control" aria-describedby="basic-addon1" required />*@
+                    </div>
+
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalActualizarSolicitante" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Guardar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

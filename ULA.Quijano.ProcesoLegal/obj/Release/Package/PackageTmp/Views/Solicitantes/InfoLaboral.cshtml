@@ -1,0 +1,342 @@
+﻿@using ULA.Quijano.ProcesoLegal.Resources
+
+@section ButtonOption {
+
+
+    @if (ViewBag.Process == General.ProcesoTDC)
+    {
+
+       
+        @Html.Partial("~/Views/Solicitantes/_OpcionesGenerales.cshtml");
+
+    }
+    else
+    {
+       
+
+        @Html.Partial("~/Views/Solicitantes/_OpcionesGenerales.cshtml");
+
+    }
+
+
+    <button type="button" id="btnGuardarInformacionLaboral" class="btn btn-success btn-sm">
+        <i class="fa fa-floppy-o"></i>&nbsp;Guardar Información Laboral
+    </button>
+
+
+}
+
+<h3><i class="fa fa-file-text-o"></i> Información Laboral</h3>
+
+<form id="formDeudorDatosGenerales" class="form-horizontal" role="form">
+
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-6">
+
+                @*Lugar de Trabajo*@
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Lugar de Trabajo</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodLugarTrabajo" />
+                        <input type="text" id="txtLugarTrabajo" name="txtLugarTrabajo" class="form-control imput-xs" required data-role="btnBuscarLugarTrabajo" />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarLugarTrabajo" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Dirección</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" id="txtAreaDireccion" rows="3" required></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Actividad Económica</label>
+
+                    <div class="col-sm-6">
+                        <input type="hidden" id="hiddenCodActividadEconomica" />
+                        <textarea class="form-control" id="txtAreaActividadEconomica" rows="2" required data-role="btnBuscarActividadEconomica"></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarActividadEconomica" class="btn btn-info btn-xs"><i class="fa fa-search"></i>&nbsp;Buscar</button>
+                    </div>
+
+                </div>
+
+                @*Teléfono Oficina*@
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Teléfono Oficina</label>
+                    <div class="input-group col-sm-6">
+                        <span class="input-group-addon">(507)</span>
+                        <input type="text" id="txtTelefonoOficina" name="txtTelefonoOficina" required data-role="txtExtensionTelefonoOficina" class="form-control imput-xs" />
+                    </div>
+                    <div class="col-sm-2 control-label ControlsForms">
+                        <input type="text" id="txtExtensionTelefonoOficina" name="txtExtensionTelefonoOficina" class="form-control imput-xs" />
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Fax</label>
+                    <div class="input-group col-sm-6 ">
+                        <span class="input-group-addon">(507)</span>
+                        <input type="text" id="txtFax" name="txtFax" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Salario Mensual</label>
+                    <div class="input-group col-sm-6">
+                        <span class="input-group-addon">B/.</span>
+                        <input type="text" id="txtSalarioMensual" name="txtSalarioMensual" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Otros Ingresos</label>
+                    <div class="col-sm-6 input-group">
+                        <span class="input-group-addon">B/.</span>
+                        <input type="text" id="txtOtrosIngresos" name="txtOtrosIngresos" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Especifique fuente</label>
+
+                    <div class="col-sm-6 ">
+                        <input type="hidden" id="hiddenCodAreaFuente" />
+                        <textarea class="form-control" id="txtAreaFuente" name="txtAreaFuente" rows="2" required data-role="btnBuscarFuente"></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarFuente" class="btn btn-info btn-xs"><i class="fa fa-search"></i>&nbsp;Buscar</button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Condición de Trabajo Actual</label>
+                    <div class="col-sm-8">
+                        <select id="ddlCondicionTrabajo" name="ddlCondicionTrabajo" class="form-control imput-xs" required></select>
+                    </div>
+                </div>
+
+                @*Fecha de Ingreso*@
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Fecha de Ingreso</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" id="txtFechaIngreso" name="txtFechaingreso" class="form-control imput-xs" required />
+                        </div>
+                    </div>
+                </div>
+
+                @* Años / Meses*@
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Años</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="txtAños" name="txtAños" readonly="readonly" class="form-control imput-xs" />
+                    </div>
+                    <label class="col-sm-4 control-label ControlsForms">Meses</label>
+                    <div class="col-sm-2">
+                        <input type="number" id="txtMeses" name="txtMeses" readonly="readonly" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</form>
+
+<div class="checkbox">
+    <label>
+        <input type="checkbox" id="chkEmpleoAnterior" />Agregar Empleo Anterior
+    </label>
+</div>
+<form id="formEmpleoAnterior" class="form-horizontal" role="form">
+
+
+
+    <div class="well well-sm" id="empleoAnterior">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Lugar Empleo</label>
+                    <div class="col-sm-6">
+                        <input type="hidden" id="hiddenCodAreaEmpleoAnterior" />
+                        <textarea class="form-control" id="txtAreaEmpleoAnterior" rows="2" required data-role="btnBuscarEmpleoAnterior"></textarea>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarEmpleoAnterior" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Fecha de Ingreso</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" id="txtFechaIngresoEmpleoAnterior" name=" txtFechaIngresoEmpleoAnterior" class="form-control imput-xs" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Fecha de Egreso</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" id="txtFechaEgresoEmpleoAnterior" name=" txtFechaEgresoEmpleoAnterior" class="form-control imput-xs" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Años</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="txtAñosAnterior" name="txtAñosAnterior" readonly="readonly" class="form-control imput-xs" />
+                    </div>
+                    <label class="col-sm-4 control-label ControlsForms">Meses</label>
+                    <div class="col-sm-2">
+                        <input type="number" id="txtMesesAnterior" name="txtMesesAnterior" readonly="readonly" class="form-control imput-xs" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+@section Modals{
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalAgregarDescripcion" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Catálogo</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <table id="tableResultadoCatalogo" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Código</th>
+                                        <th>Descripción</th>
+
+                                    </tr>
+                                </thead>
+
+                            </table>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="ucBtnSeleccionar" style="display:none;">
+        <button type="button" class="btn btn-default btn-xs">
+            <i class="fa fa-check"></i>&nbsp;&nbsp;...
+        </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalEmpresas" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Catálogo</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <table id="tableEmpresas" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Código</th>
+                                        <th>Descripción</th>
+
+                                    </tr>
+                                </thead>
+
+                            </table>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-SolicitantesInfoLaboral")
+
+}

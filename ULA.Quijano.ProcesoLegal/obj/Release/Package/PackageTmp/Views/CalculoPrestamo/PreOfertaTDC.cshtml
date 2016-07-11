@@ -1,0 +1,107 @@
+﻿@section ButtonOption {
+
+}
+
+
+<h3><i class="fa fa-credit-card"></i>&nbsp;Pre Oferta Tarjeta de Crédito</h3>
+
+<form id="formCalculoPersonal" class="form-horizontal" role="form">
+
+    <div class="well well-sm">
+
+
+        <div class="row">
+
+            <div class="col-xs-6">
+
+
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Datos del Solicitante</h4>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Nombre Solicitante</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtNombreSolicitante" name="txtNombreSolicitante" class="form-control imput-xs controlUppercase" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Identificación</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtIdentificacionSolicitante" name="txtIdentificacionSolicitante" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+                <hr />
+
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Pre Oferta</h4>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo Tarjeta</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtTipoTarjeta" name="txtTipoTarjeta" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group labelHighlight">
+                    <label class="col-sm-4 control-label ControlsForms">Limite de la Pre Oferta</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtLimite" name="txtLimite" class="form-control imput-xs ControlHighlight" readonly />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Nivel de endeudamiento</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtNivelEndeudamiento" name="txtNivelEndeudamiento" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+   
+              
+
+                <hr />
+
+
+
+            </div>
+
+            <div class="col-xs-6">
+
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Ingresos</h4>
+
+
+                <div class="form-group labelHighlight">
+
+                    <label class="col-sm-4 control-label ControlsForms">Salario Mensual</label>
+
+                    <div class="btn-group col-md-4">
+                        <input type="text" id="txtSalarioMensual" name="txtSalarioMensual" class="form-control imput-xs ControlHighlight" readonly />
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Otros Ingresos</label>
+
+                    <div class="btn-group col-md-4">
+                        <input type="text" id="txtOtrosIngresos" name="txtOtrosIngresos" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+ 
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-TDC")
+
+}

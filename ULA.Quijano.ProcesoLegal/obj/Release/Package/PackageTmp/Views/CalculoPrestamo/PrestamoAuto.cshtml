@@ -1,0 +1,506 @@
+﻿@*@section ButtonOption {
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-sm" id="btnGuardarDatosSolicitante"><i class="fa fa-floppy-o"></i>&nbsp;Guardar Datos del Préstamo</button>
+            <button type="button" class="btn btn-default btn-sm" id="btnClienteCentrico"
+                    onclick="location.href = '@string.Concat(Url.Action("Index", "CotizacionPrestamo", null), ViewBag.QueryEncripted)'">
+                <i class="fa fa-home"></i>&nbsp;&nbsp;Cliente Céntrico
+            </button>
+
+        </div>
+    }*@
+
+@section ButtonOption {
+
+    <button type="button" id="btnCalcularAuto" class="btn btn-success btn-sm">
+        <i class="fa fa-calculator"></i>&nbsp;Calcular
+    </button>
+    <button type="button" id="btnCompromisos" class="btn btn-default btn-sm" onclick="location.href = '@string.Concat(Url.Action("Compromisos", "Solicitantes", null), ViewBag.QueryEncripted)?retornarVisible=true&tipoPrestamo=PrestamoPersonal'"><i class="fa fa-th-list"></i>&nbsp;Compromisos</button>
+}
+
+<h3><i class="fa fa-calculator"></i> Cálculos del Préstamo Auto</h3>
+
+@*@section MenuTab {
+
+        <div class="collapse navbar-collapse" id="navbarPrestamoAuto">
+            <ul class="nav navbar-nav" id="tabCalculo">
+
+                <li id="liCalculoPrestamoAuto" style="background-color: rgb(41, 114, 197);">
+                    <a class=" nav" id="aCalculoPrestamo" href="#tabCalculoPrestamoAuto" data-toggle="tab">
+                    <i class="fa fa-circle-o"></i>&nbsp;Cálculo Préstamo
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav" id="tabDatos">
+
+                <li id="liDatosSolicitante" style="background-color: rgb(41, 114, 197);">
+                    <a class="nav" id="aDatosSolicitante" href="#tabDatosSolicitante" data-toggle="tab">
+                        <i class="fa fa-circle-o"></i>&nbsp;DatosSolicitante
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    }*@
+
+<form id="formCalculoAuto" class="form-horizontal" role="form">
+    <div id="divCalculoAuto" class="well well-sm">
+        <div class="row">
+            <div class="col-xs-6">
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Datos del Solicitante</h4>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Nombre Solicitante</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtNombreSolicitante" name="txtNombreSolicitante" class="form-control imput-xs controlUppercase" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Identificación</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtIdentificacionSolicitante" name="txtIdentificacionSolicitante" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Ingresos</h4>
+                <div class="form-group labelHighlight">
+                    <label class="col-sm-4 control-label ControlsForms">Salario Mensual</label>
+                    <div class="btn-group col-md-4">
+                        <input type="text" id="txtSalarioMensual" name="txtSalarioMensual" class="form-control imput-xs ControlHighlight" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Otros Ingresos</label>
+                    <div class="btn-group col-md-4">
+                        <input type="text" id="txtOtrosIngresos" name="txtOtrosIngresos" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="formDatosPrestamo" class="form-horizontal" role="form">
+    <h3><i class="fa fa-list-alt"></i> Datos del Prestamos</h3>
+    <div id="divDatosPrestamo" class="well well-sm">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Feria</label>
+                    <div class="col-sm-6">
+                        <input type="hidden" id="hiddenCodFeria" />
+                        <input type="text" id="txtFeria" name="txtFeria" class="form-control imput-xs" required data-role="btnBuscarFeria" readonly />
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarFeria" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Segmento</label>
+                    <div class="col-sm-6">
+                        <input type="hidden" id="hiddenCodSegmento" />
+                        <input type="text" id="txtSegmento" name="txtSegmento" class="form-control imput-xs" required data-role="btnBuscarSegmento" readonly />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarSegmento" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo Préstamo</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodTipoPrestamo" />
+                        <input type="text" id="txtTipoPrestamo" name="txtTipoPrestamo" class="form-control imput-xs" required data-role="btnBuscarTipoPrestamo" readonly />
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarTipoPrestamo" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Agencia</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodAgenciaAutos" />
+                        <input type="text" id="txtAgenciaAutos" name="txtAgenciaAutos" class="form-control imput-xs" required data-role="btnBuscarAgenciaAutos" readonly />
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarAgenciaAutos" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Marca del Auto</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodMarcaAuto" />
+                        <input type="text" id="txtMarcaAuto" name="txtMarcaAuto" class="form-control imput-xs" required data-role="btnBuscarMarcaAuto" readonly />
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarMarcaAuto" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Modelo del Auto</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodMarcaAuto" />
+                        <input type="text" id="txtModeloAuto" name="txtModeloAuto" class="form-control imput-xs" required data-role="btnBuscarModeloAuto" readonly />
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarModeloAuto" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Año del Auto</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtAnioAuto" name="txtAnioAuto" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Valor del Auto</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtValorAuto" name="txtValorAuto" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Avalúo</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtAvaluo" name="txtAvaluo" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tasa</label>
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtTasa" name="txtTasa" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Negociación de Tasa</label>
+                    <div class="btn-group col-sm-6 center">
+                        <div>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoNegociasionTasa" value="1" /> Si
+                            </label>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoNegociasionTasa" value="0" checked="checked" /> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="lblTasaNegociada" class="col-sm-4 control-label ControlsForms">Tasa Negociada</label>
+                    <div id="divTasaNegociada" class="btn-group col-sm-4">
+                        <input type="text" id="txtTasaNegociada" name="txtTasaNegociada" class="form-control imput-xs" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Abono</label>
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtAbono" name="txtAbono" class="form-control imput-xs" required />
+                    </div>
+                    <div class="btn-group col-sm-2">
+                        <input type="text" id="txtAbonoPorcentaje" name="txtAbonoPorcentaje" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Abono Minimo</label>
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtAbonoMinimo" name="txtAbonoMinimo" class="form-control imput-xs" required />
+                    </div>
+                    <div class="btn-group col-sm-2">
+                        <input type="text" id="txtAbonoMinimoPorcentaje" name="txtAbonoMinimoPorcentaje" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Monto a Financiar</label>
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtMontoFinanciar" name="txtMontoFinanciar" class="form-control imput-xs" required />
+                    </div>
+                    <div class="btn-group col-sm-2">
+                        <input type="text" id="txtMontoFinanciarPorcentaje" name="txtMontoFinanciarPorcentaje" class="form-control imput-xs" readonly />
+                    </div>
+                </div>               
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Plazo del Credito (Meses)</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtPlazoCredito" name="txtPlazoCredito" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Plazo maximo del Credito (Meses)</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtPlazoMaximoCredito" name="txtPlazoMaximoCredito" class="form-control imput-xs" required />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">    
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Gastos y Comisiones</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtGastosComisiones" name="txtGastosComisiones" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Monto total del Prestamo</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtMontoTotalPrestamo" name="txtMontoTotalPrestamo" class="form-control imput-xs" required />
+                    </div>
+                </div>           
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Seguro de Vida</label>
+                    <div class="btn-group col-sm-6 center">
+                        <div>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoSeguroVida" value="1" /> Si
+                            </label>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoSeguroVida" value="0" checked="checked" /> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms"></label>
+                    <div id="divSeguroVida" class="btn-group col-sm-6 center">
+                        <input type="text" id="txtSeguroVida" name="txtSeguroVida" class="form-control imput-xs" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Seguro de Auto</label>
+                    <div class="btn-group col-sm-6 center">
+                        <div>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoSeguroAuto" value="1" /> Si
+                            </label>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoSeguroAuto" value="0" checked="checked" /> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms"></label>
+                    <div id="divSeguroAuto" class="btn-group col-sm-6 center">   
+                        <input type="text" id="txtSeguroAuto" name="txtSeguroAuto" class="form-control imput-xs" />                     
+                    </div>
+                </div>               
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Paga FECI</label>
+                    <div class="btn-group col-sm-6 center">
+                        <div>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoPagaFECI" value="1" /> Si
+                            </label>
+                            <label class="col-sm-4 control-label ControlsForms">
+                                <input type="radio" name="rdoPagaFECI" value="0" checked="checked" /> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="lblPagoFECI" class="col-sm-4 control-label ControlsForms">FECI</label>
+                    <div id="divPagoFECI" class="btn-group col-sm-6">
+                        <input type="text" id="txtPagoFECI" name="txtPagoFECI" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Gastos de Manejo</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtGastosManejo" name="txtGastosManejo" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Gastos Administrativos</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtGastosAdministrativos" name="txtGastosAdministrativos" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Capital Interes</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtCapitalInteres" name="txtCapitalInteres" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tasa Efectiva</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtTasaEfectiva" name="txtTasaEfectiva" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Letra Mensual</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtLetraMensual" name="txtLetraMensual" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Comisión Cierre</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtComisionCierre" name="txtComisionCierre" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Comisión Cuenta Terceros</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtComisionCuentaTerceros" name="txtComisionCuentaTerceros" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Honorarios Legales</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtHonorariosLegales" name="txtHonorariosLegales" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Timbres Fiscales</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtTimbresFiscales" name="txtTimbresFiscales" class="form-control imput-xs" required />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="formDatosDesglose" class="form-horizontal" role="form">
+    <h3><i class="fa fa-list-alt"></i> Desglose de Desembolso</h3>
+    <div id="divDatosPrestamo" class="well well-sm">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Monto a Financiar</label>
+                    <div class="col-sm-6">                        
+                        <input type="text" id="txtMontoFinanciar" name="txtMontoFinanciar" class="form-control imput-xs" readonly />
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Gastos y Comisiones</label>
+                    <div class="col-sm-6">                        
+                        <input type="text" id="txtGastosComisionesDesglose" name="txtGastosComisionesDesglose" class="form-control imput-xs" readonly />
+                    </div>                  
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Monto total del Prestamo</label>
+                    <div class="btn-group col-sm-6">                        
+                        <input type="text" id="txtMontoTotalPrestamoDesglose" name="txtMontoTotalPrestamoDesglose" class="form-control imput-xs" readonly />
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Comisión de Manejo</label>
+                    <div class="btn-group col-sm-6">                        
+                        <input type="text" id="txtComisionManejo" name="txtComisionManejo" class="form-control imput-xs" readonly />
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Comisión por Tramite</label>
+                    <div class="btn-group col-sm-6">                        
+                        <input type="text" id="txtComisionTramite" name="txtComisionTramite" class="form-control imput-xs" readonly />
+                    </div>                   
+                </div>   
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">FWLA</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtFWLA" name="txtFWLA" class="form-control imput-xs" required />
+                    </div>
+                </div>             
+            </div>
+            <div class="col-xs-6">               
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Timbre sobre monto total</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtTimbreMontoTotal" name="txtTimbreMontoTotal" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">ITBMS comisión de manejo</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtITBMSComisionManejo" name="txtITBMSComisionManejo" class="form-control imput-xs" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">ITBMS comision por tramite</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtITBMSComisionTramite" name="txtITBMSComisionTramite" class="form-control imput-xs" required />
+                    </div>
+                </div>              
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Total ITBMS</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtTotalITBMS" name="txtTotalITBMS" class="form-control imput-xs" required />
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Total comisiones y gastos</label>
+                    <div class="btn-group col-sm-6">
+                        <input type="text" id="txtTotalComisionGastos" name="txtTotalComisionGastos" class="form-control imput-xs" required />
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@*MODAL CATALOGOS*@
+@section Modals{
+    <div class="modal fade" id="modalAgregarDescripcion" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Catalogo</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="formAgregarDescripcion" class="form-horizontal" role="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="tableResultadoCatalogo" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Código</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ucBtnSeleccionar" style="display:none;">
+        <button type="button" id="btnSeleccionar" class="btn btn-default btn-xs">
+            <i class="fa fa-check"></i>&nbsp;&nbsp;...
+    </button>
+</div>
+}
+@*MODAL CATALOGOS*@
+
+@*antiguo codigo calculo*@
+
+@*<div class="form-group" id="formCalculoAuto" style="display: inline-block;">
+        @Html.Partial("~/Views/CalculoPrestamo/_PrestamoAutoCalculo.cshtml")
+    </div>
+
+    <div class="form-group hidden" id="formDatosGenerales" style="display: inline-block;">
+        @Html.Partial("~/Views/CalculoPrestamo/_PrestamoAutoDatosGenerales.cshtml")
+    </div>
+*@
+
+@section scripts{
+        @Scripts.Render("~/Scripts/Ultimus-CalculoAuto")
+}
+

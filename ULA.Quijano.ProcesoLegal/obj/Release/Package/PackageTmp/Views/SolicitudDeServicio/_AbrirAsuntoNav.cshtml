@@ -1,0 +1,344 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+
+<center>
+    <div class="padding-bottom">
+        <h4>Datos Generales del Asunto</h4>
+    </div>
+</center>
+
+<hr />
+<br />
+
+<form id="formDatNavAsunto">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-3" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">N° Asunto:</span>
+                        <input type="text" id="txtDatNavAsunto" name="txtDatNavAsunto" class="form-control " aria-describedby="basic-addon1" required />
+                    </div>
+                </div>
+                <div class="col-xs-8 col-xs-offset-1">
+                    @if (ViewBag.Step == "Monitoreo")
+                    {
+                        <button id="btnDatNavCrearActualizar" type="button" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<strong>Actualizar</strong>
+                        </button>
+                    }
+                    else
+                    {
+                        <button id="btnDatNavCrearActualizar" type="button" class="btn btn-primary btn-sm">Consultar</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-11" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Compañía</span>
+                        <input type="text" id="txtDatNavCodCompany" name="txtDatNavCodCompany" class="form-control" aria-describedby="basic-addon1" style="width:50px"/>
+                        <input type="text" id="txtDatNavCompany" name="txtDatNavCompany" class="form-control input-sm" aria-describedby="basic-addon1" style="width:600px" />
+                    </div>
+                </div>
+                @*<div class="col-xs-10" style="padding-left: 2px;">
+                    
+                </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div class="row">
+                <div class="col-xs-11" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Jurisdicción</span>
+                        <input type="text" id="txtDatNavJurisdiccion" name="txtDatNavJurisdiccion" class="form-control " aria-describedby="basic-addon1" style="width:650px"  />
+                        <input type="hidden" id="txtDatNavCodJurisdiccion" name="txtDatNavCodJurisdiccion" />                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div class="row">
+                <div class="col-xs-11" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Nave</span>
+                        <input type="text" id="txtDatNavNave" name="txtDatNavNave" class="form-control" aria-describedby="basic-addon1" style="width:100px" />
+                        <input type="text" id="txtDatNavDescNave" name="txtDatNavDescNave" class="form-control input-sm" aria-describedby="basic-addon1" style="width:590px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div class="row">
+                <div class="col-xs-11" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Oficina</span>
+                        <input type="text" id="txtDatNavOficina" name="txtDatNavOficina" class="form-control " aria-describedby="basic-addon1" style="width:680px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Materia</span>
+                        <input type="text" id="txtDatNavMateria" name="txtDatNavMateria" class="form-control " aria-describedby="basic-addon1" style="width:677px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Responsable</span>
+                        <input type="text" id="txtDatNavResponsable" name="txtDatNavResponsable" class="form-control " aria-describedby="basic-addon1" style="width:645px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Dirección:</span>
+                        <input type="text" id="txtDatNavDireccion" name="txtDatNavDireccion" class="form-control " aria-describedby="basic-addon1" style="width:661px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Referencia</span>
+                        <input type="text" id="txtDatNavReferencia" name="txtDatNavReferencia" class="form-control " aria-describedby="basic-addon1" style="width:658px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Referido por:</span>
+                        <input type="text" id="txtDatNavReferidoPor" name="txtDatNavReferidoPor" class="form-control " aria-describedby="basic-addon1" style="width:647px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Nombre Factura</span>
+                        <input type="text" id="txtDatNavNombreFactura" name="txtDatNavNombreFactura" class="form-control " aria-describedby="basic-addon1" style="width:630px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Secretaria:</span>
+                        <input type="text" id="txtDatNavSecretaria" name="txtDatNavSecretaria" class="form-control " aria-describedby="basic-addon1" style="width:660px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12 style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Fecha Apertura:</span>
+                        <input id="txtDatNavFechaApertura" name="txtDatNavFechaApertura" type="text" class="form-control " aria-describedby="basic-addon1" style="width:632px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Est Cont.:</span>
+                        <select id="txtDatNavEstCont" name="txtDatNavEstCont" class="form-control">
+                            <option value="A">ABIERTO</option>
+                            <option value="P">PENDIENTE</option>
+                            <option value="T">TERMINADO</option>
+                            <option value="X">ELIMINADO</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    @*<div class="panel panel-info" style="text-align:center">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Saldos</h3>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Honor. Cargados</span>
+                <input id="txtDatNavHonCar" name="txtDatNavHonCar" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Honor. Fact</span>
+                <input id="txtDatNavHonFact" name="txtDatNavHonFact" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Acuerdos Hono</span>
+                <input id="txtDatNavAcuHon" name="txtDatNavAcuHon" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Gast. Fact.</span>
+                <input id="txtDatNavGastFact" name="txtDatNavGastFact" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Cargos Cobrad</span>
+                <input id="txtDatNavCarCob" name="txtDatNavCarCob" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Total Facturado</span>
+                <input id="txtDatNavTotFact" name="txtDatNavTotFact" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Adelantos</span>
+                <input id="txtDatNavAdelantos" name="txtDatNavAdelantos" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Total Pend. Facturar</span>
+                <input id="txtDatNavTotPendFact" name="txtDatNavTotPendFact" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Gastos Cargados</span>
+                <input id="txtDatNavGastCar" name="txtDatNavGastCar" type="text" class="form-control text-right" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+
+    </div>*@
+    <br />
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <center><h3 class="panel-title">Estado de solicitudes</h3></center>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table id="tbDatNavEstadoSolicitudes" class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Asignado a</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+</form>
+
+@* ------------- POPUPS ASUNTOS --------------------*@
+<div class="modal-popup fade" id="modalNavAsuntosEncontrados" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-user"></i>&nbsp;&nbsp;Asuntos Encontrados</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseNavAsuntosEncontrados" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <div id="formModalNavAsuntosEncontrados">
+                    <table id="tbNavAsuntosEncontrados" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>NÚMERO ASUNTO</th>
+                                <th>NOMBRE CLIENTE</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8 text-right">
+                        * Doble click para seleccionar el Asunto
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

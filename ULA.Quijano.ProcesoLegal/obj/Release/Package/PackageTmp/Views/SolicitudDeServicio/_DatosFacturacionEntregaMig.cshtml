@@ -1,0 +1,135 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+<br />
+
+<form id="formInstMigDatosFactEntrega" style="font-size: 12px !important;">
+    <div class="row">
+        @*<div>
+                <button id="btnGuardarDatosFacturacionMig" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>&nbsp;&nbsp;Guardar datos</button>
+            </div>*@
+        <div class="col-xs-2" style="padding-right: 2px;">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Cliente:</span>
+                <input id="txtInstMigCodCliente" name="txtInstMigCodCliente" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-10" style="padding-left: 2px;">
+            <input id="txtInstMigCliente" name="txtInstMigCliente" type="text" class="form-control input-sm" aria-describedby="basic-addon1" required />
+        </div>
+    </div>
+
+    <div class=" input-group padding-bottom form-inline input-group-sm">
+        <span class="input-group-addon" id="basic-addon1">Tipo Fact. As:</span>
+        <select id="ddlInstMigTipoFact" name="ddlInstMigTipoFact" class="form-control" data-original-title="" title="" aria-label="..." required>
+            <option value=""></option>
+        </select>
+    </div>
+
+    <p>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Forma de pago</label>&nbsp;
+                <input id="rbInstMigFormaPagoCre" type="radio" name="rbInstMigFormaPago" value="cre" required />Credito&nbsp;&nbsp;&nbsp;
+                <input id="rbInstMigFormaPagoCon" type="radio" name="rbInstMigFormaPago" value="con" required />Contado
+            </div>
+            <div class="col-md-2">
+                <label>Proforma</label>&nbsp;
+                <input id="rbInstMigProformaSi" type="radio" name="rbInstMigProforma" value="1" required />Si&nbsp;&nbsp;&nbsp;
+                <input id="rbInstMigProformaNo" type="radio" name="rbInstMigProforma" value="0" required />No
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td><label>Moneda</label>&nbsp;</td>
+                        <td>
+                            <select class="form-control" id="ddlInstMigMoneda" style="width: 150px;" required>
+                                <option></option>
+                                <option value="7">EURO</option>
+                                <option value="0">DOLLAR</option>
+                                <option value="2">LIBRAS</option>
+                                <option value="100">YEN</option>
+                                <option value="6">FRANCOS SUIZOS</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <label>Tipo de Factura</label>&nbsp;
+                <input id="rbInstMigTipoFacturaGlo" type="radio" name="rbInstMigTipoFactura" value="glo" required />Global&nbsp;&nbsp;&nbsp;
+                <input id="rbInstMigTipoFacturaDet" type="radio" name="rbInstMigTipoFactura" value="det" required />Detallada
+            </div>
+        </div>
+    </p>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Referencia:</span>
+                <input id="txtInstMigReferencia" name="txtInstMigReferencia" type="text" class="form-control" aria-describedby="basic-addon1" required />
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Nombre de la factura:</span>
+                <input id="txtInstMigNombreFactura" name="txtInstMigNombreFactura" type="text" class="form-control" aria-describedby="basic-addon1" required />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Dirección de Factura:</span>
+                <textarea id="txtInstMigDireccionFactura" name="txtInstMigDireccionFactura" class="form-control" style="height: 70px;" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button id="btnInstMigConsultar" type="button" class="btn btn-primary btn-sm">Libreta de Direcciones</button>
+        </div>
+    </div>
+
+    <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Leyenda de Factura</label>
+    <textarea id="txtInstMigLeyendaFactura" name="txtInstMigLeyendaFactura" class="form-control" rows="3"></textarea>
+
+    <br />
+
+    <div class="row">
+        <div class="col-xs-6">
+            <label>Responsable de Notificar Cliente</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="rbInstMigRespNotiAbog" type="radio" name="rbInstMigRespNoti" value="abo" required />Abogado&nbsp;&nbsp;&nbsp;
+            <input id="rbInstMigRespNotiAsistLeg" type="radio" name="rbInstMigRespNoti" value="asi" required />Gestor
+        </div>
+        <div class="col-xs-6">
+            <label>Forma de Envío del Paquete</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @*<input id="chkbInstMigCurrier" type="checkbox" name="currier" value="1" onchange="if ($('#chkbInstMigCurrier').is(':checked') || $('#chkbInstMigMensajeria').is(':checked')) $('#divInstMigDireccionEnvio').show(500); else $('#divInstMigDireccionEnvio').hide(300); if ($('#chkbInstMigCurrier').is(':checked')) $('#divMigNumeroGuia').show(500); else $('#divMigNumeroGuia').hide(300);" />Currier&nbsp;&nbsp;&nbsp;*@
+            <input id="chkInstMigCurrier" type="checkbox" name="chkInstMigCurrier" />Courier&nbsp;&nbsp;&nbsp;
+            <input id="chkInstMigEmail" type="checkbox" name="chkInstMigEmail" />E-mail&nbsp;&nbsp;&nbsp;
+            <input id="chkInstMigPersonal" type="checkbox" name="chkInstMigPersonal" />Recepción&nbsp;&nbsp;&nbsp;
+            @*<input id="chkbInstMigMensajeria" type="checkbox" name="personal" value="1" onchange="if ($('#chkbInstMigMensajeria').is(':checked')) $('#divMigNumeroSolicitud').show(500); else $('#divMigNumeroSolicitud').hide(300);" />Mensajería*@
+            <input id="chkInstMigMensajeria" type="checkbox" name="chkInstMigMensajeria" />Mensajería
+        </div>
+    </div>
+    <br />
+    <div id="divInstMigNumeroSolicitud" style="display:none">
+        <div class="input-group padding-bottom form-inline input-group-sm">
+            <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Numero de Solicitud:</label>
+            <input id="txtInstMigNroSolicitud" name="txtInstMigNroSolicitud" type="text" class="form-control" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+    <div id="divInstMigNumeroGuia" style="display:none">
+        <div class="input-group padding-bottom form-inline input-group-sm">
+            <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Numero de Guia:</label>
+            <input id="txtInstMigNroGuia" name="txtInstMigNroGuia" type="text" class="form-control" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+    <div id="divInstMigDireccionEnvio" style="display:none">
+        <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Dirección de envío:</label>
+        <textarea id="txtInstMigDireccionEnvio" name="txtInstMigDireccionEnvio" class="form-control" rows="3"></textarea>
+    </div>
+
+
+</form>

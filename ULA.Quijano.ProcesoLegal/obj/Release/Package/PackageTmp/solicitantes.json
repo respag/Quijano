@@ -1,0 +1,14 @@
+﻿[
+    {
+        "Id": 1,
+        "Nombre": "Rubén E.",
+        "Identificacion": "5-55-555",
+        "Tipo": "Principal"
+    },
+    {
+        "Id": 2,
+        "Nombre": "Mónica Gómez",
+        "Identificacion": "8-881-888",
+        "Tipo": "Dependiente 18-25"
+    }
+]

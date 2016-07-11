@@ -1,0 +1,244 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Web.UI.WebControls;
+@model List<AttachmentPage.Models.Attachment>
+
+<style>
+    .modal-vertical-centered {
+        transform: translate(0, 50%) !important;
+        -ms-transform: translate(0, 50%) !important;
+        -webkit-transform: translate(0, 50%) !important;
+    }
+
+    .dragandrophandler {
+        border: 2px dashed #92AAB0;
+        background-color: #ecf0f1;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .marginR5 {
+        margin-right: 5px;
+    }
+    .clickable {
+        cursor: pointer;
+    } 
+</style>
+
+<div class="container-fluid">
+
+    @if ((bool)ViewData["visible"])
+    {
+        <nav id="navTitle" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <img class="navbar-brand" src="Images/ultimus.png" />
+                <p class="navbar-text">Proceso: <strong>@ViewData["process"]</strong>, Incidente: <strong>@ViewData["incident"]</strong></p>
+            </div>
+        </nav>
+    }
+    
+    <input id="process" type="hidden" value="@(ViewData["process"])" name="process" />
+    <input id="incident" type="hidden" value="@(ViewData["incident"])" name="incident"/>
+    <input id="view" type="hidden" value="@(ViewData["view"])" name="view"/>
+    <input id="enableUpload" type="hidden" value="@(ViewData["enableUpload"].ToString())" name="enableUpload" />
+    <input id="etapa" type="hidden" value="@(ViewData["etapa"])" name="etapa"/>
+    <input id="maxFiles" type="hidden" value="@(ViewData["maxFiles"])" name="etapa" />
+    <input id="acceptOnlyImages" type="hidden" value="@(ViewData["acceptOnlyImages"])" name="etapa" />
+    <input id="attachmentMaxSize" type="hidden" value="@(ViewData["attachmentMaxSize"])" name="etapa" />
+    
+    @if ((bool)ViewData["enableUpload"])
+    {
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="pull-left">Documentos Adjuntos&nbsp;&nbsp;</span>
+                    <span id="LblCount" class="badge">@Model.Count</span>
+                </h3>
+            </div>
+
+            <div class="panel-body">
+
+                @if (ViewData["view"].Equals("1"))
+                {
+                    <div id="view1" class="container-fluid">
+                        @foreach (var attachment in Model)
+                        {
+                            <itemtemplate>
+                                <div class="col-xs-6 col-sm-4 col-md-3 text-center">
+                                    <div class="thumbnail">
+                                        @if (attachment.EnableDelete)
+                                        {
+                                            <a id="btnDeleteFile" class="pull-left" href="javascript:DeleteFile('@(attachment.FileName)')">
+                                                <img src="Images/trash-16.png" />
+                                            </a>
+                                        }
+
+                                        <a id="btnGetFile" class="pull-left" href="javascript:GetFile(encodeURIComponent('@(attachment.FileName)'))">
+                                            <img src="Images/download-16.png" />
+                                        </a>
+
+                                        <div class="center-block">
+                                            <img src="Images/Icons/@(attachment.FileType).png" onerror="this.src='Images/Icons/_blank.png';" />
+                                        </div>
+                                        <h6>@(attachment.FileName)</h6>
+                                    </div>
+                                </div>
+                            </itemtemplate>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div id="view2">
+                        <table class="table table-striped">
+                            @foreach (var attachment in Model)
+                            {
+                                <itemtemplate>
+                                    <tr>
+                                        <td>
+                                            <img src="Images/Icons/@(attachment.FileType).png" onerror="this.src='Images/Icons/_blank.png';" />
+                                        </td>
+                                        <td>
+                                            <label>@(attachment.FileName)</label>
+                                        </td>
+                                        <td>
+                                            <a id="btnGetFile" class="pull-left" href="javascript:GetFile($this, '@(attachment.FileName)')">
+                                                <img src="Images/download-16.png" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a id="btnDeleteFile" class="pull-left" href="javascript:DeleteFile($this, '@(attachment.FileName)')">
+                                                <img src="Images/trash-16.png" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </itemtemplate>
+                            }
+                        </table>
+                    </div>
+                }
+
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="pull-left">Documentos Recibidos&nbsp;&nbsp;</span>
+                    <span id="LblCount" class="badge">@Model.Count</span>
+                    <span class="pull-right clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                </h3>
+            </div>
+
+            <div class="panel-body" style="display: none;">
+
+                @if (ViewData["view"].Equals("1"))
+                {
+                    <div id="view1" class="container-fluid">
+                        @foreach (var attachment in Model)
+                        {
+                            <itemtemplate>
+                                <div class="col-xs-6 col-sm-4 col-md-3 text-center">
+                                    <div class="thumbnail">
+                                        @if (attachment.EnableDelete)
+                                        {
+                                            <a id="btnDeleteFile" class="pull-left" href="javascript:DeleteFile('@(attachment.FileName)')">
+                                                <img src="Images/trash-16.png" />
+                                            </a>
+                                        }
+
+                                        <a id="btnGetFile" class="pull-left" href="javascript:GetFile('@(attachment.FileName)')">
+                                            <img src="Images/download-16.png" />
+                                        </a>
+
+                                        <div class="center-block">
+                                            <img src="Images/Icons/@(attachment.FileType).png" onerror="this.src='Images/Icons/_blank.png';" />
+                                        </div>
+                                        <h6>@(attachment.FileName)</h6>
+                                    </div>
+                                </div>
+                            </itemtemplate>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div id="view2">
+                        <table class="table table-striped">
+                            @foreach (var attachment in Model)
+                            {
+                                <itemtemplate>
+                                    <tr>
+                                        <td>
+                                            <img src="Images/Icons/@(attachment.FileType).png" onerror="this.src='Images/Icons/_blank.png';" />
+                                        </td>
+                                        <td>
+                                            <label>@(attachment.FileName)</label>
+                                        </td>
+                                        <td>
+                                            <a id="btnGetFile" class="pull-left" href="javascript:GetFile($this, '@(attachment.FileName)')">
+                                                <img src="Images/download-16.png" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a id="btnDeleteFile" class="pull-left" href="javascript:DeleteFile($this, '@(attachment.FileName)')">
+                                                <img src="Images/trash-16.png" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </itemtemplate>
+                            }
+                        </table>
+                    </div>
+                }
+
+            </div>
+        </div>
+    }
+
+    @if ((bool)ViewData["enableUpload"])
+    {
+        <div id="LblError" class="alert alert-danger" style="display: none">
+            <button type="button" class="close" aria-hidden="true">&times;</button>
+            <span id="spnError"></span>
+        </div>
+
+        <form id="upload" method="post" enctype="multipart/form-data">
+            <div id="drop">
+                <table id="navUpload" class="navbar navbar-default navbar-fixed-bottom table table-bordered">
+                    <tr>
+                        <td class="dragandrophandler" style="width: 50%; border: 2px dashed #92AAB0;">
+                            Arrastre un archivo a esta zona o seleccione uno desde Examinar
+                        </td>
+                        <td style="width: 50%;">
+                            <input id="uplFile" type="file" name="files[]" class="filestyle" data-buttontext="Examinar" multiple accept="@if(ViewData["acceptOnlyImages"]=="1"){ @("application/pdf, image/*") }" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="files" class="files"></div>
+
+            <table id="tblPresentation" class="table table-striped">
+                <tbody></tbody>
+            </table>
+        </form>
+    }
+
+</div>
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Attachment")
+
+}
+
+
+    
+

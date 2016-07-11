@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Completado";
+}
+<div class="alert alert-success" role="alert">
+    <h3>Etapa completada</h3>
+</div>
+<script src="~/Scripts/jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#barraMenu").hide();
+        setTimeout(function () {
+            window.close();
+        }, 3000);
+    });
+</script>
+

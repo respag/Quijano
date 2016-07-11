@@ -1,0 +1,167 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdminCorreos.cshtml";
+}
+
+@*EDITOR*@
+<script type="text/javascript" src="~/Scripts/nicEdit/nicEdit.js"></script>
+<script type="text/javascript">
+
+    function htmlDecode(value) {
+        var elem = document.createElement('textarea');
+        elem.innerHTML = value;
+        return elem.value;
+    }
+    var firma = htmlDecode("@ViewBag.FirmaRespuestaCorreo");
+
+    bkLib.onDomLoaded(function () {
+        if (document.getElementById('txtaContenido') != null)
+            nicEditors.editors.push(new nicEditor().panelInstance(document.getElementById('txtaContenido')));
+        if (document.getElementById('txtaRespuesta') != null)
+            nicEditors.editors.push(new nicEditor().panelInstance(document.getElementById('txtaRespuesta')));
+    });
+</script>
+@*EDITOR*@
+
+@*--- INDICA SI EL USUARIO ES PERTENECIENTE AL GRUPO DE ABOGADOS ---*@
+<input type="hidden" id="hiddenIsAbogado" value="@ViewBag.Abogado" name="hiddenIsAbogado" />
+<input type="hidden" id="hiddenAttachmentParam" value="@ViewBag.AttachmentParam" name="hiddenAttachmentParam" />
+<input type="hidden" id="hiddenAttachmentParamRO" value="@ViewBag.AttachmentParamRO" name="hiddenAttachmentParamRO" />
+
+@if ((ViewBag.Process == "ServiciosLegales") && (ViewBag.Step == "NotificarCliente" || ViewBag.Step == "PendDocCliente" || ViewBag.Step == "Entrega"))
+{
+    @Html.Partial("~/Views/AdministracionCorreos/_AdministracionCorreosAbogado.cshtml")
+
+    @section scripts{
+        @Scripts.Render("~/Scripts/Ultimus-AdministrarCorreosAbogado")
+    }
+
+ 
+}
+else if (ViewBag.Step == "RespondeCorreo")
+{
+    @Html.Partial("~/Views/AdministracionCorreos/_AdministracionCorreosAbogado.cshtml")
+
+    @section scripts{
+
+        @Scripts.Render("~/Scripts/Ultimus-AdministrarCorreosAbogado")
+
+    }
+
+}
+else if (ViewBag.Step == "GestionaCorreo" || ViewBag.Step == "Revision") //primera etapa
+{
+    if (ViewBag.Abogado == false)
+    {
+        @Html.Partial("~/Views/AdministracionCorreos/_AdministracionCorreosAbogado.cshtml")
+
+
+        @section scripts{
+
+            @Scripts.Render("~/Scripts/Ultimus-AdministrarCorreosAbogado")
+
+        }
+    }
+    else if (ViewBag.Abogado == true && ViewBag.Incident == "0") 
+    {
+        <div id="divAdminCorreos" class="panel panel-default">
+            <div class="panel-heading">
+
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <h3 class="panel-title">Administración de Correos</h3>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <button id="btnAgregar" type="button" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table id="tbAdminCorreos" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>INCIDENTE</th>
+                            <th>FECHA DE CAPTURA</th>
+                            <th>NOMBRE SOCIEDAD</th>
+                            <th>ASUNTO</th>
+                            <th>RESPONDIDO POR</th>
+                            <th>FECHA RESP.</th>
+
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+            <div class="panel-footer">
+            </div>
+        </div>
+
+        @*********** BOTONES DE ACCIONES EN LA TABLA ADMIN CORREO**********
+            <div id="ucBtnAccionesAdminCorreo" style="display:none;" class="form-inline">
+                <button type="button" id="btnAdminCorreoEditar" class="btn btn-info btn-sm btn-acciones" style="border-radius:0px;">
+                    &nbsp;<i class="fa fa-pencil-square-o"></i>&nbsp;
+                    @*onclick="javascript: EditOption('[$id]', '[$idPatronalSipe]', '[$razonSocial]', '[$nombreComercial]', '[$fechaInscripcion]');"
+                </button>
+                <button type="button" id="btnAdminCorreoEliminar" class="btn btn-danger btn-sm" style="border-radius:0px;">
+                    &nbsp;<i class="fa fa-trash"></i>&nbsp;
+                </button>
+            </div>*@
+
+        @section Modals{
+
+            <div class="modal fade" id="modalAdministrarCorreos" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="row">
+                                <div class="col-md-2"><img src="~/Images/logoMiniNegativo.jpg" /></div>
+                                <div class="col-md-8"><center><h2 id="titleRegistrarCorreo" class="modal-title">Plantilla de Registro de Correo</h2></center> </div>
+                                <div class="col-md-2"><button id="btnClosePlantillaRegistro" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+                            </div>
+                        </div>
+                        <div class="modal-body panel-body-bg">
+                            
+                            @Html.Partial("~/Views/AdministracionCorreos/_PlantillaRegistroCorreo.cshtml")
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <button id="btnEnviarCorreo" type="button" class="btn btn-success btn-block">
+                                        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;&nbsp;Enviar
+                                    </button>
+                                </div>
+                                <div class="col-xs-6">
+                                    <button id="btnCloseRegistarCorreo" type="button" class="btn btn-default btn-block" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;&nbsp;Cerrar Ventana
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        @section scripts{
+
+            @Scripts.Render("~/Scripts/Ultimus-AdministrarCorreos")
+
+        }
+    }
+    else if (ViewBag.Abogado == true && ViewBag.Incident != "0")
+    {
+        @Html.Partial("~/Views/AdministracionCorreos/_PlantillaRegistroCorreo.cshtml")
+
+        @section scripts{
+
+            @Scripts.Render("~/Scripts/Ultimus-AdministrarCorreos")
+
+        }
+    }
+
+}

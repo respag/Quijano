@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="146b951d-09e6-4ae6-b9b7-c8f19b8bab76" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/ULA.Quijano.SendMails/WcfMensajeria.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WcfMensajeria.wsdl" MetadataType="Wsdl" ID="034ad27d-b31d-49af-828d-03c95caabb04" SourceId="1" SourceUrl="http://localhost/ULA.Quijano.SendMails/WcfMensajeria.svc?wsdl" />
+    <MetadataFile FileName="WcfMensajeria.xsd" MetadataType="Schema" ID="73a73382-0781-479d-bf17-27ed4f88ef0b" SourceId="1" SourceUrl="http://localhost/ULA.Quijano.SendMails/WcfMensajeria.svc?xsd=xsd1" />
+    <MetadataFile FileName="WcfMensajeria1.xsd" MetadataType="Schema" ID="9d5e1f5e-0762-46be-ac18-239512fdaa20" SourceId="1" SourceUrl="http://localhost/ULA.Quijano.SendMails/WcfMensajeria.svc?xsd=xsd0" />
+    <MetadataFile FileName="WcfMensajeria.disco" MetadataType="Disco" ID="e5f1805c-0fbf-4062-a6e4-96d20fad5fe6" SourceId="1" SourceUrl="http://localhost/ULA.Quijano.SendMails/WcfMensajeria.svc?disco" />
+    <MetadataFile FileName="WcfMensajeria2.xsd" MetadataType="Schema" ID="df6c6bd9-fec5-4538-9ef2-cbb22eca6a3b" SourceId="1" SourceUrl="http://localhost/ULA.Quijano.SendMails/WcfMensajeria.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

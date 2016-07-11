@@ -1,0 +1,5 @@
+c:\QuijanoAsociados\SlnQuijanoAsociados\UltimusAttachmentService\WcfAttachmentService\bin\WcfAttachmentService.dll.config
+c:\QuijanoAsociados\SlnQuijanoAsociados\UltimusAttachmentService\WcfAttachmentService\bin\WcfAttachmentService.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\UltimusAttachmentService\WcfAttachmentService\bin\WcfAttachmentService.pdb
+c:\QuijanoAsociados\SlnQuijanoAsociados\UltimusAttachmentService\WcfAttachmentService\obj\Debug\WcfAttachmentService.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\UltimusAttachmentService\WcfAttachmentService\obj\Debug\WcfAttachmentService.pdb

@@ -1,0 +1,492 @@
+﻿@section ButtonOption {
+
+    <div class="btn-group">
+   
+        <button type="button" class="btn btn-default btn-sm " id="btnRegresarCalculoPrestamo"
+                onclick="location.href = '@string.Concat(Url.Action("PrestamoAuto", "CalculoPrestamo", null), ViewBag.QueryEncripted)?tipoPrestamo=@ViewBag.TipoPrestamo'">
+
+            <i class="fa fa-arrow-circle-left"></i>&nbsp;Regresar a Cálculo del Préstamo
+        </button>
+
+    </div>
+}
+
+<h3><i class="fa fa-file-text"></i> Garantía del Préstamo Auto </h3>
+
+<button type="button" id="btnGuardarGarantiaAuto" class="btn btn-primary"
+        onclick="">
+    <i class="fa fa-floppy-o"></i>&nbsp;Guardar Garantía
+</button>
+
+<form id="formPrestamoAutoGarantia" class="form-horizontal" role="form">
+    
+    <div class="well well-sm wellScroll">
+
+        @*Formulario de Aprobación de Tarjetas / Carta Promesa de Pago / Nota a la ATT*@
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Formulario de Aprobación de Tarjetas / Carta Promesa de Pago / Nota a la ATT</legend>
+
+                            <div class="col-md-6">
+
+                                @*Nombre de la Agencia de Autos*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Nombre Agencia de Autos</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtNombreAgenciaAutos" name="txtNombreAgenciaAutos" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Numero del Motor*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Número del Motor</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtNumeroMotor" name="txtNumeroMotor" class="form-control imput-xs" />
+                                    </div>
+
+
+                                </div>
+
+                                @*Serie / Chasis*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Serie / Chasis</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtSerieChasis" name="txtSerieChasis" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Color de Auto*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Color de Auto</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtColorAuto" name="txtColorAuto" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Tipo de Auto*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Tipo de Auto</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtTipoAuto" name="txtTipoAuto" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Número de Placa*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Número de Placa</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroPlaca" name="txtNumeroPlaca" class="form-control imput-xs " />
+                                    </div>
+
+                                </div>
+
+                                @*Provincia*@
+                                @*<div class="form-group" id="Provincia">
+
+                                        <label class="col-sm-4 control-label ControlsForms">Provincia</label>
+
+                                        <div class="btn-group col-sm-6">
+                                            <input type="text" id="txtProvinciaGarantiaAuto" name="txtProvinciaGarantiaAuto" class="form-control imput-xs" />
+                                        </div>
+
+                                        <div class="btn-group">
+                                            <button type="button" id="btnBuscarProvincia" class="btn btn-info btn-xs"><i class="fa fa-search"></i>&nbsp;Buscar</button>
+                                        </div>
+
+                                    </div>*@
+
+                                @*Provincia*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Provincia</label>
+                                    <div class="col-sm-6">
+                                        <select id="ddlProvincia" name="ddlProvincia" class="form-control imput-xs" required>
+                                            <option value="1">Panama</option>
+                                            <option value="2">Bocas del Toro</option>
+                                            <option value="2">Veraguas</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        @*Impresion en General*@
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Impresión en General (Opcional)</legend>
+
+                            <div class="col-md-6">
+
+                                @*Forma Pago*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Forma Pago</label>
+                                    <div class="col-sm-6 ">
+                                        <select id="ddlFormaPago" name="ddlFormaPago" class="form-control imput-xs" required>
+                                            <option value="1">Descuento Directo</option>
+                                            <option value="2">Pago Voluntario</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        @*Escritura de Auto / Carta de Términos y Condiciones / Contrato de Dación de Pago / Formulario de Aprobación de Préstamos*@
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="well well-sm">
+
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Escritura de Auto / Carta de Términos y Condiciones / Contrato de Dación de Pago<br>&nbsp;&nbsp;/ Formulario de Aprobación de Préstamos</legend>
+
+                            <div class="col-md-6">
+
+                                @*Profesión del Cliente*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Profesión del Cliente</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtProfesionCliente" name="txtProfesionCliente" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Nacionalidad*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Nacionalidad</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNacionalidad" name="txtNacionalidad" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Gerente*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Gerente</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtGerente" name="txtGerente" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Estado Civil*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Estado Civil</label>
+                                    <div class="col-sm-6 ">
+                                        <select id="ddlEstadoCivil" name="ddlEstadoCivil" class="form-control imput-xs" required>
+                                            <option value="1">Soltero(a)</option>
+                                            <option value="2">Casado(a)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                           
+                                @*Número de Cuenta*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Número de Cuenta</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroCuenta" name="txtNumeroCuenta" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Nombre del ejecutivo / Asistente de Plataforma*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Nombre del ejecutivo / Asistente de Plataforma</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtEjecutivoAsistentePlataforma" name="txtEjecutivoAsistentePlataforma" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Género*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Género</label>
+                                    <div class="col-sm-6 ">
+                                        <select id="ddlGenero" name="ddlGenero" class="form-control imput-xs" required>
+                                            <option value="1">Varón</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-10">
+
+                                @*Comentarios*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-2  ControlsForms" style=" margin-left: 30px;">Comentarios</label>
+
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" id="txtComentarios" rows="3"></textarea>
+                                    </div>
+
+                                </div>
+
+                                @*Excepciones*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-2  ControlsForms" style=" margin-left: 30px;">Excepciones</label>
+
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" id="txtExcepciones" rows="3"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Profesión del Cliente*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Sucursal</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtSucursal" name="txtSucursal" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @*Carta de Autorización de DDI / Solicitud de Certificado de Jubilado y Pensionado*@
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Carta de Autorización de DDI / Solicitud de Certificado de Jubilado y Pensionado</legend>
+
+                            <div class="col-md-6">
+
+                                @*Número de Seguro Social*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Número de Seguro Social</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtNumeroSeguroSocial" name="txtNumeroSeguroSocial" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Planilla*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Planilla</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtPlanilla" name="txtPlanilla" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        @*Direccion Completa*@
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Dirección Completa</legend>
+
+                            <div class="col-md-6">
+
+                                @*Casa / Apto*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Casa / Apto</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtCasaApto" name="txtCasaApto" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Calle*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Calle</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtCalle" name="txtCalle" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Barriada / Edificio*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Barriada / Edificio</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtBarriadaEdificio" name="txtBarriadaEdificio" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Ciudad*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Ciudad</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtCiudad" name="txtCiudad" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Provincia*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Provincia</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtProvincia" name="txtProvincia" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Código Postal*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Código Postal</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtCodigoPostal" name="txtCodigoPostal" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        @*Beneficiarios*@
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Beneficiarios</legend>
+
+                            <div class="col-md-6">
+
+                                @*Nombre*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Número de Seguro Social</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtNombre" name="txtNombre" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Cedula*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Cédula</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtCedula" name="txtCedula" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Seguro*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Seguro</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtSeguro" name="txtSeguro" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                                @*Datos de Empleo: Posición*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Datos de Empleo: Posición</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtPosicion" name="txtPosicion" class="form-control imput-xs" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>

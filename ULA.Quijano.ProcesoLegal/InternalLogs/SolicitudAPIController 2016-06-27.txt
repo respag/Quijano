@@ -1,0 +1,1 @@
+06/27/2016 14:58:29|ULASP20|Trace|SolicitudAPIController|||Usuario:QUIJANO.local/MYhap, taskId=062714cfe0a099a5afdbdc566cec98, retornoAbogado=0

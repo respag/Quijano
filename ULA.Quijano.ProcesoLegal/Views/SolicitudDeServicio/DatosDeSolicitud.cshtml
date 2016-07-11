@@ -1,0 +1,392 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="padding-bottom">
+
+    <form id="formDatosSolicitud">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <center><h3 class="panel-title"><span class="glyphicon glyphicon-th-list" aria-hidden="true" id="lblSolicitud"></span>&nbsp;&nbsp;&nbsp;Datos de la Solicitud</h3></center>
+            </div>
+        </div>
+
+        <div class="row padding-bottom">
+            <div class="col-xs-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon span-input-white" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Fecha de Solicitud</span>
+                    <input id="txtFechaSolicitud" name="txtFechaSolicitud" type="text" class="form-control" readonly />
+                </div><!-- /input-group -->
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-language"></i>&nbsp;&nbsp;Idioma:</span>
+                    <select id="ddlIdioma" class="form-control" aria-label="..." required>
+                        <option></option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon span-input-white" id="basic-addon1">Procedencia</span>
+                    <select id="ddlProcedencia" class="form-control" aria-label="..." required>
+                        <option></option>
+                    </select>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+
+        <div class="row padding-bottom">
+
+            <div class="col-xs-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-area-chart"></i>&nbsp;&nbsp;Área</span>
+                    <select id="ddlArea" class="form-control" aria-label="..." required>
+                        @*<option value="0"></option>
+                            <option value="1">Sociedades</option>
+                            <option value="2">Fundaciones</option>
+                            <option value="3">Migracion</option>
+                            <option value="4">Naves</option>*@
+                    </select>
+                </div><!-- /input-group -->
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-university"></i>&nbsp;&nbsp;Jurisdicción</span>
+                    <select id="ddlJurisdiccion" class="form-control" aria-label="..." required>
+                        <option></option>
+                    </select>
+                </div><!-- /input-group -->
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-male"></i>&nbsp;&nbsp;Abogado</span>
+                    <select id="ddlAbogado" class="form-control" aria-label="..." required>
+                        <option></option>
+                    </select>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+
+        <div class="row padding-bottom">
+            <div class="col-xs-6">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon span-input-white" id="basic-addon1"><i class="fa fa-exchange"></i>&nbsp;&nbsp;Trámite</span>
+                    <select id="ddlTramite" class="form-control" aria-label="..." required>
+                        <option></option>
+                    </select>
+                </div><!-- /input-group -->
+            </div>
+            <div class="col-xs-6">
+                <div class="input-group input-group-sm hidden" id="formasMigracion">
+                    <span class="input-group-addon span-input-white" id="basic-addon2">Formas de Migración</span>
+                    <select id="ddlFormasMigration" class="form-control" aria-label="..." required>
+                        <option></option>
+                        @*
+                            <option>PAISES ESPECÍFICOS DE INVERSION</option>
+                            <option>PAISES ESPECÍFICOS LABORAL</option>
+                            <option>SEM</option>
+                            <option>ACUERDO DE MARRAKECH</option>
+                            <option>ACUERDO DE M. PERMISO DE TRABAJO</option>
+                            <option>PERMISO DE RESIDENCIA 10%</option>
+                            <option>PERMISO DE TRABAJO 10%</option>
+                            <option>FUNCIONES SURTEN SUS EFECTOS EX</option>
+                            <option>CASADO CON PANAMEÑA(0)</option>
+                            <option>PERMISO DE RESIDENCIA COMO JUBILADO O PENSIONADO</option>
+                            <option>EXTRANJERO PROFESIONAL</option>
+                            <option>CONVENIO PANAMÁ ITALIA</option>
+                            <option>OTROS</option>
+                        *@
+                    </select>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+
+        <div class="row padding-bottom">
+            <div class="col-xs-6 hidden" id="divDevolver">
+                <input type="checkbox" name="chkDevolver" id="chkDevolver" /> <span style="font-weight:bold"> Devolver</span>
+            </div>
+        </div>
+</form>
+
+    <br />
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Instrucciones Generales</h3></center>
+        </div>
+
+        <br />
+
+        @if (ViewBag.Process == "ServiciosLegales" && (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "AnalisisLegal"))
+        {
+        <div class="col-md-12 text-right">
+            <button id="btnInstrucAgregar" type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Agregar Instrucción
+            </button>
+        </div>
+        }
+        
+        <div class="panel-body">
+            <table id="tbInstrucciones" class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th style="width:50px"></th>
+                        <th style="width:50px" class="hidden">IdInstruccion</th>
+                        <th>Instrucción</th>
+                        @if (ViewBag.Step != "RegistrarSolicitud") { <th>Respuesta</th> }
+                        @if (ViewBag.Step != "RegistrarSolicitud") { <th>Ejecutado por</th> }
+                        @if (ViewBag.Step != "RegistrarSolicitud") { <th></th> }
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="panel-footer">
+            <div id="ucBtnResponder" style="display:none;" class="form-inline">
+                <button id="btnInstrucAgregar" type="button" class="btn btn-primary btn-xs" onclick="CargarInstruccion(_ID, $(this).parent().prev().prev().prev().text());">
+                    Responder
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Instrucciones Específicas</h3></center>
+        </div>
+        <div class="panel-body">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-1">
+
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>
+                                    <input id="chkTraduccion" name="chkTraduccion" type="checkbox" /> Traducción
+                                </div>
+                                <div>
+                                    <input id="chkAutenticacion" name="chkAutenticacion" type="checkbox" /> Autenticación
+                                </div>
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <input id="chkNotaria" name="chkNotaria" type="checkbox" /> Notaria
+                                </div>
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <input id="chkApostilla" name="chkApostilla" type="checkbox" /> Apostilla
+                                </div>
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input id="chkMINREX" name="chkMINREX" type="checkbox" /> MINREX / Gobierno y Justicia
+                                </div>
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input id="chkConsulado" name="chkConsulado" type="checkbox" /> Consulado
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div>
+                                    <input id="chkSeInscribe" name="chkSeInscribe" type="checkbox" /> Se Inscribe
+                                </div>
+                                <div>
+                                    <input id="chkAlteracionTurno" name="chkAlteracionTurno" type="checkbox" /> Alteración de Turno
+                                </div>
+                                <div>
+                                    <input id="chkAperturaCuenta" name="chkAperturaCuenta" type="checkbox" /> Apertura de cuenta
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <iframe id="adjuntos" src="/AttachmentPage/?@ViewBag.AttachmentParam" width="100%" height="250px" style="border: hidden;"></iframe>
+
+    <br />
+
+    <div id="divInstruccionSociedades" style="display: none;">
+        @Html.Partial("~/Views/SolicitudDeServicio/_InstruccionesSociedades.cshtml")
+    </div><!-- /.modal -->
+
+    <div id="divInstruccionFundaciones" style="display: none;">
+        @Html.Partial("~/Views/SolicitudDeServicio/_InstruccionesFundaciones.cshtml")
+    </div><!-- /.modal -->
+
+    <div id="divInstruccionNaves" style="display: none;">
+        @Html.Partial("~/Views/SolicitudDeServicio/_InstruccionesNaves.cshtml")
+    </div><!-- /.modal -->
+
+    <div id="divInstruccionMigracion" style="display: none;">
+        @Html.Partial("~/Views/SolicitudDeServicio/_InstruccionesMigracion.cshtml")
+    </div><!-- /.modal -->
+
+    <div id="divInstruccionMarcas" style="display: none;">
+        @Html.Partial("~/Views/SolicitudDeServicio/_InstruccionesMarcas.cshtml")
+    </div><!-- /.modal -->
+    <div id="divComentarioControl" class="input-group padding-bottom">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-comments"></i>Comentarios de Control:</span>
+        <textarea maxlength="1000" id="txtComentarioControl" name="txtacomentarioControl" class="form-control" rows="5" cols="40" required></textarea>
+    </div>
+</div>
+
+@section Modals{
+
+<div class="modal-popup fade" id="modalAddInstrucciones" style="overflow:auto; height:400px;" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" >
+    <div class="modal-dialog">
+        <div class="modal-content" style="height: 400px;">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-reply"></i>&nbsp;&nbsp;Agregar Instrucción</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseInstrucAgregar" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalAddInstrucciones">
+
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Instrucción</span>
+                        <textarea maxlength="10000" id="txtModalInstruccion" name="txtModalInstruccion" rows="3" class="form-control" style="height:250px" aria-describedby="basic-addon1" required></textarea>
+                    </div>
+
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalInstrucAgregar" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Agregar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal-popup fade" id="modalResponderInstrucciones" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height:500px">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-reply"></i>&nbsp;&nbsp;Responder Instrucción</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseInstrucResponder" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalResponderInstrucciones">
+
+                    <input type="hidden" id="txtIdInstruccion" name="txtIdInstruccion" />
+
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Instrucción</span>
+                        <textarea id="txtModalInstruccion2" maxlength="10000" name="txtModalInstruccion" rows="3" class="form-control" style="height:175px" aria-describedby="basic-addon1" readonly required></textarea>
+                    </div>
+
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Respuesta</span>
+                        <textarea id="txtModalRespuesta" maxlength="10000" name="txtModalRespuesta" rows="3" class="form-control" style="height:175px" aria-describedby="basic-addon1" required></textarea>
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Ejecutado por</span>
+                        <input id="txtModalEjecutado" name="txtModalEjecutado" type="text" class="form-control" aria-describedby="basic-addon1" readonly required />
+                    </div>
+
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalInstrucResponder" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Responder
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal-popup fade" id="modalUpdateInstrucciones" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actualizar Instrucción</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseInstrucActualizar" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalUpdateInstrucciones">
+
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Instrucción</span>
+                        <textarea maxlength="10000" id="txtModalUpdateInstruccion" name="txtModalUpdateInstruccion" rows="3" class="form-control" style="height:80px" aria-describedby="basic-addon1" required></textarea>
+                    </div>
+
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <input type="hidden" id="hiddenId" />
+                        <button id="btnModalInstrucActualizar" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Actualizar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal-popup fade" id="modalModLibretaDireccion" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-edit"></i>&nbsp;&nbsp;Direcciones del Cliente</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseLibDireccionPopup" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table id="tbLibretaDireccionModal" class="table table-hover table-condensed">
+                    <thead>
+                        <tr>                          
+                            <th>CÓDIGO DIRECCIÓN</th>
+                            <th>DIRECCIÓN</th>                            
+                        </tr>
+                    </thead>
+                </table>
+            </div>          
+        </div>        
+    </div>
+</div>
+    
+    }
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-DatosDeSolicitud");
+
+}

@@ -1,0 +1,251 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+<center>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Datos Generales del Asunto</h3>
+        </div>
+    </div>
+</center>
+
+<hr />
+<br />
+
+<form id="formDatMigAsunto">
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Asunto:</span>
+                <input type="text" id="txtDatMigAsunto" name="txtDatMigAsunto" class="form-control " aria-describedby="basic-addon1" required />
+            </div>
+        </div>
+        <div class="col-xs-3">
+            @if (ViewBag.Step == "Monitoreo")
+            {
+                <button id="btnDatMigCrearActualizar" type="button" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<strong>Actualizar</strong>
+                </button>
+            }
+            else
+            {
+                <button id="btnDatMigCrearActualizar" type="button" class="btn btn-primary btn-sm">Consultar</button>
+            }
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-2" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Compañía:</span>
+                        <input id="txtDatMigCodCompany" name="txtDatMigCodCompany" type="text" class="form-control" aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-10" style="padding-left: 2px;">
+                    <input id="txtDatMigCompany" name="txtDatMigCompany" type="text" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Sección:</span>
+                <input id="txtDatMigSeccion" name="txtDatMigSeccion" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Propiedad Intelectual:</span>
+                <input id="txtDatMigPropiedadIntelectual" name="txtDatMigPropiedadIntelectual" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Nombre Fact.:</span>
+                <input id="txtDatMigNombreFact" name="txtDatMigNombreFact" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Jurisdicción:</span>
+                <input id="txtDatMigJurisdiccion" name="txtDatMigJurisdiccion" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Materia:</span>
+                <input id="txtDatMigMateria" name="txtDatMigMateria" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Corresponsal:</span>
+                <input id="txtDatMigCorresponsal" name="txtDatMigCorresponsal" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Dir:</span>
+                <input id="txtDatMigDir" name="txtDatMigDir" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Referencia:</span>
+                <input id="txtDatMigReferencia" name="txtDatMigReferencia" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-8">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Fecha Apertura:</span>
+                <input id="txtDatMigFechaApertura" name="txtDatMigFechaApertura" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Abogado:</span>
+                <input id="txtDatMigAbogado" name="txtDatMigAbogado" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Secretaria:</span>
+                <input id="txtDatMigSecretaria" name="txtDatMigSecretaria" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Oficina:</span>
+                <input id="txtDatMigOficina" name="txtDatMigOficina" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;Observaciones:</span>
+        <br />
+        <div class="col-xs-12">
+            <textarea id="txtDatMigObservaciones" name="txtDatMigObservaciones" class="form-control" rows="5" style="display:inline"></textarea>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span></span>&nbsp;&nbsp;Est Conta:</span>
+                <select id="txtDatMigEstCont" name="txtDatMigEstCont" class="form-control">
+                    <option value="A">ABIERTO</option>
+                    <option value="P">PENDIENTE</option>
+                    <option value="T">TERMINADO</option>
+                    <option value="X">ELIMINADO</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <center><h3 class="panel-title">Estado de solicitudes</h3></center>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table id="tbDatMigEstadoSolicitudes" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Fecha de Solicitud</th>
+                    <th>Asignado a</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+        </table>
+
+    </div>
+</div>
+
+@* ------------- POPUPS ASUNTOS --------------------*@
+<div class="modal-popup fade" id="modalMigAsuntosEncontrados" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-user"></i>&nbsp;&nbsp;Asuntos Encontrados</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseMigAsuntosEncontrados" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <div id="formModalMigAsuntosEncontrados">
+                    <table id="tbMigAsuntosEncontrados" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>NÚMERO ASUNTO</th>
+                                <th>NOMBRE CLIENTE</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8 text-right">
+                        * Doble click para seleccionar el Asunto
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

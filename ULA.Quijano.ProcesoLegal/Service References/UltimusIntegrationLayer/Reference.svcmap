@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ab187b42-6d43-4dd2-82d7-4f4d00d6031c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="ULA.Quijano.Model" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.27/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="e58fd153-95a0-4712-8c21-cde199ade24e" SourceId="1" SourceUrl="http://192.168.1.27/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="3454bc31-c03f-42ef-ac82-7e99b36bfd34" SourceId="1" SourceUrl="http://192.168.1.27/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc/mex" />
+    <MetadataFile FileName="service3.xsd" MetadataType="Schema" ID="2bb7bc27-d3f0-4a9a-a381-910601341c44" SourceId="1" SourceUrl="http://192.168.1.27/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc/mex" />
+    <MetadataFile FileName="UltimusIntegrationLayer1.xsd" MetadataType="Schema" ID="36c500db-3dfb-4347-880e-1881ff79f643" SourceId="1" SourceUrl="http://192.168.1.27/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="1a85c805-2bd4-4c27-89cc-3e79108ca9be" SourceId="1" SourceUrl="http://192.168.1.27/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

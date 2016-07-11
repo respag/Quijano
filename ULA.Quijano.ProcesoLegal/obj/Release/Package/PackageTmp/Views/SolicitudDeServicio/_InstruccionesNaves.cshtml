@@ -1,0 +1,357 @@
+﻿@{
+    Layout = null;
+}
+
+<!--<form id="formInstNavruccionesHeader">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-area-chart"></i>&nbsp;&nbsp;Área:</span>
+                <input id="txtInstNavArea" name="txtInstNavArea" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-university"></i>&nbsp;&nbsp;Jurisdicción:</span>
+                <input id="txtInstNavJurisdiccion" name="txtInstNavJurisdiccion" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-language"></i>&nbsp;&nbsp;Idioma:</span>
+                <input id="txtInstNavIdioma" name="txtInstNavIdioma" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-exchange"></i>&nbsp;&nbsp;Tramite:</span>
+                        <input id="txtInstNavCodTramite" name="txtInstNavCodTramite" type="text" class="form-control input-group-sm"  aria-describedby="basic-addon1" readonly />
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding-left: 2px;">
+                    <input id="txtInstNavTramite" name="txtInstNavTramite" type="text" class="form-control input-sm"  aria-describedby="basic-addon1" readonly />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-star-half-o"></i>&nbsp;&nbsp;Prioridad:</span>
+                <input id="txtInstNavPrioridad" name="txtInstNavPrioridad" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-archive"></i>&nbsp;&nbsp;Oficina:</span>
+                <select id="ddlInstNavOficina" name="ddlInstNavOficina" class="form-control" aria-label="..." readonly>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-gavel"></i>&nbsp;&nbsp;Bajo Leyes:</span>
+                <select id="ddlInstNavBajoLeyes" name="ddlInstNavBajoLeyes" class="form-control" aria-label="..." readonly>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-male"></i>&nbsp;&nbsp;Abogado:</span>
+                <select id="ddlInstNavAbogado" name="ddlInstNavAbogado" class="form-control" aria-label="..." readonly>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;InstNavrucciones Generales / Obersvaciones</label>
+    <textarea id="txtaInstNavObersvaciones" name="txtaInstNavObersvaciones" class="form-control" rows="3"></textarea>
+
+    <br />
+</form>-->
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Detalles de Instrucciones</h3>
+    </div>
+    <div class="panel-body">
+
+        <div role="tabpanel">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs pestanias" role="tablist">
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation" class="active">
+                        <a href="#homeNav" aria-controls="home" role="tab" data-toggle="tab" class="nav-active">Datos de Naves</a>
+                    </li>
+                }
+                
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation">
+                        <a href="#profileNav" aria-controls="profile" role="tab" data-toggle="tab">Datos de Facturación y Entrega</a>
+                    </li>
+                }
+
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                    <li role="presentation" @if (ViewBag.Step == "Monitoreo") { @("class=active")  }>
+                        <a href="#asuntosNav" aria-controls="abrirAsuntos" role="tab" data-toggle="tab" @if (ViewBag.Step == "Monitoreo") { @("class=nav-active")   }>Abrir Asunto</a>
+                    </li>
+                }
+
+                @*<li role="presentation" @if (ViewBag.Step == "Control") { @("class=hide")    }><a href="#asuntosNav" aria-controls="abrirAsuntos" role="tab" data-toggle="tab">Abrir Asunto</a></li>*@
+                @*<li role="presentation" @if (ViewBag.Step == "Monitoreo") { @("class=hide")      } else { @("class=active")      }><a href="#CheckListControlNav" aria-controls="CheckListControl" role="tab" data-toggle="tab">Check List Control.</a></li>*@
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                <div role="tabpanel" class="tab-pane active " id="homeNav">
+                    <form id="formInstNavDatosNaves">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                                @if (ViewBag.Step != "EjecutarInstruccion")
+                                {
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-offset-8" style="font-size: 12px !important;">
+                                            <label>Búsqueda de la Nave</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input id="rbNaveExiste" type="radio" name="existeOno" value="0" />Existente&nbsp;&nbsp;&nbsp;
+                                            <input id="rbNaveNueva" type="radio" name="existeOno" value="1" />Nueva
+                                        </div>
+                                    </div>
+                                    <br />
+                                }
+                                else
+                                {
+                                    <input id="rbNaveExiste" type="radio" name="existeOno" value="0" style="display: none"/>
+                                    <input id="rbNaveNueva" type="radio" name="existeOno" value="1" style="display: none" />
+                                }
+                                
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            @*<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Nave:</span>*@
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-ship"></i>&nbsp;&nbsp;Código de Nave:</span>
+                                            <input id="txtDatNavCodNave" name="txtDatNavCodNave" type="text" class="form-control" aria-describedby="basic-addon1" required style="width:100px" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6" style="padding-left: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-ship"></i>&nbsp;&nbsp;Nombre de la Nave:</span>
+                                            <input type="text" id="txtDatNavNombreNave" name="txtDatNavNombreNave" class="form-control input-sm" aria-describedby="basic-addon1" required style="width:100%" />
+                                        </div>
+                                    </div>
+
+                                    @if (ViewBag.Step == "EjecutarInstruccion")
+                                    {
+                                        <div class="col-xs-2" style="padding-left: 2px;">
+                                            <button id="btnDatNavActualizar" type="button" class="btn btn-primary btn-sm">Actualizar</button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-xs-2" style="padding-left: 2px;">
+                                            <button id="btnDatNavConsultar" type="button" class="btn btn-primary btn-sm" style="display:none">Consultar</button>
+                                        </div>
+                                    }
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            @*<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Nave:</span>*@
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-users"></i>&nbsp;&nbsp;Código de Compañía:</span>
+                                            <input id="txtDatNavCodCia" name="txtDatNavCodCia" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8" style="padding-left: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-users"></i>&nbsp;&nbsp;Nombre de la Compañía:</span>
+                                            <input type="text" id="txtDatNavNombreCia" name="txtDatNavNombreCia" class="form-control input-sm" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Nombre Anterior:</span>
+                                            <input id="txtDatNavNombreAnterior" name="txtDatNavNombreAnterior" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Soc. Propietaria:</span>
+                                            <input id="txtDatNavSocPropietaria" name="txtDatNavSocPropietaria" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Corresponsal:</span>
+                                            <input id="txtDatNavCorresponsal" name="txtDatNavCorresponsal" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7" style="padding-left: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <input type="text" id="txtDatNavNombreCorresponsal" name="txtDatNavNombreCorresponsal" class="form-control" aria-describedby="basic-addon1" required style="width:500px" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Cliente Corresponsal:</span>
+                                            <input id="txtDatNavClienteCorresponsal" name="txtDatNavClienteCorresponsal" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7" style="padding-left: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <input type="text" id="txtDatNavNombreClienteCorresponsal" name="txtDatNavNombreClienteCorresponsal" class="form-control" aria-describedby="basic-addon1" required style="width:500px" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Estado:</span>
+                                            <input id="txtDatNavEstado" name="txtDatNavEstado" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Sts. Consolidado:</span>
+                                            <input id="txtDatNavStsConsolidado" name="txtDatNavStsConsolidado" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Propietario de la Nave:</span>
+                                            <input id="txtDatNavPropNave" name="txtDatNavPropNave" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        Somos RL&nbsp;&nbsp;&nbsp;<input type="checkbox" id="chkDatNavSomosRL" name="chkDatNavSomosRL" value="1" />
+                                    </div>
+                                    <div class="col-xs-4">
+                                        Cobrar RL&nbsp;&nbsp;&nbsp;<input type="checkbox" id="chkDatNavCobrarRL" name="chkDatNavCobrarRL" value="2" />
+                                    </div>
+                                    <div class="col-xs-4">
+                                        Cambio RL&nbsp;&nbsp;&nbsp;<input type="checkbox" id="chkDatNavCambioRL" name="chkDatNavCambioRL" value="3" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div id="divNombreRL" class="col-xs-8 hide" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Nombre RL:</span>
+                                            <input id="txtDatNavNombreRL" name="txtDatNavNombreRL" type="text" class="form-control" aria-describedby="basic-addon1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                }
+                
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                <div role="tabpanel" class="tab-pane " id="profileNav">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_DatosFacturacionEntregaNav.cshtml")
+                </div>
+                }
+
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                    <div role="tabpanel" class="@if (ViewBag.Step == "Monitoreo") { @("tab-pane active") } else { @("tab-pane") }" id="asuntosNav">
+                        @Html.Partial("~/Views/SolicitudDeServicio/_AbrirAsuntoNav.cshtml")
+                    </div>
+                }
+            </div>
+
+            @*<div id="CheckListControlNav" role="tabpanel" class="tab-pane ">
+                @Html.Partial("~/Views/SolicitudDeServicio/_CheckListControl.cshtml")
+            </div>*@
+        </div>
+
+    </div>
+</div>
+
+@* ------------- POPUPS Buscar Naves --------------------*@
+<div class="modal-popup fade" id="modalNavesEncontradas" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-user"></i>&nbsp;&nbsp;Naves Encontradas</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseNavesEncontradas" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <div id="formModalNavesEncontradas">
+                    <table id="tbNavesEncontradas" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>CÓDIGO NAVE</th>
+                                <th>NOMBRE DE NAVE</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8 text-right">
+                        * Doble click para seleccionar la Nave
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,21 @@
+03/29/2016 17:07:38|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.InvalidOperationException: No MediaTypeFormatter is available to read an object of type 'Instruccion' from content with media type 'text/plain'.
+   at System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)
+   at System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)
+   at System.Web.Http.ModelBinding.FormatterParameterBinding.ExecuteBindingAsync(ModelMetadataProvider metadataProvider, HttpActionContext actionContext, CancellationToken cancellationToken)
+   at System.Web.Http.Controllers.HttpActionBinding.<>c__DisplayClass1.<ExecuteBindingAsync>b__0(HttpParameterBinding parameterBinder)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Threading.Tasks.TaskHelpers.IterateImpl(IEnumerator`1 enumerator, CancellationToken cancellationToken)
+03/29/2016 17:08:04|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.InvalidOperationException: No MediaTypeFormatter is available to read an object of type 'Instruccion' from content with media type 'text/plain'.
+   at System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)
+   at System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)
+   at System.Web.Http.ModelBinding.FormatterParameterBinding.ExecuteBindingAsync(ModelMetadataProvider metadataProvider, HttpActionContext actionContext, CancellationToken cancellationToken)
+   at System.Web.Http.Controllers.HttpActionBinding.<>c__DisplayClass1.<ExecuteBindingAsync>b__0(HttpParameterBinding parameterBinder)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Threading.Tasks.TaskHelpers.IterateImpl(IEnumerator`1 enumerator, CancellationToken cancellationToken)
+03/29/2016 17:09:52|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.InvalidOperationException: No MediaTypeFormatter is available to read an object of type 'Instruccion' from content with media type 'text/plain'.
+   at System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)
+   at System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)
+   at System.Web.Http.ModelBinding.FormatterParameterBinding.ExecuteBindingAsync(ModelMetadataProvider metadataProvider, HttpActionContext actionContext, CancellationToken cancellationToken)
+   at System.Web.Http.Controllers.HttpActionBinding.<>c__DisplayClass1.<ExecuteBindingAsync>b__0(HttpParameterBinding parameterBinder)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Threading.Tasks.TaskHelpers.IterateImpl(IEnumerator`1 enumerator, CancellationToken cancellationToken)

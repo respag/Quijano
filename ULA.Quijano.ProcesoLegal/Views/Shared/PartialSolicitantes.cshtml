@@ -1,0 +1,296 @@
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+<link href="~/jqwidgets/styles/jqx.ui-sunny.css" rel="stylesheet" />
+<link href="~/jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+<link href="~/jqwidgets/styles/jqx.darkblue.css" rel="stylesheet" />
+<link href="~/jqwidgets/styles/jqx.ui-start.css" rel="stylesheet" />
+<link href="~/jqwidgets/styles/jqx.ui-le-frog.css" rel="stylesheet" />
+
+<div id="messageNotification" class="hidden">
+    <div>
+        Registro actualizado.
+    </div>
+</div>
+
+<div id="messageNotificationCreate" class="hidden">
+    <div>
+        Registro grabado exitosamente en la base de datos.
+    </div>
+</div>
+
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Requisitos</h3>
+            </div>
+            <div class="panel-body">
+                <div id="jqxgrid2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.11.1.js"></script>
+<script src="../jqwidgets/jqxcore.js"></script>
+<script src="../jqwidgets/jqxdata.js"></script>
+<script src="../jqwidgets/jqxbuttons.js"></script>
+<script src="../jqwidgets/jqxscrollbar.js"></script>
+<script src="../jqwidgets/jqxmenu.js"></script>
+<script src="../jqwidgets/jqxcheckbox.js"></script>
+<script src="../jqwidgets/jqxlistbox.js"></script>
+<script src="../jqwidgets/jqxdropdownlist.js"></script>
+<script src="../jqwidgets/jqxdropdownbutton.js"></script>
+<script src="../jqwidgets/jqxgrid.js"></script>
+<script src="../jqwidgets/jqxgrid.columnsresize.js"></script>
+<script src="../jqwidgets/jqxgrid.edit.js"></script>
+<script src="../jqwidgets/jqxgrid.sort.js"></script>
+<script src="../jqwidgets/jqxgrid.selection.js"></script>
+<script src="../jqwidgets/jqxgrid.grouping.js"></script>
+
+<script src="../jqwidgets/jqxgrid.pager.js"></script>
+<script src="~/jqwidgets/jqxnotification.js"></script>
+<script src="~/jqwidgets/jqxvalidator.js"></script>
+<script src="~/jqwidgets/globalization/globalize.js"></script>
+<script src="../Scripts/demos.js"></script>
+
+<script>
+   
+    $("#messageNotificationCreate").jqxNotification({
+        autoClose: false, blink: true,
+        width: 250, position: "top-right", opacity: 1, template: "success"
+    });
+
+    $("#messageNotification").jqxNotification({
+        autoClose: false, blink: true,
+        width: 250, position: "top-right", opacity: 0.9, template: "success",
+        icon: { width: 25, height: 25, url: 'jqwidgets/styles/images/check_lightblue.png', padding: 5 }
+    });
+
+    var tema = "energyblue"
+    var datarow = null;
+    var id = 0;
+    var nombre = "";
+    var identificacion = "";
+    var tipo = "";
+    var tiposource = {
+        datatype: "json",
+        datafields: [
+            { name: 'id', type: 'string' },
+            { name: 'tipo', type: 'string' }
+        ],
+        url: 'http://localhost/ULA.Quijano.ProcesoLegal/tipoDdl.json'
+    };
+
+    var url = "http://localhost/ULA.Quijano.ProcesoLegal/solicitantes.json";
+    var tiposAdapter = new $.jqx.dataAdapter(tiposource);
+    var source = {
+        datatype: "json",
+        datafields: [
+            { name: 'id', type: 'string' },
+            { name: 'Nombre', type: 'string' },
+            { name: 'Identificacion', type: 'string' },
+            { name: 'Tipo', value: 'id', values: { source: tiposAdapter.records, value: 'id', name: 'tipo' } },
+        ],
+        addrow: function (rowid, rowdata, position, commit) {
+            commit(true);
+        },
+        id: 'id',
+        url: url
+    };
+
+    //var generateNullRow = function () {
+    //    var row = {};
+    //    $("#jqxButton").val("Grabar");
+    //    return row;
+    //}
+
+    //$("#jqxButton").jqxButton({ theme: tema });
+    //$("#jqxButtonUpdate").jqxButton({ theme: tema });
+
+    //$("#jqxButton").on('click', function () {
+    //    if ($(this).val() == "Agregar") {
+    //        var datarow = generateNullRow();
+    //        var commit = $("#jqxgrid").jqxGrid('addrow', null, {});
+    //    } else {
+    //        $("#jqxgrid").jqxGrid({ selectionmode: 'none' });
+    //        $("#jqxgrid").jqxGrid({ selectionmode: 'singlerow' });
+    //        var rows = $('#jqxgrid').jqxGrid('getrows');
+    //        $('#jqxgrid').jqxGrid('selectrow', rows.length - 1);
+    //        $(this).val("Agregar");
+
+    //    }
+    //});
+
+    //$("#jqxButtonUpdate").on('click', function () {
+    //    actualiza();
+    //});
+
+    //function actualiza() {
+    //    id = datarow.uid + 1;
+    //    nombre = datarow.Nombre;
+    //    identificacion = datarow.Identificacion;
+    //    tipo = datarow.Tipo;
+    //    console.log("Llamará al Api Update para actualizar el registro en la base de datos: " + JSON.stringify(datarow));
+    //    $.ajax({
+    //        method: "PUT",
+    //        url: addrApi + "Solicitantes/" + id,
+    //        data: { Nombre: nombre, Identificacion: identificacion, Tipo: tipo, id: id }
+    //    }).done(
+    //    function () {
+    //        $("#messageNotification").removeClass("hidden");
+    //        $("#messageNotification").jqxNotification("open");
+    //        $("#jqxButtonUpdate").addClass("hidden");
+    //    });
+    //}
+
+    //var dataAdapter = new $.jqx.dataAdapter(source);
+
+    //$("#jqxgrid").jqxGrid(
+    //{
+    //    width: "100%",
+    //    autoheight: true,
+    //    theme: tema,
+    //    source: dataAdapter,
+    //    columnsresize: true,
+    //    editable: true,
+    //    showdefaultloadelement: false,
+    //    columns: [
+    //      {
+    //          text: 'Nombre', datafield: 'Nombre', width: '33%',
+    //          validation: function (cell, value) {
+    //              if (value.length == 0) {
+    //                  Oculta el boton Actualizar
+    //                  $("#jqxButtonUpdate").addClass("hidden");
+    //                  return { result: false, message: "Este campo es obligatorio" };
+    //              } else {
+    //                  Muestra el boton Actualizar
+    //                  $("#jqxButtonUpdate").removeClass("hidden");
+    //              }
+    //              return true;
+    //          }
+    //      },
+    //      {
+    //          text: 'Identificación', datafield: 'Identificacion', width: '33%',
+    //          validation: function (cell, value) {
+    //              if (value.length == 0) {
+    //                  Oculta el boton Actualizar
+    //                  $("#jqxButtonUpdate").addClass("hidden");
+    //                  return { result: false, message: "Este campo es obligatorio" };
+    //              } else {
+    //                  Muestra el boton Actualizar
+    //                  $("#jqxButtonUpdate").removeClass("hidden");
+    //              }
+    //              return true;
+    //          }
+    //      },
+    //      {
+    //          text: 'Tipo', datafield: 'Tipo', displayfield: 'Tipo', columntype: 'dropdownlist',
+    //          validation: function (cell, value) {
+    //              if (value.length == 0) {
+    //                  Oculta el boton Actualizar
+    //                  $("#jqxButtonUpdate").addClass("hidden");
+    //                  return { result: false, message: "Este campo es obligatorio" };
+    //              } else {
+    //                  Muestra el boton Actualizar
+    //                  $("#jqxButtonUpdate").removeClass("hidden");
+    //              }
+    //              return true;
+    //          },
+    //          createeditor: function (row, value, editor) {
+    //              editor.jqxDropDownList({ source: tiposAdapter, displayMember: 'tipo', valueMember: 'id' });
+    //          }
+    //      }
+    //    ]
+    //});
+
+    //$("#jqxgrid").bind('rowselect', function (event) {
+    //    if ($(".jqx-grid-validation").text() != "Este campo es obligatorio")
+    //        $("#jqxButtonUpdate").removeClass("hidden");
+    //    else
+    //        $("#jqxButtonUpdate").addClass("hidden");
+    //    var row = event.args.rowindex;
+    //    var rows = $('#jqxgrid').jqxGrid('getrows');
+
+    //    The clicked row’s index is stored in the event.args object.
+    //    To get the row’s data, we can use the Grid’s ‘getrowdata’ method.
+    //    datarow = $("#jqxgrid").jqxGrid('getrowdata', row);
+    //    nombre = datarow.Nombre;
+    //    identificacion = datarow.Identificacion;
+    //    tipo = datarow.Tipo;
+    //    if (nombre != undefined && $("#jqxButton").val() == "Grabar") {
+    //        $.post(addrApi + "Solicitantes", { nombre: nombre, identificacion: identificacion, tipo: tipo },
+    //                   function (data) {
+    //                       $("#messageNotificationCreate").removeClass("hidden");
+    //                       $("#messageNotificationCreate").jqxNotification("open");
+    //                       console.log(data);
+    //                   });
+    //    }
+    //    console.log(JSON.stringify(datarow));
+
+    //});
+
+    //$("#jqxgrid").jqxGrid("autoresizecolumns");
+    //$("#jqxgrid").jqxGrid({ selectionmode: 'singlerow' });
+
+
+    // Ahora el grid Agrupado
+
+    var url = "http://localhost/ULA.Quijano.ProcesoLegal/gridAgrupado.json";
+   
+    var source = {
+        datatype: "json",
+        datafields: [
+            { name: 'Tipo', type: 'string' },
+            { name: 'Nombre', type: 'string' },
+            { name: 'Instrucción', type: 'string' },
+            { name: 'Notarizado', type: 'boolean' },
+            { name: 'Traducción', type: 'string' },
+            { name: 'Apostillado o Legalizado', type: 'boolean' }
+        ],
+        url: url
+    };   
+
+    var dataAdapter = new $.jqx.dataAdapter(source);
+
+    $("#jqxgrid2").jqxGrid(
+    {
+        width: "100%",
+        autoheight: true,
+        theme: tema,
+        source: dataAdapter,
+        columnsresize: true,
+        groupable: true,
+        groupsexpandedbydefault: true,
+    //   showdefaultloadelement: false,
+        columns: [
+          {
+              text: 'Tipo', datafield: 'Tipo', width:'350'
+          },
+          {
+              text: 'Nombre', datafield: 'Nombre', width: '350'
+          },
+          {
+              text: 'Instrucción', datafield: 'Instrucción', width:'100'
+          },
+          {
+              text: 'Notarizado', datafield: 'Notarizado', columntype:'checkbox'
+          },
+          {
+              text: 'Traducción', datafield: 'Traducción', width: '100'
+          },
+          {
+              text: 'Apostillado o Legalizado', datafield: 'Apostillado o Legalizado', columntype: 'checkbox'
+          }
+        ],
+        groups: ['Tipo']
+    });
+
+
+
+    //$("#jqxgrid").jqxGrid("autoresizecolumns");
+    //$("#jqxgrid").jqxGrid({ selectionmode: 'singlerow' });
+
+  
+</script>

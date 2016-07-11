@@ -1,0 +1,592 @@
+﻿@section ButtonOption {
+    <div class="btn-group">
+
+        <button type="button" class="btn btn-default btn-sm" id="btnClienteCentrico" >
+            <i class="fa fa-home"></i>&nbsp;&nbsp;Cliente Céntrico
+        </button>
+
+        <button type="button" id="btnGuardarDatosGenerales" class="btn btn-success btn-sm" disabled>
+            <i class="fa fa-floppy-o"></i>&nbsp;Guardar Datos
+        </button>
+
+        @Html.Partial("~/Views/Solicitantes/_OpcionesGenerales.cshtml")
+
+    </div>
+}
+
+
+
+<input type="hidden" id="hiddenDatosGeneralesAction" name="hiddenDatosGeneralesAction" value="@string.Concat(Url.Action("Index", "CotizacionPrestamo", null), ViewBag.QueryEncripted)" />
+
+<form id="formConsulta" class="form-horizontal" role="form">
+    <h3><i class="fa fa-search"></i> Consulta de Solicitante Existente</h3>
+    <div class="well well-sm">
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo de Identificación</label>
+                    <div class="col-sm-8">
+                        <select id="ddlTipoIdentificacion" name="ddlTipoIdentificacion" class="form-control imput-xs" required></select>
+                    </div>
+                </div>
+
+
+                <div class="form-group" id="divProvincia">
+                    <label class="col-sm-4 control-label ControlsForms">Cédula</label>
+                    <div class="col-sm-8">
+                        <select id="ddlProvincia" name="ddlProvincia" class="Identificacion col-xs-2 imput-xs" data-role="TxtAsientoFicha" required></select>
+                        <select id="ddlIdentificacionLetra" name="ddlIdentificacionLetra" class="Identificacion col-xs-2 imput-xs" data-role="TxtAsientoFicha"></select>
+                        <input type="text" id="TxtFolioImagen" name="TxtFolioImagen" class="Identificacion col-xs-2 imput-xs" onkeypress="return OnlyNumbers(event)" data-role="TxtAsientoFicha" required />
+                        <input type="text" id="TxtAsientoFicha" name="TxtAsientoFicha" class="Identificacion col-xs-2 imput-xs" onkeypress="return OnlyNumbers(event)" data-role="TxtAsientoFicha" required />
+                    </div>
+
+                </div>
+
+                <div class="hidden" id="divNacionalidadPasaporte">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Pasaporte</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="TxtPasaporte" name="TxtPasaporte" class="form-control imput-xs" style="text-transform: uppercase;" onkeypress="return LettersNumbersOnly(event)" />
+                        </div>
+                    </div>
+
+                    @*Nacionalidad Pasaporte *@
+                    <div class="form-group">
+
+                        <label class="col-sm-4 control-label ControlsForms">Nacionalidad</label>
+
+                        <div class="btn-group col-sm-6">
+                            <input id="hiddenCodNacionalidadPasaporte" type="hidden" />
+                            <input type="text" id="txtNacionalidadPasaporte" name="txtNacionalidadPasaporte" class="form-control imput-xs" />
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" id="btnBuscarNacionalidadPasaporte" class="btn btn-info btn-xs">
+                                <i class="fa fa-search"></i>&nbsp;Buscar
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms"></label>
+                    <div class="col-sm-8">
+                        <button type="button" id="btnBuscarParticipante" class="btn btn-info  btn-sm col-sm-12">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="divTipoPersona" class="col-md-6">
+
+                @*Tipo de Persona*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo de Persona</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlTipoPersona" name="ddlTipoPersona"
+                                class="form-control imput-xs" disabled></select>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</form>
+
+
+<div class="hidden" id="divDatosSolicitante">
+
+    <h3><i class="fa fa-file-text-o"></i> Datos Generales del Solicitante</h3>
+
+    <form id="formDatosGenerales" class="form-horizontal" role="form">
+
+
+        <div class="well well-sm">
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Primer Nombre</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtPrimerNombre" name="txtPrimerNombre" class="form-control imput-xs inputCapitalizeFirstLetter" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Segundo Nombre</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtSegundoNombre" name="txtSegundoNombre" class="form-control imput-xs inputCapitalizeFirstLetter" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Primer Apellido</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtPrimerApellido" name="txtPrimerApellido" class="form-control imput-xs  inputCapitalizeFirstLetter" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Segundo Apellido</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtSegundoApellido" name="txtSegundoApellido" class="form-control imput-xs inputCapitalizeFirstLetter" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Apellido Casada</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtApellidoCasada" name="txtApellidoCasada" class="form-control imput-xs inputCapitalizeFirstLetter" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Identificación</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="txtIdentificacion" name="txtIdentificacion" class="form-control imput-xs" disabled />
+                        </div>
+                    </div>
+
+                    @*No. Seguro Social*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">No. Seguro Social</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="txtSeguroSocial" name="txtSeguroSocial" class="form-control imput-xs" required />
+                        </div>
+                    </div>
+
+     
+                    <div class="form-group">
+                        <label class="col-md-4 control-label ControlsForms">Fecha Nacimiento</label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" id="txtFechaNacimiento" name="txtFechaNacimiento" class="form-control imput-xs" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    <div class="form-group">
+
+                        <label class="col-sm-4 control-label ControlsForms">Años</label>
+                        <div class="col-sm-2">
+                            <input type="number" id="txtAños" name="txtAños" readonly="readonly" class="form-control imput-xs" />
+                        </div>
+
+                        <label class="col-sm-1 control-label ControlsForms">Meses</label>
+                        <div class="col-sm-2">
+                            <input type="number" id="txtMeses" name="txtMeses" readonly="readonly" class="form-control imput-xs" />
+                        </div>
+                    </div>
+
+  
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Sexo</label>
+                        <div class="col-sm-8 ">
+                            <select id="ddlSexo" name="ddlSexo" class="form-control imput-xs" required>
+                                <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                                <option value="F">FEMENINO</option>
+                                <option value="M">MASCULINO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    @*Nacionalidad*@
+                    <div class="form-group">
+
+                        <label class="col-sm-4 control-label ControlsForms">Nacionalidad</label>
+
+                        <div class="btn-group col-sm-6">
+                            <input type="hidden" id="hiddenCodNacionalidad" />
+                            <input type="text" id="txtNacionalidad" name="txtNacionalidad" class="form-control imput-xs" 
+                                   readonly data-role="btnBuscarNacionalidad" required />
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" id="btnBuscarNacionalidad" class="btn btn-info btn-xs">
+                                <i class="fa fa-search"></i>&nbsp;Buscar
+                            </button>
+                        </div>
+
+                    </div>
+
+                    @*Reside en Panama*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Reside en Panamá?</label>
+                        <label class="col-sm-1 control-label ControlsForms">Si</label>
+                        <input type="radio" id="radioSI" class="col-sm-1" />
+                        <label class="col-sm-1">No</label>
+                        <input type="radio" id="radioNO" class="col-sm-1" />
+                    </div>
+
+                    @*Teléfono Residencial*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Teléfono Residencial</label>
+                        <div class="col-sm-8 ">
+                            <div class="input-group">
+                                <span id="spanTelefonoResidencial" class="input-group-addon" hidden>(507)</span>
+                                <input type="text" id="txtTelefonoResidencia" name="txtTelefonoResidencia"
+                                       class="form-control imput-xs "
+                                       onkeypress="return OnlyNumbers(event)"
+                                       onblur="VerifyPhoneNumber('txtTelefonoResidencia');"
+                                       required />
+                            </div>
+                        </div>
+                    </div>
+
+                    @*Teléfono Celular*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Teléfono Celular</label>
+                        <div class="col-sm-8 ">
+                            <div class="input-group">
+                                <span id="spanTelefonoCelular" class="input-group-addon hidden">(507)</span>
+                                <input type="text" id="txtTelefonoCelular" name="txtTelefonoCelular"
+                                       class="form-control imput-xs "
+                                       onkeypress="return OnlyNumbers(event)"
+                                       onblur="VerifyMobileNumber('txtTelefonoCelular');"
+                                       required />
+                            </div>
+                        </div>
+                    </div>
+
+                    @*Correo Electrónico*@
+                    <div class="form-group">
+
+                        <label class="col-sm-4 control-label ControlsForms">Correo Electrónico</label>
+                        <div class="col-sm-8 ">
+                            <div class="input-group">
+                                <span class="input-group-addon">@@</span>
+                                <input type="email" id="txtEmail" name="txtEmail"
+                                       class="form-control imput-xs"
+                                       onblur="VerificandoCorreoElectronico('txtEmail');" />
+                            </div>
+                        </div>
+                    </div>
+
+                    @*Tipo Vivienda*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Tipo Vivienda</label>
+                        <div class="col-sm-8 ">
+                            <select id="ddlTipoVivienda" name="ddlTipoVivienda"
+                                    class="form-control imput-xs"></select>
+                        </div>
+                    </div>
+
+                    @*Estado Civil*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Estado Civil</label>
+                        <div class="col-sm-8 ">
+                            <select id="ddlEstadoCivil" name="ddlEstadoCivil"
+                                    class="form-control imput-xs"></select>
+                        </div>
+                    </div>
+
+                    @*Escolaridad*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Escolaridad</label>
+                        <div class="col-sm-8 ">
+                            <select id="ddlEscolaridad" name="ddlEscolaridad"
+                                    class="form-control imput-xs"></select>
+                        </div>
+                    </div>
+
+                    @*No. Dependientes*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">No. Dependientes</label>
+                        <div class="col-sm-3">
+                            <input type="number" id="txtDependientes" name="txtDependientes"
+                                   class="form-control imput-xs"
+                                   min="1" max="99"
+                                   onkeypress="return OnlyNumbers(event)" />
+                        </div>
+                    </div>
+
+                    @*Cargo Posicion*@
+                    <div class="form-group">
+
+                        <label class="col-sm-4 control-label ControlsForms">Cargo Posición</label>
+
+                        <div class="btn-group col-sm-6">
+                            <input id="hiddenCodCargoPosicion" type="hidden" />
+                            <input type="text" id="txtCargoPosicion" name="txtCargoPosicion" class="form-control imput-xs"
+                                   readonly />
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" id="btnBuscarCargoPosicion" class="btn btn-info btn-xs">
+                                <i class="fa fa-search"></i>&nbsp;Buscar
+                            </button>
+                        </div>
+
+                    </div>
+
+                    @*Profesion*@
+                    <div class="form-group">
+
+                        <label class="col-sm-4 control-label ControlsForms">Profesión</label>
+
+                        <div class="btn-group col-sm-6">
+                            <input id="hiddenCodCargoProfesion" type="hidden" />
+                            <input type="text" id="txtCargoProfesion" name="txtCargoProfesion" class="form-control imput-xs" readonly />
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" id="btnBuscarProfesion" class="btn btn-info btn-xs">
+                                <i class="fa fa-search"></i>&nbsp;Buscar
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </form>
+
+
+
+    <h3><i class="fa fa-home"></i> Datos Residencial del Solicitante</h3>
+
+    <form id="formDatosResidenciales" class="form-horizontal" role="form">
+
+        <div class="well well-sm">
+            <div class="row">
+
+
+
+                <div class="col-md-6">
+
+                    @*Pais*@
+                    <div class="form-group">
+
+                        <label class="col-sm-4 control-label ControlsForms">País</label>
+
+                        <div class="btn-group col-sm-6">
+                            <input type="hidden" id="hiddenCodPais" />
+                            <input type="text" id="txtPais" name="txtPais" class="form-control imput-xs" readonly data-role="btnBuscarPais" required />
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" id="btnBuscarPais" class="btn btn-info btn-xs"><i class="fa fa-search"></i>&nbsp;Buscar</button>
+                        </div>
+
+                    </div>
+
+                    @*Provincia / Distrito / Corregimiento *@
+                    <div class="hidden" id="divProvinciaDistritoCorregimiento">
+
+                        @*Provincia*@
+                        <div class="form-group" id="divProvincia">
+
+                            <label class="col-sm-4 control-label ControlsForms">Provincia</label>
+
+                            <div class="btn-group col-sm-6">
+                                <input type="hidden" id="hiddenCodProvincia" />
+                                <input type="text" id="txtProvincia" name="txtProvincia" class="form-control imput-xs" readonly data-role="btnBuscarProvincia" required />
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" id="btnBuscarProvincia"
+                                        class="btn btn-info btn-xs">
+                                    <i class="fa fa-search"></i>&nbsp;Buscar
+                                </button>
+                            </div>
+
+                        </div>
+
+                        @*Distrito*@
+                        <div class="form-group" id="divDistrito">
+
+                            <label class="col-sm-4 control-label ControlsForms">Distrito</label>
+
+                            <div class="btn-group col-sm-6">
+                                <input type="hidden" id="hiddenCodDistrito" />
+                                <input type="text" id="txtDistrito" name="txtDistrito" class="form-control imput-xs" readonly data-role="btnBuscarDistrito" required />
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" id="btnBuscarDistrito" class="btn btn-info btn-xs"><i class="fa fa-search"></i>&nbsp;Buscar</button>
+                            </div>
+
+                        </div>
+
+                        @*Corregimiento*@
+                        <div class="form-group" id="divCorregimiento">
+
+                            <label class="col-sm-4 control-label ControlsForms">Corregimiento</label>
+
+                            <div class="btn-group col-sm-6">
+                                <input type="hidden" id="hiddenCorregimiento" />
+                                <input type="text" id="txtCorregimiento" name="txtCorregimiento"
+                                       class="form-control imput-xs" readonly data-role="btnBuscarCorregimiento" required />
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" id="btnBuscarCorregimiento" class="btn btn-info btn-xs"><i class="fa fa-search"></i>&nbsp;Buscar</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    @*Zona*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Zona</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="txtZona" name="txtZona"
+                                   class="form-control imput-xs"
+                                   onkeypress="return OnlyNumbers(event)" required />
+                        </div>
+                    </div>
+
+                    @*Apartado Postal*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Apartado Postal</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="txtApartadoPostal" name="txtApartadoPostal"
+                                   class="form-control imput-xs"
+                                   onkeypress="return LettersNumbersOnly(event)" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    @*Casa / Apartamento Selection*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Residencia</label>
+                        <label class="col-sm-1 control-label ControlsForms">Casa</label>
+                        <input type="radio" id="radioCasa" class="col-sm-1" />
+                        <label class="col-sm-1">Apartamento</label>
+                        <input type="radio" id="radioApartamento" class="col-sm-3" />
+                    </div>
+
+                    @*No. Casa / Apartamento*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">No. Casa / Apartamento</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtNumeroCasaApto" name="txtNumeroCasaApto"
+                                   class="form-control imput-xs"
+                                   onkeypress="return LettersNumbersOnly(event)" />
+                        </div>
+                    </div>
+
+                    @*Calle / Avenida*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Calle / Avenida</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtCalleAvenida" name="txtCalleAvenida"
+                                   class="form-control imput-xs"
+                                   onkeypress="return LettersNumbersOnly(event)" />
+                        </div>
+                    </div>
+
+                    @*Edificio*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Edificio</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtEdificio" name="txtEdificio"
+                                   class="form-control imput-xs"
+                                   onkeypress="return LettersNumbersOnly(event)" />
+                        </div>
+                    </div>
+
+                    @*Direccion Exacta*@
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Dirección Exacta</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="txtDireccionExacta" rows="3"
+                                      onkeypress="return LettersNumbersOnly(event)"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div id="ucBtnSeleccionar" style="display:none;">
+    <button type="button" id="btnSeleccionar" class="btn btn-default btn-xs" 
+            onclick="javascript: SeleccionarOpcion('[$id]', '[$description]', '[$controlID]', '[$controlDescription]', '[$modal]', '[$form]'); " >
+        <i class="fa fa-check"></i>&nbsp;&nbsp;...
+    </button>
+</div>
+
+@section Modals{
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalAgregarDescripcion" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btnModalClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="CatalogosDatosGenerales">Catalogo</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="formAgregarDescripcion" class="form-horizontal" role="form">
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <table id="tableResultadoCatalogo" class="display stripe hover row-border">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Código</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+
+                            </div>
+
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-SolicitantesDatosGenerales")
+
+}

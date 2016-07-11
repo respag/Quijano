@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="UltimusIncident">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Incident" type="xs:int" />
+      <xs:element minOccurs="0" name="JobFunction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" name="Process" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="Step" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Supervisor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupervisorFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaskId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+      <xs:element minOccurs="0" name="XmlData" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UltimusIncident" nillable="true" type="tns:UltimusIncident" />
+  <xs:complexType name="ArrayOfNodeVariables">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeVariables" nillable="true" type="tns:NodeVariables" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodeVariables" nillable="true" type="tns:ArrayOfNodeVariables" />
+  <xs:complexType name="NodeVariables">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NodeValue" nillable="true" type="xs:anyType" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NodeValues" nillable="true" type="q1:ArrayOfanyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeVariables" nillable="true" type="tns:NodeVariables" />
+  <xs:complexType name="UltimusNativeTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="XmlData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dEndTime" type="xs:double" />
+      <xs:element minOccurs="0" name="dStartTime" type="xs:double" />
+      <xs:element minOccurs="0" name="nIncidentNo" type="xs:int" />
+      <xs:element minOccurs="0" name="nProcessVersion" type="xs:int" />
+      <xs:element minOccurs="0" name="strAssignedToUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strProcessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strStepName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strTaskId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strUser" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UltimusNativeTask" nillable="true" type="tns:UltimusNativeTask" />
+  <xs:complexType name="UltimusNativeIncident">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="XmlData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nIncidentNo" type="xs:int" />
+      <xs:element minOccurs="0" name="nIncidentStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="nVersion" type="xs:int" />
+      <xs:element minOccurs="0" name="strIncidentOwner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strIncidentSummary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strProcessName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UltimusNativeIncident" nillable="true" type="tns:UltimusNativeIncident" />
+  <xs:complexType name="UltimusUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strDepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strJobFunction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strUserFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strUserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UltimusUser" nillable="true" type="tns:UltimusUser" />
+  <xs:complexType name="ArrayOfExclusionDay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExclusionDay" nillable="true" type="tns:ExclusionDay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExclusionDay" nillable="true" type="tns:ArrayOfExclusionDay" />
+  <xs:complexType name="ExclusionDay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Day" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Month" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExclusionDay" nillable="true" type="tns:ExclusionDay" />
+  <xs:complexType name="ArrayOfUltimusUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UltimusUser" nillable="true" type="tns:UltimusUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUltimusUser" nillable="true" type="tns:ArrayOfUltimusUser" />
+  <xs:complexType name="ArrayOfUltimusNativeIncident">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UltimusNativeIncident" nillable="true" type="tns:UltimusNativeIncident" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUltimusNativeIncident" nillable="true" type="tns:ArrayOfUltimusNativeIncident" />
+  <xs:complexType name="ArrayOfDayOfWeekJSON">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DayOfWeekJSON" type="tns:DayOfWeekJSON" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDayOfWeekJSON" nillable="true" type="tns:ArrayOfDayOfWeekJSON" />
+  <xs:simpleType name="DayOfWeekJSON">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sunday" />
+      <xs:enumeration value="Monday" />
+      <xs:enumeration value="Tuesday" />
+      <xs:enumeration value="Wednesday" />
+      <xs:enumeration value="Thursday" />
+      <xs:enumeration value="Friday" />
+      <xs:enumeration value="Saturday" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DayOfWeekJSON" nillable="true" type="tns:DayOfWeekJSON" />
+  <xs:complexType name="ArrayOfUserAssociate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserAssociate" nillable="true" type="tns:UserAssociate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserAssociate" nillable="true" type="tns:ArrayOfUserAssociate" />
+  <xs:complexType name="UserAssociate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Associate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssociateFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Organization" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserAssociate" nillable="true" type="tns:UserAssociate" />
+</xs:schema>

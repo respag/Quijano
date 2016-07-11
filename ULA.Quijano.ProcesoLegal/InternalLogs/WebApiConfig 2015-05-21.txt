@@ -1,0 +1,466 @@
+05/21/2015 15:57:28|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 15:59:40|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:05:04|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:11:07|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:21:45|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:25:23|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:26:39|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:27:33|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:28:26|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:33:05|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:34:53|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:41:26|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 16:54:17|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 17:01:58|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'ultimussystemde.quijano.local'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request)
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.IUltimusIntegration.GetTask(GetTaskRequest request) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1643
+   at ULA.Quijano.ProcesoLegal.UltimusIntegrationLayer.UltimusIntegrationClient.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Service References\UltimusIntegrationLayer\Reference.cs:line 1650
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 69
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 21:43:38|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.Exception: GetTask Error ---> userName:QUIJANO.local/ultimusdev|taskId:S05141541da168cad659ca2c828991f:::System.Exception: Initialize Error
+   at UltimusIntegrationLayer.Main.GetTask(String userName, String taskId) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\Main.cs:line 25
+   at UltimusIntegrationLayer.UltimusIntegration.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\UltimusIntegration.svc.cs:line 33
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 78
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 21:44:31|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.Exception: GetTask Error ---> userName:QUIJANO.local/ultimusdev|taskId:S05141541da168cad659ca2c828991f:::System.Exception: Initialize Error
+   at UltimusIntegrationLayer.Main.GetTask(String userName, String taskId) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\Main.cs:line 25
+   at UltimusIntegrationLayer.UltimusIntegration.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\UltimusIntegration.svc.cs:line 33
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 78
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 21:44:53|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.Exception: GetTask Error ---> userName:QUIJANO.local/ultimusdev|taskId:S05141541da168cad659ca2c828991f:::System.Exception: Initialize Error
+   at UltimusIntegrationLayer.Main.GetTask(String userName, String taskId) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\Main.cs:line 25
+   at UltimusIntegrationLayer.UltimusIntegration.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\UltimusIntegration.svc.cs:line 33
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 78
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 21:46:12|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.Exception: GetTask Error ---> userName:QUIJANO.local/ultimusdev|taskId:S05141541da168cad659ca2c828991f:::System.Exception: Initialize Error
+   at UltimusIntegrationLayer.Main.GetTask(String userName, String taskId) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\Main.cs:line 25
+   at UltimusIntegrationLayer.UltimusIntegration.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\UltimusIntegration.svc.cs:line 33
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 78
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 21:48:58|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.Exception: GetTask Error ---> userName:QUIJANO.local/ultimusdev|taskId:S05141541da168cad659ca2c828991f:::System.Exception: Initialize Error
+   at UltimusIntegrationLayer.Main.GetTask(String userName, String taskId) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\Main.cs:line 25
+   at UltimusIntegrationLayer.UltimusIntegration.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\UltimusIntegration.svc.cs:line 33
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 78
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+05/21/2015 21:58:17|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] System.Exception: GetTask Error ---> userName:|taskId::::System.Exception: Initialize Error
+   at UltimusIntegrationLayer.Main.GetTask(String userName, String taskId) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\Main.cs:line 25
+   at UltimusIntegrationLayer.UltimusIntegration.GetTask(String userName, String taskId, UltimusIncident& ui, String& error) in c:\Ultimus\ProductsModulesULA\Products\BPMComplement\Ultimus.IntegrationLayer\UltimusIntegration.svc.cs:line 33
+   at ULA.Quijano.ProcesoLegal.Commons.UltimusManager.CompleteTask(String UserID, String TaskID, String memo, String summary, List`1 NodeVariablesList) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Commons\UltimusManager.cs:line 78
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.CompletarTarea(String proceso, String tempIncident, String userID, String taskID) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 19
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)

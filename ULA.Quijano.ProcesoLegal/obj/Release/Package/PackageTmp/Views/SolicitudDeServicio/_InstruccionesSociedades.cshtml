@@ -1,0 +1,742 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Datos Generales</h3>
+    </div>
+    <div class="panel-body">
+
+        <div role="tabpanel">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs pestanias" role="tablist">
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation" class="active">
+                        <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="nav-active">Datos de la Sociedad</a>
+                    </li>
+                }
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation">
+                        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Datos de Facturación</a>
+                    </li>
+                }
+
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                    <li role="presentation" @if (ViewBag.Step == "Monitoreo") { @("class=active") } >
+                        <a href="#asuntos" aria-controls="abrirAsuntos" role="tab" data-toggle="tab" @if (ViewBag.Step == "Monitoreo") { @("class=nav-active") } >Abrir Asunto</a>
+                    </li>
+                }
+
+                @if (ViewBag.Step == "Control")
+                {
+                    <li role="presentation" class="active">
+                        <a href="#CheckListControl" aria-controls="CheckListControl" role="tab" data-toggle="tab" class="nav-active">Check List Control</a>
+                    </li>
+                }
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <br />
+                    <form id="formInstSocDatosSociedad">
+                        <div class="panel panel-default">
+
+                            <div class="panel-body">
+
+                                @if (ViewBag.Step != "EjecutarInstruccion")
+                                {
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-offset-8" style="font-size: 12px !important;">
+                                            <label>Búsqueda de la Sociedad</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input id="rbSociedadExiste" type="radio" name="existeOno" value="0" />Existente&nbsp;&nbsp;&nbsp;
+                                            <input id="rbSociedadNueva" type="radio" name="existeOno" value="1" />Nueva
+                                        </div>
+                                    </div>
+                                    <br />
+                                }
+                                else
+                                {
+                                    <input id="rbSociedadExiste" type="radio" name="existeOno" value="0" style="display: none" />
+                                    <input id="rbSociedadNueva" type="radio" name="existeOno" value="1" style="display: none" />
+                                }
+
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <div class="row">
+                                            <div class="col-xs-5" style="padding-right: 2px;">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon span-input-white" id="basic-addon1">Código de Sociedad:</span>
+                                                    <input id="txtDatSocCodSociedad" name="txtDatSocCodSociedad" type="text" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-7" style="padding-left: 2px;">
+                                                <div class="input-group padding-bottom form-inline input-group-sm">
+                                                    <span class="input-group-addon" id="basic-addon1">Nombre Sociedad:</span>
+                                                    <input id="txtDatSocSociedad" name="txtDatSocSociedad" type="text" class="form-control " aria-describedby="basic-addon1" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (ViewBag.Step == "EjecutarInstruccion")
+                                    {
+                                        <div class="col-xs-1">
+                                            <button id="btnDatSocActualizar" type="button" class="btn btn-primary btn-sm">Actualizar</button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-xs-1">
+                                            <button id="btnDatSocConsultar" type="button" class="btn btn-primary btn-sm" style="display:none">Consultar</button>
+                                        </div>
+                                    }
+                                    <div class="col-xs-3">
+                                        <div class="input-group padding-bottom input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Tipo de Corporación:</span>
+                                            <select id="ddlDatSocTipoCorp" name="ddlDatSocTipoCorp" class="form-control" aria-label="..." required>
+                                                <option></option>
+                                                <option value="PA">Nombre 1</option>
+                                                <option value="CT">Nombre 2</option>
+                                                <option value="NY">Nombre 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Cliente Responsable Anterior:</span>
+                                            <input id="txtDatSocCodClienteAnterior" name="txtDatSocCodClienteAnterior" type="text" class="form-control " aria-describedby="basic-addon1" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8" style="padding-left: 2px;">
+                                        <input id="txtDatSocClienteAnterior" name="txtDatSocClienteAnterior" type="text" class="form-control input-sm" aria-describedby="basic-addon1" />
+                                    </div>
+                                    <input id="TempCodigoCliente" type="hidden" value="" />
+                                    <input id="NombreCodigoCliente" type="hidden" value="" />
+                                </div>
+
+                                <div class="row">
+                                    @*
+                            <div class="col-xs-6 col-md-3">
+                                <div class="input-group padding-bottom input-group-sm">
+                                    <span class="input-group-addon" id="basic-addon1">Tipo de Capital:</span>
+                                    <select id="ddlDatSocTipoCap" name="ddlDatSocTipoCap" class="form-control" aria-label="..." required>
+                                        <option></option>
+                                        <option value="PA">Nombre 1</option>
+                                        <option value="CT">Nombre 2</option>
+                                        <option value="NY">Nombre 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                                    *@
+                                    <div class="col-xs-4">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&nbsp;&nbsp;Monto Cap:</span>
+                                            <input id="txtDatSocMontoCap" name="txtDatSocMontoCap" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">N° Acciones:</span>
+                                            <input id="txtDatSocNumAcciones" name="txtDatSocNumAcciones" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Valor por Acción:</span>
+                                            <input id="txtDatSocValorAccion" name="txtDatSocValorAccion" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <hr />
+
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Tipo de Acciones:</span>
+                                            <select id="ddlDatSocTipoAccion" name="ddlDatSocTipoAccion" class="form-control" aria-label="..." required>
+                                                <option></option>
+                                                <option value="PA">Nombre 1</option>
+                                                <option value="CT">Nombre 2</option>
+                                                <option value="NY">Nombre 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Cantidad:</span>
+                                            <input id="txtDatSocCant" name="txtDatSocCant" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                @*########## Tabla Dignatarios ##########*@
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <div class="row">
+                                                    <div class="col-md-4"></div>
+                                                    <div class="col-md-4">
+                                                        <center><h3 class="panel-title">Dignatarios</h3></center>
+                                                    </div>
+                                                    <div class="col-md-12 text-right">
+                                                        <button id="btnDignatarioAgregar" type="button" class="btn btn-primary btn-sm" style="display:none">
+                                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar dignatario
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel-body">
+                                                <table id="tbDignatarios" class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                            <th>Identificación</th>
+                                                            <th>Título</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*
+                            <div class="col-xs-2">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Validar Siglas</div>
+                                    <div class="panel-body validar-siglas">
+                                        <p class="bg-info">Dig - Dignatario</p>
+                                        <p class="bg-info">Apo - Apoderado</p>
+                                        <p class="bg-info">Dir - Director</p>
+                                        <p class="bg-info">Rep - Representante</p>
+                                        <p class="bg-info">Fir - Firmante</p>
+                                        <p class="bg-info">Sus - Suscriptor</p>
+                                        <p class="bg-info">Acc - Accionista</p>
+                                        <p class="bg-info">Ben - Beneficiado</p>
+                                        <p class="bg-info">Pre - Presidente</p>
+                                        <p class="bg-info">Sec - Secretario</p>
+                                        <p class="bg-info">Tes - Tesorero</p>
+                                    </div>
+                                </div>
+                            </div>
+                                    *@
+                                </div>
+
+
+                                @*########## Detalle Proposito ##########*@
+
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Razones:</span>
+                                            <select id="ddlDatSocRazones" name="ddlDatSocRazones" class="form-control" aria-label="..." required>
+                                                <option value=""></option>
+                                            </select>
+                                            <!--<input id="ddlDatSocRazones" name="ddlDatSocRazones" type="text" class="form-control" aria-describedby="basic-addon1" required />-->
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Propósitos:</span>
+                                            <select id="ddlDatSocPropositos" name="ddlDatSocPropositos" class="form-control" aria-label="..." required>
+                                                <option value=""></option>
+                                            </select>
+                                            <!--<input id="ddlDatSocPropositos" name="ddlDatSocPropositos" type="text" class="form-control" aria-describedby="basic-addon1" required />-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title text-center">Detalle Propósito</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <textarea id="txtaDatSocDetProposito" name="txtaDatSocDetProposito" class="form-control" rows="3" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer form-inline">
+                                <center><h4>Tarifa</h4></center>
+                                <center>
+                                    <div class="padding-bottom">
+                                        <input id="ddlDatSocProveeDirectores" name="ddlDatSocProveeDirectores" type="checkbox" /> Cliente Provee Directores
+                                    </div>
+                                </center>
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title text-center">Tarifa de Anualidad</h3>
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon span-input-white" id="basic-addon1">Tasa</span>
+                                                    <input id="txtDatSocTasa" name="txtDatSocTasa" type="text" class="form-control" aria-describedby="basic-addon1" disabled />
+                                                </div>
+
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon span-input-white" id="basic-addon1">Agente Resid</span>
+                                                    <input id="txtDatSocAgenteResid" name="txtDatSocAgenteResid" type="text" class="form-control" aria-describedby="basic-addon1" disabled />
+                                                </div>
+
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon span-input-white" id="basic-addon1">Directores QA</span>
+                                                    <input id="txtDatSocDirectoresQA" name="txtDatSocDirectoresQA" type="text" class="form-control" aria-describedby="basic-addon1" disabled />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title text-center">Valor del Trámite</h3>
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon span-input-white" id="basic-addon1">Honorarios</span>
+                                                    <input id="txtDatSocHonorarios" name="txtDatSocHonorarios" type="number" class="form-control" aria-describedby="basic-addon1" required />
+                                                </div>
+
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon span-input-white" id="basic-addon1">Gastos</span>
+                                                    <input id="txtDatSocGastos" name="txtDatSocGastos" type="number" class="form-control" aria-describedby="basic-addon1" required />
+                                                </div>
+
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon span-input-white" id="basic-addon1">Total</span>
+                                                    <input id="txtDatSocTotal" name="txtDatSocTotal" type="text" class="form-control" aria-describedby="basic-addon1" readonly />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title text-center">Análisis de Antigüedad</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table id="tbAnalisis" class="table table-hover text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Corriente</th>
+                                                    <th>1-30 días</th>
+                                                    <th>31-60 días</th>
+                                                    <th>61-90 días</th>
+                                                    <th>91-120 días</th>
+                                                    <th>121-360 días</th>
+                                                    <th>361 o más días</th>
+                                                    <th>Totales</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Trámites</strong></td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Anualidades</strong></td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Totales</strong></td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                }
+                
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                <div role="tabpanel" class="tab-pane" id="profile">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_DatosFacturacionEntrega.cshtml")
+                </div>
+                }
+
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                <div role="tabpanel" class="@if (ViewBag.Step == "Monitoreo") { @("tab-pane active") } else { @("tab-pane") }" id="asuntos">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_AbrirAsunto.cshtml")
+                </div>
+                }
+
+                @if (ViewBag.Step == "Control")
+                {
+                <div id="CheckListControl" role="tabpanel" class="tab-pane active">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_CheckListControl.cshtml")
+                </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@* ------------- POPUPS distribucion --------------------*@
+<div class="modal-popup fade" id="modalModTbDistribucion" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-edit"></i>&nbsp;&nbsp;Modificar Distribución</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseModificarDist" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalModDistribucion">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Código</span>
+                        <input id="txtModalModDistrCod" name="txtModalModDistrCod" type="text" class="form-control"  aria-describedby="basic-addon1" disabled />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Beneficiario</span>
+                        <input id="txtModalModDistBenef" name="txtModalModDistBenef" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1">Porcentaje</span>
+                                <input id="txtModalModDistPorc" name="txtModalModDistPorc" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1">N Acciones</span>
+                                <input id="txtModalModDistNAccion" name="txtModalModDistNAccion" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalModDistActualizar" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Actualizar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal-popup fade" id="modalAddTbDistribucion" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-reply"></i>&nbsp;&nbsp;Agregar Distribución</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseAgregarDist" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalAddDistribucion">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Código</span>
+                        <input id="txtModalAddDistrCod" name="txtModalAddDistrCod" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Beneficiario</span>
+                        <input id="txtModalAddDistBenef" name="txtModalAddDistBenef" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1">Porcentaje</span>
+                                <input id="txtModalAddDistPorc" name="txtModalAddDistPorc" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1">N Acciones</span>
+                                <input id="txtModalAddDistNAccion" name="txtModalAddDistNAccion" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalAddDistAgregar" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Agregar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+@* ------------- POPUPS dignatarios --------------------*@
+<div class="modal-popup fade" id="modalAddTbDignatarios" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-reply"></i>&nbsp;&nbsp;Agregar Dignatarios</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseAgregarDign" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalAddDignatarios">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                        <input id="txtModalAddDignNombre" name="txtModalAddDignNombre" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Identificación</span>
+                        <input id="txtModalAddDignIdent" name="txtModalAddDignIdent" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <br />
+                    <p class="padding-bottom">Título</p>
+                    <div class="row p-subtitle">
+                        <div class="col-xs-2">
+                            <input id="chkbDig" type="checkbox" style="float:none" /> Dig
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbApo" type="checkbox" style="float:none" /> Apo
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbDir" type="checkbox" style="float:none" /> Dir
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbRep" type="checkbox" style="float:none" /> Rep
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbFir" type="checkbox" style="float:none" /> Fir
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbSus" type="checkbox" style="float:none" /> Sus
+                        </div>
+                    </div>
+
+                    <div class="row p-subtitle">
+                        <div class="col-xs-2">
+                            <input id="chkbAcc" type="checkbox" style="float:none" /> Acc
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbBen" type="checkbox" style="float:none" /> Ben
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbPre" type="checkbox" style="float:none" /> Pre
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbSec" type="checkbox" style="float:none" /> Sec
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbTes" type="checkbox" style="float:none" /> Tes
+                        </div>
+                    </div>
+
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalAddDignAgregar" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Agregar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal-popup fade" id="modalModTbDignatarios" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-edit"></i>&nbsp;&nbsp;Modificar Dignatarios</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseModificarDign" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <form id="formModalModDignatarios">
+                    <div class="row">
+                        <div class="col-xs-4"></div>
+                        <div class="col-xs-4"></div>
+                        <div class="col-xs-4">
+                            <div class="input-group padding-bottom form-inline input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1">Código</span>
+                                <input id="txtModalModDignCod" name="txtModalModDignCod" type="text" class="form-control"  aria-describedby="basic-addon1" disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                        <input id="txtModalModDignNombre" name="txtModalModDignNombre" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Identificación</span>
+                        <input id="txtModalModDignIdent" name="txtModalModDignIdent" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Dirección</span>
+                        <input id="txtModalModDignDir" name="txtModalModDignDir" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+                    </div>
+                    <br />
+                    <p class="padding-bottom">Opciones</p>
+                    <div class="row p-subtitle">
+                        <div class="col-xs-2">
+                            <input id="chkbDig" type="checkbox" style="float:none" /> Dig
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbApo" type="checkbox" style="float:none" /> Apo
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbDir" type="checkbox" style="float:none" /> Dir
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbRep" type="checkbox" style="float:none" /> Rep
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbFir" type="checkbox" style="float:none" /> Fir
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbSus" type="checkbox" style="float:none" /> Sus
+                        </div>
+                    </div>
+
+                    <div class="row p-subtitle">
+                        <div class="col-xs-2">
+                            <input id="chkbAcc" type="checkbox" style="float:none" /> Acc
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbBen" type="checkbox" style="float:none" /> Ben
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbPre" type="checkbox" style="float:none" /> Pre
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbSec" type="checkbox" style="float:none" /> Sec
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="chkbTes" type="checkbox" style="float:none" /> Tes
+                        </div>
+                    </div>
+
+                </form>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalModDignActualizar" type="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>&nbsp;&nbsp;Actualizar
+                        </button>
+                    </div>
+                </div>
+                <br />
+            </div>
+            @*<div class="modal-footer"></div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal-popup fade" id="modalSociedadesEncontradas" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-user"></i>&nbsp;&nbsp;Sociedades Encontradas</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseSociedadesEncontradas" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <div id="formModalSociedadesEncontradas">
+                    <table id="tbSociedadesEncontradas" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>CÓDIGO SOCIEDAD</th>
+                                <th>NOMBRE DE SOCIEDAD</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <input type="hidden" id="hiddenEmailCliente" name="hiddenEmailCliente" />
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8 text-right">
+                        * Doble click para seleccionar la Sociedad
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

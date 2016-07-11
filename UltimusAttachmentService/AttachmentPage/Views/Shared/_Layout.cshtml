@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Quijano & Associates</title>    
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/bootstrap/css/bootstrap.min")
+    @Styles.Render("~/Content/fileupload/css/jquery.fileupload")
+    @Styles.Render("~/Content/fileupload/css/jquery.fileupload-ui")
+    @*@Styles.Render("~/Content/blueimp-gallery.min")*@
+</head>
+<body>
+
+    <div id="body" style="margin-top: 10px;">
+        @RenderBody()
+    </div>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        if (!window.jQuery) {
+            var jq = document.createElement('script'); jq.type = 'text/javascript';
+            // Path to jquery.js file, eg. Google hosted version
+            jq.src = "@Scripts.Url("~/bundles/jquery")";
+            document.getElementsByTagName('head')[0].appendChild(jq);
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Scripts/jquery.min")
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.ui.widget")
+    @Scripts.Render("~/Scripts/LoadImage/load-image")
+    @Scripts.Render("~/Scripts/LoadImage/load-image-ios")
+    @Scripts.Render("~/Scripts/LoadImage/load-image-orientation")
+    @Scripts.Render("~/Scripts/LoadImage/load-image-meta")
+    @Scripts.Render("~/Scripts/LoadImage/load-image-exif")
+    @Scripts.Render("~/Scripts/LoadImage/load-image-exif-map")
+    @Scripts.Render("~/Scripts/bootstrap.min")
+    @Scripts.Render("~/Scripts/bootstrap-filestyle.min")    
+    @*@Scripts.Render("~/Scripts/jquery.blueimp-gallery.min.js")*@
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.iframe-transport")
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.fileupload")    
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.fileupload-process")
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.fileupload-image")
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.fileupload-audio")
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.fileupload-video")
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.fileupload-validate")
+    @Scripts.Render("~/Scripts/JQuery.FileUpload/jquery.fileupload-ui")
+    @Scripts.Render("~/Scripts/tmpl.min")
+    @Scripts.Render("~/Scripts/canvas-to-blob.min")
+
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

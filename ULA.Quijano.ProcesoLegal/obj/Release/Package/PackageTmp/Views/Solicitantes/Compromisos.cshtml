@@ -1,0 +1,239 @@
+﻿@section ButtonOption {
+
+
+    <button type="button" class="btn btn-default btn-sm hidden" id="btnRegresarCalculoPrestamo"
+            onclick="location.href = '@string.Concat(Url.Action(ViewBag.TipoPrestamo, "CalculoPrestamo", null), ViewBag.QueryEncripted)&tipoPrestamo=@ViewBag.TipoPrestamo'">
+        <i class="fa fa-arrow-circle-left"></i>&nbsp;Regresar a Cálculo del Préstamo
+    </button>
+
+    <button type="button" id="btnVerDetallesAPC" class="btn btn-default btn-sm">
+        <i class=" fa fa-arrow-circle-right"></i>&nbsp;Ver Detalles APC
+    </button>
+    <button type="button" id="btnHistorialAPC" class="btn btn-default btn-sm">
+        <i class=" fa fa-arrow-circle-right"></i>&nbsp;Historial APC
+    </button>
+
+    <button type="button" id="btnNuevoCompromiso" class="btn btn-success btn-sm"><i class="fa fa-floppy-o"></i>&nbsp;Nuevo Compromiso</button>
+
+    @Html.Partial("~/Views/Solicitantes/_OpcionesGenerales.cshtml")
+
+
+}
+
+<h3><i class="fa fa-university"></i> Compromisos </h3>
+
+<div class="row">
+    <form id="formIntegracionAPC" class="form-horizontal" role="form">
+
+        <div class="col-md-6">
+
+            <div class="well well-sm">
+
+
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Solicitante</h4>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Nombre Solicitante</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtNombreSolicitante" name="txtNombreSolicitante" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Identificación</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtIdentificacionSolicitante" name="txtIdentificacionSolicitante" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="well well-sm">
+
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Integración APC</h4>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Usuario:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtusuarioAPC" name="txtusuarioAPC" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Contraseña:</label>
+                    <div class="col-sm-6">
+                        <input type="password" id="txtPasswordAPC" name="txtPasswordAPC" class="form-control imput-xs" required data-role="btnBuscarAPC" />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarAPC" class="btn btn-info btn-xs"><i class="fa fa-search"></i>&nbsp;Buscar</button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms"></label>
+                    <label class="col-sm-8" style="color: crimson;">Última consulta 23-Noviembre-2014 3:25pm</label>
+                </div>
+
+                <hr />
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Obligaciones</h4>
+
+
+
+                @Html.Partial("~/Views/Solicitantes/_DetalleCompromisos.cshtml")
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+    </form>
+
+    <form id="formObligacion" class="form-horizontal" role="form">
+
+        <div class="col-md-6">
+            <div class="well well-sm">
+
+                <h4><i class="fa fa-folder-open"></i>&nbsp;Detalle de Obligación</h4>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo Obligación</label>
+                    <div class="col-sm-8">
+                        <select id="ddlTipoObligacion" name="ddlTipoObligacion" class="form-control imput-xs" required></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Beneficiario</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtBeneficiario" name="txtBeneficiario" class="form-control imput-xs controlUppercase" required maxlength="50" />
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Institución</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtInstitucion" name="txtInstitucion" class="form-control imput-xs controlUppercase" required maxlength="50" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Monto Límite</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="txtMontoLimite" name="txtMontoLimite" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Forma de Pago</label>
+                    <div class="col-sm-8">
+                        <select id="ddlFormaPago" name="ddlFormaPago" class="form-control imput-xs" required></select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Mensualidad</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="txtMensualidad" name="txtMensualidad" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">No. Referencia</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtNumeroReferencia" name="txtNumeroReferencia" class="form-control imput-xs" maxlength="20" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Saldo</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="txtSaldo" name="txtSaldo" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Historial</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtHistorial" name="txtHistorial" class="form-control imput-xs" maxlength="20" />
+                    </div>
+                </div>
+
+                <div id="divEndeudamientoCancelaObligaciones">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Aplica Endeudamiento</label>
+                        <div class="col-sm-5">
+                            <input type="checkbox" id="chkSeleccionarEndeudamiento" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ControlsForms">Cancelar Obligación</label>
+                        <div class="col-sm-5">
+                            <input type="checkbox" id="chkSeleccionarObligacion" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">No. de Pagos</label>
+                    <div class="col-sm-5">
+                        <input type="number" id="txtNumeroPagos" name="txtNumeroPagos" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Días de Atraso</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="txtDiasAtraso" name="txtDiasAtraso" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms"></label>
+                    <div class="col-sm-8">
+                        <button type="button" id="btnGuardarCompromiso" class="btn btn-success btn-sm"><i class=" fa fa-save"></i>&nbsp;Guardar</button>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-SolicitantesCompromisos")
+
+}

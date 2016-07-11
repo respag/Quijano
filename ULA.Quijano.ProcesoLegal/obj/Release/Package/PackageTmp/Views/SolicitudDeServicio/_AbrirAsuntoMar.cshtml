@@ -1,0 +1,208 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+
+<center>
+    <div class="padding-bottom">
+        <h4>Datos Generales del Asunto</h4>
+    </div>
+</center>
+
+<hr />
+<br />
+
+<form id="formDatMarAsunto">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">N° Asunto:</span>
+                <input type="text" id="txtDatMarAsunto" name="txtDatMarAsunto" class="form-control " aria-describedby="basic-addon1" required />
+            </div>
+        </div>
+        <div class="col-xs-2">
+            @if (ViewBag.Step == "Monitoreo")
+            {
+                <button id="btnDatMarCrearActualizar" type="button" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<strong>Actualizar</strong>
+                </button>
+            }
+            else
+            {
+                <button id="btnDatMarCrearActualizar" type="button" class="btn btn-primary btn-sm">Consultar</button>
+            }
+        </div>
+        <div class="col-xs-6" style="padding-left: 2px;">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Estado del Asunto:</span>
+                <input type="text" id="txtDatMarEstadoAsunto" name="txtDatMarEstadoAsunto" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-archive"></i>&nbsp;&nbsp;Oficina:</span>
+                        <input type="text" id="txtDatMarCodOficina" name="txtDatMarCodOficina" class="form-control " aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-6" style="padding-left: 2px;">
+                    <input type="text" id="txtDatMarOficina" name="txtDatMarOficina" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-6" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-building"></i>&nbsp;&nbsp;Compañia:</span>
+                        <input type="text" id="txtDatMarCodCompany" name="txtDatMarCodCompany" class="form-control input-sm" aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-6" style="padding-left: 2px;">
+                    <input type="text" id="txtDatMarCompany" name="txtDatMarCompany" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon span-input-white" id="basic-addon1">Código de Sociedad</span>
+                <input id="txtDatMarCodigoSociedad" name="txtDatMarCodigoSociedad" type="text" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Aplicación:</span>
+                <input type="text" id="txtDatMarAplicacion" name="txtDatMarAplicacion" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Fecha Apertura:</span>
+                <input id="txtDatMarFechaApertura" name="txtDatMarFechaApertura" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4" style="padding-right: 2px;">
+            <div class="input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-female"></i>&nbsp;&nbsp;Asistente:</span>
+                <input type="text" id="txtDatMarCodAsistente" name="txtDatMarCodAsistente" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-8" style="padding-left: 2px;">
+            <input type="text" id="txtDatMarAsistente" name="txtDatMarAsistente" class="form-control input-sm" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Sociedad/Fundación:</span>
+                        <input type="text" id="txtDatMarAsuntoCodSociedad" name="txtDatMarAsuntoCodSociedad" class="form-control " aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding-left: 2px;">
+                    <input type="text" id="txtDatMarAsuntoSociedad" name="txtDatMarAsuntoSociedad" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Cliente:</span>
+                        <input type="text" class="form-control" id="txtDatMarAsuntoCodCliente" name="txtDatMarAsuntoCodCliente" aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding-left: 2px;">
+                    <input type="text" id="txtDatMarAsuntoCliente" name="txtDatMarAsuntoCliente" class="form-control input-sm" aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group padding-bottom input-group-sm">
+        <span class="input-group-addon" id="basic-addon1">Tipo de Fact. As:</span>
+        <select id="ddlDatMarTipoFacturacion" name="ddlDatMarTipoFacturacion" class="form-control" data-original-title="" title="" aria-label="...">
+            <option value=""></option>
+        </select>
+    </div>
+</form>
+
+<br />
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <center><h3 class="panel-title">Estado de solicitudes</h3></center>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table id="tbDatMarEstadoSolicitudes" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Fecha de Solicitud</th>
+                    <th>Asignado a</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@* ------------- POPUPS ASUNTOS --------------------*@
+<div class="modal-popup fade" id="modalMarAsuntosEncontrados" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-user"></i>&nbsp;&nbsp;Asuntos Encontrados</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseMarAsuntosEncontrados" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <div id="formModalMarAsuntosEncontrados">
+                    <table id="tbMarAsuntosEncontrados" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>NÚMERO ASUNTO</th>
+                                <th>NOMBRE CLIENTE</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8 text-right">
+                        * Doble click para seleccionar el Asunto
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

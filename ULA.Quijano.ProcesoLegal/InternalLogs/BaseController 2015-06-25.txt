@@ -1,0 +1,2 @@
+06/25/2015 09:48:34|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210

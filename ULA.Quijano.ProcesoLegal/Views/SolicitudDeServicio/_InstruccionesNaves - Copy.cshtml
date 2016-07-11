@@ -1,0 +1,482 @@
+﻿@{
+    Layout = null;
+}
+
+<!--<form id="formInstNavruccionesHeader">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-area-chart"></i>&nbsp;&nbsp;Área:</span>
+                <input id="txtInstNavArea" name="txtInstNavArea" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-university"></i>&nbsp;&nbsp;Jurisdicción:</span>
+                <input id="txtInstNavJurisdiccion" name="txtInstNavJurisdiccion" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-language"></i>&nbsp;&nbsp;Idioma:</span>
+                <input id="txtInstNavIdioma" name="txtInstNavIdioma" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-4" style="padding-right: 2px;">
+                    <div class="input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-exchange"></i>&nbsp;&nbsp;Tramite:</span>
+                        <input id="txtInstNavCodTramite" name="txtInstNavCodTramite" type="text" class="form-control input-group-sm"  aria-describedby="basic-addon1" readonly />
+                    </div>
+                </div>
+                <div class="col-xs-8" style="padding-left: 2px;">
+                    <input id="txtInstNavTramite" name="txtInstNavTramite" type="text" class="form-control input-sm"  aria-describedby="basic-addon1" readonly />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-star-half-o"></i>&nbsp;&nbsp;Prioridad:</span>
+                <input id="txtInstNavPrioridad" name="txtInstNavPrioridad" type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-archive"></i>&nbsp;&nbsp;Oficina:</span>
+                <select id="ddlInstNavOficina" name="ddlInstNavOficina" class="form-control" aria-label="..." readonly>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-gavel"></i>&nbsp;&nbsp;Bajo Leyes:</span>
+                <select id="ddlInstNavBajoLeyes" name="ddlInstNavBajoLeyes" class="form-control" aria-label="..." readonly>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-male"></i>&nbsp;&nbsp;Abogado:</span>
+                <select id="ddlInstNavAbogado" name="ddlInstNavAbogado" class="form-control" aria-label="..." readonly>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;InstNavrucciones Generales / Obersvaciones</label>
+    <textarea id="txtaInstNavObersvaciones" name="txtaInstNavObersvaciones" class="form-control" rows="3"></textarea>
+
+    <br />
+</form>-->
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Detalles de Instrucciones</h3>
+    </div>
+    <div class="panel-body">
+        <div role="tabpanel">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs pestanias" role="tablist">
+                <li role="presentation" @if (ViewBag.Step == "Monitoreo" || ViewBag.Step == "Control") { @("class=hide")   } else { @("class=active")   }><a href="#homeNav" aria-controls="home" role="tab" data-toggle="tab">Datos de Naves</a></li>
+
+                <li role="presentation" @if (ViewBag.Step == "Monitoreo" || ViewBag.Step == "Control") { @("class=hide")   } else { @("class=active")   }><a href="#profileNav" aria-controls="profile" role="tab" data-toggle="tab">Datos de Facturación y Entrega</a></li>
+
+                <li role="presentation" @if (ViewBag.Step == "Control") { @("class=hide") }><a href="#asuntosNav" aria-controls="abrirAsuntos" role="tab" data-toggle="tab">Abrir Asunto</a></li>
+
+                <li role="presentation" @if (ViewBag.Step == "Monitoreo") { @("class=hide")   } else { @("class=active")   }><a href="#CheckListControlNav" aria-controls="CheckListControl" role="tab" data-toggle="tab">Check List Control.</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active " id="homeNav">
+                    <form id="formInstNavDatosNaves">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <br />
+                                @*<div class="text-right">
+                        <button id="btnGuardarDatosNaves" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>&nbsp;&nbsp;Guardar datos</button>
+                    </div>*@
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-offset-8">
+                                        <label>Búsqueda de la Nave</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input id="rbNaveExiste" type="radio" name="existeOno" value="0" />Existente&nbsp;&nbsp;&nbsp;
+                                        <input id="rbNaveNueva" type="radio" name="existeOno" value="1" />Nueva
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            @*<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Nave:</span>*@
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-ship"></i>&nbsp;&nbsp;Código de Nave:</span>
+                                            <input id="txtDatNavCodNave" name="txtDatNavCodNave" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8" style="padding-left: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-ship"></i>&nbsp;&nbsp;Nombre de la Nave:</span>
+                                            <input type="text" id="txtDatNavNave" name="txtDatNavNave" class="form-control input-sm" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            @*<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Nave:</span>*@
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-users"></i>&nbsp;&nbsp;Código de Compañía:</span>
+                                            <input id="txtDatNavCodNave" name="txtDatNavCodComp" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8" style="padding-left: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-users"></i>&nbsp;&nbsp;Nombre de la Compañía:</span>
+                                            <input type="text" id="txtDatNavNave" name="txtDatNavComp" class="form-control input-sm" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Nombre Anterior:</span>
+                                            <input id="txtDatNavCodNave" name="txtNombreAnterior" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Soc. Propietaria:</span>
+                                            <input id="txtDatNavCodNave" name="txtSocPropietaria" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-8" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Corresponsal:</span>
+                                            <input id="txtDatNavCodNave" name="txtCorresponsal" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-8" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Cliente Corresponsal:</span>
+                                            <input id="txtDatNavCodNave" name="txtClienteCorresponsal" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-4" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Estado:</span>
+                                            <input id="txtDatNavCodNave" name="txtEstado" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Sts. Consolidado:</span>
+                                            <input id="txtDatNavCodNave" name="txtStsConsolidado" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-11" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Propietario de la Nave:</span>
+                                            <input id="txtDatNavCodNave" name="txtPropNave" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        Somos RL&nbsp;&nbsp;&nbsp;<input type="checkbox" id="SomosRl" name="SomosRl" value="1" />
+                                    </div>
+                                    <div class="col-xs-4">
+                                        Cobrar RL&nbsp;&nbsp;&nbsp;<input type="checkbox" id="CobrarRl"  name="CobrarRl" value="2" />
+                                    </div>
+                                    <div class="col-xs-4">
+                                        Cambio RL&nbsp;&nbsp;&nbsp;<input type="checkbox" id="CambioRl"  name="CambioRl" value="3" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div id ="divNombreRL"class="col-xs-8 hide" style="padding-right: 2px;">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">&nbsp;&nbsp;Nombre RL:</span>
+                                            <input id="txtNombreRl" name="txtNombreRl" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div role="tabpanel" class="tab-pane " id="profileNav">
+
+                    @Html.Partial("~/Views/SolicitudDeServicio/_DatosFacturacionEntregaFun.cshtml")
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane " id="asuntosNav">
+                    <br />
+                    <div class="row padding-bottom">
+                        <div class="col-xs-6">
+                            <h4>Datos Generales del Asunto</h4>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <button class="btn btn-primary btn-xs" type="submit">Crear Asunto</button>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <br />
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-6" style="padding-right: 2px;">
+                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Oficina:</span>
+                                        <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6" style="padding-left: 2px;">
+                                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-6" style="padding-right: 2px;">
+                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Compañia:</span>
+                                        <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6" style="padding-left: 2px;">
+                                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon " id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;N° Asunto:</span>
+                                <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group padding-bottom input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Aplicación:</span>
+                                <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group padding-bottom input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Jurisdicción:</span>
+                                <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group padding-bottom input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Fecha Apertura:</span>
+                                <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-xs-5" style="padding-right: 2px;">
+                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Tramite/Materia:</span>
+                                        <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-7" style="padding-left: 2px;">
+                                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group padding-bottom input-group-sm">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Idioma:</span>
+                                <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-xs-4" style="padding-right: 2px;">
+                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Abogado:</span>
+                                        <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-8" style="padding-left: 2px;">
+                                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-xs-4" style="padding-right: 2px;">
+                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Asistente:</span>
+                                        <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-8" style="padding-left: 2px;">
+                                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xs-4" style="padding-right: 2px;">
+                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Sociedad/Fundación:</span>
+                                        <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-8" style="padding-left: 2px;">
+                                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xs-4" style="padding-right: 2px;">
+                                    <div class="input-group padding-bottom form-inline input-group-sm">
+                                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Cliente:</span>
+                                        <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-8" style="padding-left: 2px;">
+                                    <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group padding-bottom input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Tipo de Fact. As:</span>
+                        <select class="form-control" aria-label="...">
+                            <option></option>
+                            <option value="PA">Nombre 1</option>
+                            <option value="CT">Nombre 2</option>
+                            <option value="NY">Nombre 3</option>
+                        </select>
+                    </div>
+
+                    <br />
+
+                    <div class=" input-group padding-bottom form-inline input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Instrucciones Generales/Observaciones:</span>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <center><h3 class="panel-title">Cargos</h3></center>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button type="button" class="btn btn-primary btn-xs">Guardar Cargos</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Columna 1</th>
+                                        <th>Columna 2</th>
+                                        <th>Columna 3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Table cell</td>
+                                        <td>Table cell</td>
+                                        <td>Table cell</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Table cell</td>
+                                        <td>Table cell</td>
+                                        <td>Table cell</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Table cell</td>
+                                        <td>Table cell</td>
+                                        <td>Table cell</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="CheckListControlNav" role="tabpanel" class="tab-pane ">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_CheckListControl.cshtml")
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+<div id="divInformacionResuelveSolicitud">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Información de Resuelve Solicitud</h3>
+        </div>
+        <div class="panel-body panel-body-bg">
+
+            <div class="row padding-bottom">
+                <div class="col-xs-6">
+                    <div class="input-group padding-bottom input-group-sm">
+                        <span class="input-group-addon">Estado:</span>
+                        <input id="txtEstado" name="txtEstado" type="text" class="form-control" readonly />
+                    </div>
+                </div>
+
+                <div class="col-xs-6" id="divFechaSeguimiento">
+                    <div class="input-group padding-bottom input-group-sm">
+                        <span class="input-group-addon">Fecha de Seguimiento:</span>
+                        <input id="txtFechaSeguimiento" name="txtFechaSeguimiento" type="text" class="form-control" readonly />
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group padding-bottom">
+                <span class="input-group-addon">Comentarios de Resolución:</span>
+                <textarea id="txtComentariosResolucion" name="txtComentariosResolucion" class="form-control" rows="14" readonly></textarea>
+            </div>
+
+            <iframe id="adjuntos" src="/AttachmentPage/?@ViewBag.AttachmentParam" width="100%" height="200px" style="border: hidden;"></iframe>
+
+        </div>
+    </div>
+</div>

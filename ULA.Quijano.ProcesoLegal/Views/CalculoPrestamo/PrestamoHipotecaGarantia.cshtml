@@ -1,0 +1,559 @@
+﻿@section ButtonOption {
+
+    <div class="btn-group">
+        @*<button type="button" class="btn btn-default btn-sm" id="btnGuardarDatosSolicitante"><i class="fa fa-floppy-o"></i>&nbsp;Guardar Datos del Préstamo</button>*@
+        <button type="button" class="btn btn-default btn-sm " id="btnRegresarCalculoPrestamo"
+                onclick="location.href = '@string.Concat(Url.Action("PrestamoHipoteca", "CalculoPrestamo", null), ViewBag.QueryEncripted)?tipoPrestamo=@ViewBag.TipoPrestamo'">
+            <i class="fa fa-arrow-circle-left"></i>&nbsp;Regresar a Cálculo del Préstamo
+        </button>
+        <button type="button" class="btn btn-default btn-sm" id="btnGuardarGarantiaHipoteca"><i class="fa fa-floppy-o"></i>&nbsp;Guardar Garantía</button>
+    </div>
+}
+
+<h3><i class="fa fa-file-text"></i> Garantía del Préstamo Hipoteca </h3>
+
+
+<form id="formPrestamoHipotecaGarantia" class="form-horizontal" role="form">
+
+    <div class="well well-sm">
+
+        @*Datos de la Garantia*@
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Datos de la Garantía</legend>
+
+                            @*Tipo de Garantía*@
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label ControlsForms">Tipo de Garantía</label>
+                                <div class="col-sm-2">
+                                    <select id="ddlTipoGarantia" name="ddlTipoGarantia" class="form-control imput-xs" required>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        @*Direccion del bien*@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Datos del Préstamo</legend>
+
+                            <div class="col-md-6">
+
+                                @*Provincia*@                 
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Provincia</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodProvincia"/>
+                                        <input type="text" id="txtProvincia" name="txtProvincia" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarProvincia" required />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarProvincia" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                @*Distrito*@                    
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Distrito</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodDistrito" />
+                                        <input type="text" id="txtDistrito" name="txtDistrito" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarDistrito" required />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarDistrito" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @*Corregimiento*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Corregimiento</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodCorregimiento" />
+                                        <input type="text" id="txtCorregimiento" name="txtCorregimiento" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarCorregimiento" required />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarCorregimiento" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @*No. Casa / Apartamento *@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">No. Casa / Apartamento</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtnumeroCasaApartamento" name="txtnumeroCasaApartamento" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Calle / Avenida*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Calle / Avenida</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtCalleAvenida" name="txtCalleAvenida" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Residencial / Edificio*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Residencial / Edificio</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtResidencialEdificio" name="txtResidencialEdificio" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Direccion Exacta*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Dirección</label>
+
+                                    <div class="col-sm-6 ">
+                                        <textarea class="form-control" id="txtAreaDireccion" rows="3"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @*Datos del avaluo*@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Datos del avalúo</legend>
+
+                            <div class="col-md-6">
+
+                                @*Fecha de Avalúo*@
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label ControlsForms">Fecha de Avalúo</label>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" id="txtFechaAvaluo" name=" txtFechaAvaluo" class="form-control imput-xs input-Required-BackGround" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Valor del Terreno*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Valor del Terreno</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtValorTerreno" name="txtValorTerreno" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Valor de Mejoras*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Valor de Mejoras</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtValorMejoras" name="txtValorMejoras" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Valor de Mercado*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Valor de Mercado</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtValorMercado" name="txtValorMercado" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Valor de Venta Rápida*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Valor de Venta Rápida</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtValorVentaRapida" name="txtValorVentaRapida" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Propietario*@               
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Propietario</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodPropietario" />
+                                        <input type="text" id="txtPropietario" name="txtPropietario" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarPropietario"  />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarPropietario" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @*Avaluadora*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Avaluadora</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodAvaluadora" />
+                                        <input type="text" id="txtAvaluadora" name="txtAvaluadora" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarAvaluadora"  />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarAvaluadora" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @*Condicion Hipotecaria*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Condicion Hipotecaria</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodCondicionHP" />
+                                        <input type="text" id="txtCondicionHipotecaria" name="txtCondicionHipotecaria" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarCondicionHipotecaria" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarCondicionHipotecaria" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @*Registro del Bien*@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Registro del Bien</legend>
+
+                            <div class="col-md-6">
+
+                                @*Dropdown Finca*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Finca</label>
+                                    <div class="col-sm-6 ">
+                                        <select id="ddlFinca" name="ddlFinca" class="form-control imput-xs">
+                                            <option value="">&nbsp;&nbsp;MADRE Ó SEGREGADA</option>
+                                            <option value="C">MADRE</option>
+                                            <option value="P">SEGREGADA</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                @*Número de Finca*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">No. de Finca</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroFinca" name="txtNumeroFinca" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Dropdown Tomo / Rollo / Documento*@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms"></label>
+                                    <div class="col-sm-6 ">
+                                        <select id="ddlTomoRolloDocumento" name="ddlTomoRolloDocumento" class="form-control imput-xs">
+                                            <option value="">&nbsp;&nbsp;TOMO Ó ROLLO</option>
+                                            <option value="C">TOMO</option>
+                                            <option value="P">ROLLO</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                @*Número de Tomo / Rollo / Documento*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">No. Tomo / Rollo / Documento</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroTomoRolloDocumento" name="txtNumeroTomoRolloDocumento" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Dropdown Folio / Imagen *@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms"></label>
+                                    <div class="col-sm-6 ">
+                                        <select id="ddlFolioImagen" name="ddlFolioImagen" class="form-control imput-xs">
+                                            <option value="">&nbsp;&nbsp;FOLIO Ó IMAGEN</option>
+                                            <option value="C">FOLIO</option>
+                                            <option value="P">IMAGEN</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                @*Número de Folio / Imagen*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">No. Folio / Imagen</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroFolioImagen" name="txtNumeroFolioImagen" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Dropdown Asiento / Documento *@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms"></label>
+                                    <div class="col-sm-6 ">
+                                        <select id="ddlFolioImagen" name="ddlFolioImagen" class="form-control imput-xs">
+                                            <option value="">&nbsp;&nbsp;ASIENTO Ó DOCUMENTO</option>
+                                            <option value="C">ASIENTO</option>
+                                            <option value="P">DOCUMENTO</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                @*Número de Asiento / Documento *@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">No. Asiento / Documento </label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroFolioImagen" name="txtNumeroFolioImagen" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Sección de Registro Público*@              
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Sección de Registro Público</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodRegPublico" />
+                                        <input type="text" id="txtSeccionRegistroPublico" name="txtSeccionRegistroPublico" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarSeccionRegistroPublico" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarSeccionRegistroPublico" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @*Provincia Registro Bien*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Provincia</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="hidden" id="hiddenCodProvinciaRegBien"/>
+                                        <input type="text" id="txtProvinciaRegistroBien" name="txtProvinciaRegistroBien" class="form-control imput-xs"
+                                               readonly data-role="btnBuscarProvinciaRegistroBien" required />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarProvinciaRegistroBien" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Número de Escritura *@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Número de Escritura</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroEscritura" name="txtNumeroEscritura" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Número de Ficha de Hipoteca *@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Número de Ficha de Hipoteca </label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroFichaHipoteca" name="txtNumeroFichaHipoteca" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Número de Documento *@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Número de Documento</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtNumeroDocumento" name="txtNumeroDocumento" class="form-control imput-xs" />
+                                    </div>
+
+                                </div>
+
+                                @*Fecha de Inscripción*@
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label ControlsForms">Fecha de Inscripción</label>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" id="txtFechaInscripcion" name=" txtFechaInscripcion" class="form-control imput-xs input-Required-BackGround" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<div id="ucBtnSeleccionar" style="display:none;">
+    <button type="button" id="btnSeleccionar" class="btn btn-default btn-xs"
+            onclick="javascript: SeleccionarOpcion('[$id]', '[$description]', '[$controlID]', '[$controlDescription]', '[$modal]', '[$form]')">
+        <i class="fa fa-check"></i>&nbsp;&nbsp;...
+    </button>
+</div>
+
+
+@section Modals{
+
+@* modal agregar descripcion*@
+<div class="modal fade" id="modalAgregarDescripcion" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnModalClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="CatalogosPrestamoHipoteca">Catalogo</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formAgregarDescripcion" class="form-horizontal" role="form">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <table id="tableResultadoCatalogo" class="display stripe hover row-border">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Código</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
+
+                        </div>
+
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>   
+
+}
+
+@section scripts
+ {
+    @Scripts.Render("~/Scripts/Ultimus-GarantiaHipoteca")
+
+}

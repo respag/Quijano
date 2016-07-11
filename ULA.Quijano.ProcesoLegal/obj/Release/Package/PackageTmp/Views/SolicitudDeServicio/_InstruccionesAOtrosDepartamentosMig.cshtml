@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+
+<br />
+<div class="input-group padding-bottom input-group-sm">
+    <span class="input-group-addon"><input id="chkNotariaMig" type="checkbox" name="currie" value="cre" /> Notaría&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <textarea id="txtaNotariaMig" class="form-control custom-control txta-otros-depto" rows="3" style="resize:none" disabled></textarea>
+    <span id="btnSolTraMig" class="input-group-addon btn btn-primary">Solic. Notaria/Traduc.</span>
+</div>
+<div  id="solicitudNotariaTraduccionMig" style="display: none">
+    @Html.Partial("~/Views/SolicitudDeServicio/_SolicitudNotariaTraduccion.cshtml")
+</div>
+
+<div class="input-group padding-bottom input-group-sm">
+    <span class="input-group-addon"><input id="chkTraduccionMig" type="checkbox" name="currie" value="cre" /> Traducción</span>
+    <textarea id="txtaTraduccionMig" class="form-control custom-control txta-otros-depto" rows="3" style="resize:none" disabled></textarea>
+    <span id = "btnSolTraMig2";" class="input-group-addon btn btn-primary">Solic. Notaria/Traduc.</span>
+</div>
+<div id="solicitudNotariaTraduccion2Mig" style="display: none">
+    @Html.Partial("~/Views/SolicitudDeServicio/_SolicitudNotariaTraduccion.cshtml")
+</div>
+
+<div class="input-group padding-bottom input-group-sm">
+    <span class="input-group-addon"><input id="chkTesoreriaMig" type="checkbox" name="currie" value="cre" /> Tesorería&nbsp;&nbsp;&nbsp;</span>
+    <textarea id="txtaTesoreriaMig" class="form-control custom-control txta-otros-depto" rows="3" style="resize:none" disabled></textarea>
+    <span id="btnTesoreriaMig" class="input-group-addon btn btn-primary" style="width:143px;">Solic. Tesorería</span>
+</div>
+<div id="solicitudDeTesoreriaMig" style="display: none">
+    @Html.Partial("~/Views/SolicitudDeServicio/_SolicitudDeTesoreria.cshtml")
+</div>
+
+<div class="input-group input-group-sm">
+    <span class="input-group-addon"><input type="checkbox" name="currie" value="cre" /> Mesa Ope.&nbsp;</span>
+    <textarea class="form-control custom-control txta-otros-depto" rows="3" style="resize:none" disabled></textarea>
+    <span onclick="$('#XXXXMig').toggle();" class="input-group-addon btn btn-primary" style="width:143px;">Solic. Mesa Ope.</span>
+</div>
+<div id="XXXXMig" style="display: none">
+    ----------- Por definir, funcionalidad ---------------
+</div>
+

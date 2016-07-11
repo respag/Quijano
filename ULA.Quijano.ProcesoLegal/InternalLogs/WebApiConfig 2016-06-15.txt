@@ -1,0 +1,10 @@
+06/15/2016 07:37:01|ULASP20|Fatal|WebApiConfig||[WebApiApplication / Application_Error] Oracle.DataAccess.Client.OracleException ORA-03114: not connected to ORACLE    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleTransaction.Rollback()
+   at Ultimus.DataAccessLayer.OracleDataAccess.Rollback() in c:\QuijanoAsociados\SlnQuijanoAsociados\Ultimus.DataAccessLayer\OracleDataAccess.cs:line 149
+   at Ultimus.DataAccessLayer.OracleDataAccess.EjecutarProcedimientos(ICollection`1 procedimientos) in c:\QuijanoAsociados\SlnQuijanoAsociados\Ultimus.DataAccessLayer\OracleDataAccess.cs:line 459
+   at ULA.Quijano.ProcesoLegal.ControllersWebApi.ProcesosLegalesApiController.DevuelveCodSolicitud(String codigo) in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\ControllersWebApi\ProcesosLegalesApiController.cs:line 366
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)

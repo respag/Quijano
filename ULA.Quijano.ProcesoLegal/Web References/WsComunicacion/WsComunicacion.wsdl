@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="EnviarComunicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proceso" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="incidente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarComunicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnviarComunicacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarNotificacionServiciosLegales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proceso" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="incidente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarNotificacionServiciosLegalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnviarNotificacionServiciosLegalesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarEnlaceServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proceso" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="incidente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarEnlaceServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnviarEnlaceServicioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarServicioLegal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proceso" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="incidente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarServicioLegalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenerarServicioLegalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EnviarComunicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviarComunicacion" />
+  </wsdl:message>
+  <wsdl:message name="EnviarComunicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviarComunicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviarNotificacionServiciosLegalesSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviarNotificacionServiciosLegales" />
+  </wsdl:message>
+  <wsdl:message name="EnviarNotificacionServiciosLegalesSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviarNotificacionServiciosLegalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviarEnlaceServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviarEnlaceServicio" />
+  </wsdl:message>
+  <wsdl:message name="EnviarEnlaceServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviarEnlaceServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarServicioLegalSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarServicioLegal" />
+  </wsdl:message>
+  <wsdl:message name="GenerarServicioLegalSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarServicioLegalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsComunicacionSoap">
+    <wsdl:operation name="EnviarComunicacion">
+      <wsdl:input message="tns:EnviarComunicacionSoapIn" />
+      <wsdl:output message="tns:EnviarComunicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarNotificacionServiciosLegales">
+      <wsdl:input message="tns:EnviarNotificacionServiciosLegalesSoapIn" />
+      <wsdl:output message="tns:EnviarNotificacionServiciosLegalesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarEnlaceServicio">
+      <wsdl:input message="tns:EnviarEnlaceServicioSoapIn" />
+      <wsdl:output message="tns:EnviarEnlaceServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarServicioLegal">
+      <wsdl:input message="tns:GenerarServicioLegalSoapIn" />
+      <wsdl:output message="tns:GenerarServicioLegalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsComunicacionSoap" type="tns:WsComunicacionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviarComunicacion">
+      <soap:operation soapAction="http://tempuri.org/EnviarComunicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarNotificacionServiciosLegales">
+      <soap:operation soapAction="http://tempuri.org/EnviarNotificacionServiciosLegales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarEnlaceServicio">
+      <soap:operation soapAction="http://tempuri.org/EnviarEnlaceServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarServicioLegal">
+      <soap:operation soapAction="http://tempuri.org/GenerarServicioLegal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsComunicacionSoap12" type="tns:WsComunicacionSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviarComunicacion">
+      <soap12:operation soapAction="http://tempuri.org/EnviarComunicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarNotificacionServiciosLegales">
+      <soap12:operation soapAction="http://tempuri.org/EnviarNotificacionServiciosLegales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarEnlaceServicio">
+      <soap12:operation soapAction="http://tempuri.org/EnviarEnlaceServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarServicioLegal">
+      <soap12:operation soapAction="http://tempuri.org/GenerarServicioLegal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsComunicacion">
+    <wsdl:port name="WsComunicacionSoap" binding="tns:WsComunicacionSoap">
+      <soap:address location="http://192.168.1.27/ULA.Quijano.SendMails/WsComunicacion.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsComunicacionSoap12" binding="tns:WsComunicacionSoap12">
+      <soap12:address location="http://192.168.1.27/ULA.Quijano.SendMails/WsComunicacion.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,114 @@
+﻿<br />
+<h3><i class="fa fa-users"></i>&nbsp;Participantes</h3>
+
+
+<div class="well well-sm">
+
+    <table id="tableResultadoParticipantes" class="table table-condensed">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Identificación</th>
+                <th>Nombre</th>
+                <th width="27%"></th>
+
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+    <div id="userControlEstadosDocumentos" style="display:none;">
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown">
+                <i class="fa fa-tags"></i> &nbsp;Estados <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" role="menu">
+
+                <li><a><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;Entregado</a>
+                <li><a><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;No Entregado</a>
+                <li><a><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;N/A</a>
+
+            </ul>
+        </div>
+
+    </div>
+
+    @*Eliminar Participante*@
+    <div id="ucBtnEliminarParticipante" style="display:none;">
+        <button type="button" id="btnEliminarParticipante" class="btn btn-danger btn-xs" title="Eliminar Participante">
+            <i class="fa fa-trash-o"></i>
+        </button>
+    </div>
+
+    @*Posicion del cliente*@
+    <div id="ucBtnPosicionCliente" style="display:none;">
+        <button type="button" id="btnPosicionCliente" class="btn btn-default btn-xs active"
+                onclick="location.href = '@Url.Action("Index", "PosicionCliente", null)'" title="Posición del Cliente">
+            <i class="fa fa-list-alt"></i>
+        </button>
+    </div>
+
+    @*Listado Documentos*@
+    <div id="ucBtnListadoDocParticipante" style="display:none;">
+
+        <button type="button" id="btnListadoDocParticipante" class="btn btn-default btn-xs active"
+                onclick="MostrarEstadoDocumento();" title="Listado Documentos Requeridos">
+            <i class="fa fa-list"></i>
+        </button>
+    </div>
+
+
+    <div id="userControlOpcionesPrestamo" style="display:none">
+        <div class="btn-group">
+            <div class="btn-group">
+                <button type="button" id="btnOpcionesPrestamo" class="btn btn-primary dropdown-toggle btn-xs" data-toggle="dropdown">
+                    &nbsp;<i class="fa fa-wrench"></i>&nbsp;Opciones&nbsp;<span class="caret"></span>&nbsp;
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li id="listReferenciasPersonales"><a href="#" onclick="window.open('@string.Concat(Url.Action("PosicionCliente", "PosicionCliente", null), ViewBag.QueryEncripted)&cl_identificacion=[$cl_identificacion]', 'mywindow', 'status=0,toolbar=0,resizable=1,scrollbars=1,width=1000,height=600');"><i class="fa fa-street-view"></i>&nbsp;&nbsp;Posición del Cliente</a></li>
+
+                    <li><a href="#" onclick="MostrarEstadoDocumento([$cl_co_cliente]);"><i class="fa fa-check-square"></i>&nbsp;&nbsp;Checklist de documentos</a></li>
+
+                    <li class="divider"></li>
+
+                    <li><a href="@Url.Action("DatosGenerales", "Solicitantes",null)@ViewBag.QueryEncripted&cl_co_cliente=[$cl_co_cliente]"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Datos Generales</a>
+
+                    <li id="listInfoLaboral"><a href="@Url.Action("InfoLaboral", "Solicitantes", null)@ViewBag.QueryEncripted&cl_co_cliente=[$cl_co_cliente]"><i class=" fa fa-briefcase"></i>&nbsp;&nbsp;Información Laboral</a></li>
+
+                    <li id="listCompromisos"><a href="@Url.Action("Compromisos", "Solicitantes", null)@ViewBag.QueryEncripted&cl_co_cliente=[$cl_co_cliente]"><i class=" fa fa-university"></i>&nbsp;&nbsp;Compromisos</a></li>
+
+                    <li id="listReferenciasPersonales"><a href="@Url.Action("ReferenciasPersonales", "Solicitantes", null)@ViewBag.QueryEncripted&cl_co_cliente=[$cl_co_cliente]"><i class=" fa fa-users"></i>&nbsp;&nbsp;Referencias Personales</a></li>
+                    
+                    <li id="listReferenciasPersonales"><a href="javascript: EliminarParticipante([$cl_co_cliente]);"><i class=" fa fa-eraser"></i>&nbsp;&nbsp;Eliminar Participante</a></li>
+                </ul>
+
+            </div>
+            <div class="btn-group">
+
+                <button type="button" id="btnOpcionesPrestamo" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown">
+                    &nbsp;<i class="fa fa-calculator"></i>&nbsp;Productos&nbsp;<span class="caret"></span>&nbsp;
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+
+                    <li><a href="@Url.Action("PrestamoPersonal", "CalculoPrestamo", null)@ViewBag.QueryEncripted&cl_co_cliente=[$cl_co_cliente]"><i class="fa fa-user"></i>&nbsp;&nbsp;Personal</a>
+
+                    <li><a href="@Url.Action("PrestamoHipoteca", "CalculoPrestamo", null)@ViewBag.QueryEncripted"><i class="fa fa-home"></i>&nbsp;&nbsp;Hipotecario</a></li>
+
+                    <li><a href="@Url.Action("PrestamoAuto", "CalculoPrestamo", null)@ViewBag.QueryEncripted&cl_co_cliente=[$cl_co_cliente]"><i class="fa fa-car"></i>&nbsp;&nbsp;Auto</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+

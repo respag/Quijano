@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ULA.Quijano.SendMails" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ULA.Quijano.SendMails" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Servicio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Asunto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Calle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comentarios" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComentariosResolucion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorreoResponsable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Detalle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaSeguimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Horario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdAccion" type="xs:int" />
+      <xs:element minOccurs="0" name="IdEntidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Incidente" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreDe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreEstado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombrePara" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreResponsable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Piso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Referencias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Responsable" type="xs:int" />
+      <xs:element minOccurs="0" name="SociedadEntidadEmpresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SolicitadoPor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solicitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tramite" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Servicio" nillable="true" type="tns:Servicio" />
+  <xs:complexType name="ArrayOfEstadoSolicitud">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstadoSolicitud" nillable="true" type="tns:EstadoSolicitud" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstadoSolicitud" nillable="true" type="tns:ArrayOfEstadoSolicitud" />
+  <xs:complexType name="EstadoSolicitud">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompletarTarea" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstadoSolicitud" nillable="true" type="tns:EstadoSolicitud" />
+</xs:schema>

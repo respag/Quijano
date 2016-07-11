@@ -1,0 +1,189 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+<br />
+
+<form id="formInstMarDatosFactEntrega" style="font-size: 12px !important;">
+    <div class="row" style="display:none">
+        <div class="col-xs-2" style="padding-right: 2px;">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Cliente:</span>
+                <input id="txtInstMarCodCliente" name="txtInstMarCodCliente" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-10" style="padding-left: 2px;">
+            <input id="txtInstMarCliente" name="txtInstMarCliente" type="text" class="form-control input-sm" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Tipo Fact. As:</span>
+                <select id="ddlInstMarTipoFact" name="ddlInstMarTipoFact" class="form-control" data-original-title="" title="" aria-label="..." required>
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Forma de pago</label>&nbsp;
+                <input id="rbInstMarFormaPagoCre" type="radio" name="rbInstMarFormaPago" value="cre" required />Credito&nbsp;
+                <input id="rbInstMarFormaPagoCon" type="radio" name="rbInstMarFormaPago" value="con" required />Contado
+            </div>
+            <div class="col-md-2">
+                <label>Proforma</label>&nbsp;
+                <input id="rbInstMarProformaSi" type="radio" name="rbInstMarProforma" value="1" required />Si&nbsp;
+                <input id="rbInstMarProformaNo" type="radio" name="rbInstMarProforma" value="0" required />No
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td><label>Moneda</label>&nbsp;</td>
+                        <td>
+                            <select class="form-control" id="ddlInstMarMoneda" style="width: 150px;" required>
+                                <option></option>
+                                <option value="7">EURO</option>
+                                <option value="0">DOLLAR</option>
+                                <option value="2">LIBRAS</option>
+                                <option value="100">YEN</option>
+                                <option value="6">FRANCOS SUIZOS</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <label>Tipo de Factura</label>&nbsp;
+                <input id="rbInstMarTipoFacturaGlo" type="radio" name="rbInstMarTipoFactura" value="glo" required />Global&nbsp;
+                <input id="rbInstMarTipoFacturaDet" type="radio" name="rbInstMarTipoFactura" value="det" required />Detallada
+            </div>
+        </div>
+    </p>
+
+    <div class="row" style="display:none">
+        <div class="col-xs-6">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Referencia:</span>
+                <input id="txtInstMarReferencia" name="txtInstMarReferencia" type="text" class="form-control" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Nombre de la factura:</span>
+                <input id="txtInstMarNombreFactura" name="txtInstMarNombreFactura" type="text" class="form-control" aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Dirección de Factura:</span>
+                <textarea id="txtInstMarDireccionFactura" name="txtInstMarDireccionFactura" class="form-control" aria-describedby="basic-addon1" style="height: 70px;" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button id="btnInstMarConsultar" type="button" class="btn btn-primary btn-sm">Libreta de Direcciones</button>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Leyenda de Factura</label>
+                    <textarea id="txtInstMarLeyendaFactura" name="txtInstMarLeyendaFactura" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <br />
+                    <label>Responsable de Notificar Cliente</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="rbInstMarRespNotiAbog" type="radio" name="rbInstMarRespNoti" value="abo" required />Abogado&nbsp;&nbsp;&nbsp;
+                    <input id="rbInstMarRespNotiAsistLeg" type="radio" name="rbInstMarRespNoti" value="asi" required />Gestor
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <br />
+                    <label>Forma de Envío del Paquete</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @*<input id="chkbInstMarCurrier" type="checkbox" name="currier" value="1" onchange="if ($('#chkbInstMarCurrier').is(':checked') || $('#chkbInstMarMensajeria').is(':checked')) $('#divInstMarDireccionEnvio').show(500); else $('#divInstMarDireccionEnvio').hide(300); if ($('#chkbInstMarCurrier').is(':checked')) $('#divSocNumeroGuia').show(500); else $('#divSocNumeroGuia').hide(300);" />Currier&nbsp;&nbsp;&nbsp;*@
+                    <input id="chkInstMarCurrier" type="checkbox" name="chkInstMarCurrier" />Courier&nbsp;&nbsp;&nbsp;
+                    <input id="chkInstMarEmail" type="checkbox" name="chkInstMarEmail" />E-mail&nbsp;&nbsp;&nbsp;
+                    <input id="chkInstMarPersonal" type="checkbox" name="chkInstMarPersonal" />Recepción&nbsp;&nbsp;&nbsp;
+                    @*<input id="chkbInstMarMensajeria" type="checkbox" name="personal" value="1" onchange="if ($('#chkbInstMarMensajeria').is(':checked')) $('#divSocNumeroSolicitud').show(500); else $('#divSocNumeroSolicitud').hide(300);" />Mensajería*@
+                    <input id="chkInstMarMensajeria" type="checkbox" name="chkInstMarMensajeria" />Mensajería
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <center><h3 class="panel-title">Valor del Trámite</h3></center>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="input-group padding-bottom form-inline input-group-sm">
+                                    <span class="input-group-addon">Honorarios:</span>
+                                    <input type="text" id="txtDatMarHonorarios" name="txtDatMarHonorarios" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="input-group padding-bottom form-inline input-group-sm">
+                                    <span class="input-group-addon">Gastos:</span>
+                                    <input type="text" id="txtDatMarGastos" name="txtDatMarGastos" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="input-group padding-bottom form-inline input-group-sm">
+                                    <span class="input-group-addon">Total:</span>
+                                    <input type="text" id="txtDatMarTotal" name="txtDatMarTotal" class="form-control" readonly />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <br />
+    <div id="divInstMarNumeroSolicitud" style="display:none">
+        <div class="input-group padding-bottom form-inline input-group-sm">
+            <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Numero de Solicitud:</label>
+            <input id="txtInstMarNroSolicitud" name="txtInstMarNroSolicitud" type="text" class="form-control" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+    <div id="divInstMarNumeroGuia" style="display:none">
+        <div class="input-group padding-bottom form-inline input-group-sm">
+            <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Numero de Guia:</label>
+            <input id="txtInstMarNroGuia" name="txtInstMarNroGuia" type="text" class="form-control" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+    <div id="divInstMarDireccionEnvio" style="display:none">
+        <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Dirección de envío:</label>
+        <textarea id="txtInstMarDireccionEnvio" name="txtInstMarDireccionEnvio" class="form-control" rows="3"></textarea>
+    </div>
+
+
+</form>

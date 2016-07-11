@@ -1,0 +1,352 @@
+﻿
+<h3><i class="fa fa-file-text-o"></i> Datos Generales del Solicitante</h3>
+
+<form class="form-horizontal" role="form">
+
+    <div class="formgroup" style="margin-left: 0px;">
+        <button type="button" id="btnGuardarDatosSolicitante" class="btn btn-primary"><i class="fa fa-floppy-o"></i>&nbsp;Guardar Datos</button>
+
+        @Html.Partial("~/Views/Solicitantes/_OpcionesGenerales.cshtml")
+    </div>
+</form>
+
+<form id="formDeudorDatosGenerales" class="form-horizontal" role="form" >
+
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-6">
+
+                @*Tipo de Identificación*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo de Identificación</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlTipoIdentificacion" name="ddlTipoIdentificacion" class="form-control imput-xs" required>
+                            <option value="C">Cédula</option>
+                            <option value="P">Pasaporte</option>
+                        </select>
+                    </div>
+                </div>
+
+                @*Cedula*@
+                <div class="form-group" id="divProvincia">
+                    <label class="col-sm-4 control-label ControlsForms">Cedula</label>
+                    <div class="col-sm-8">
+                        <select id="ddlProvincia" name="ddlProvincia" class="Identificacion col-lg-3 input-Required-BackGround">
+                            <option value=" "></option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <select id="ddlIdentificacionLetra" name="ddlIdentificacionLetra" class="Identificacion col-lg-3 input-Required-BackGround">
+                            <option value=""></option>
+                            <option value="PE">PE</option>
+                            <option value="N ">N </option>
+                            <option value="E ">E </option>
+                            <option value="AV">AV</option>
+                            <option value="PI">PI</option>
+                            <option value="ZC">ZC</option>
+                        </select>
+                        <input type="text" id="TxtFolioImagen" name="TxtFolioImagen" class="Identificacion col-lg-3 input-Required-BackGround" />
+                        <input type="text" id="TxtAsientoFicha" name="TxtAsientoFicha" class="Identificacion col-lg-3 input-Required-BackGround" />
+                    </div>
+
+
+                </div>
+
+                @*Pasaporte Hidden by default*@
+                <div class="form-group hidden" id="divPasaporte">
+                    <label class="col-sm-4 control-label ControlsForms">Pasaporte</label>
+                    <div class="col-sm-8 ">
+                        <input type="text" id="TxtPasaporte" name="TxtPasaporte" class="form-control imput-xs input-Required-BackGround" />
+
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" id="btnBuscarParticipante" class="btn btn-info  btn-xs" style="margin-left: 185px;">
+                        <i class="fa fa-search"></i>&nbsp;Buscar
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                @*Tipo de Persona*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo de Persona</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlTipoPersona" name="ddlTipoPersona" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="1">Natural</option>
+                            <option value="2">Jurídica</option>
+                            <option value="2">Fundación</option>
+                        </select>
+                    </div>
+                </div>
+
+                @*Tipo de Persona Segmento*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo de Persona Segmento</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlSegmento" name="ddlSegmento" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                            <option value="1">Empresa Privada</option>
+                            <option value="2">Jubilado</option>
+                            <option value="3">Empleado Público</option>
+                            <option value="4">Independiente</option>
+                            <option value="5">Extranjero</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-6">
+
+                @*Primer Nombre*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Primer Nombre</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtPrimerNombre" name="txtPrimerNombre" class="form-control imput-xs input-Required-BackGround" />
+                    </div>
+                </div>
+
+                @*Segundo Nombre*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Segundo Nombre</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtSegundoNombre" name="txtSegundoNombre" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+                @*Primer Apellido*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Primer Apellido</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtPrimerApellido" name="txtPrimerApellido" class="form-control imput-xs input-Required-BackGround" />
+                    </div>
+                </div>
+
+                @*Segundo Apellido*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Segundo Apellido</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtSegundoApellido" name="txtSegundoNombre" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+                @*Apellido Casada*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Apellido Casada</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="txtApellidoCasada" name="txtApellidoCasada" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+                @*Identificacion*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Identificacion</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtIdentificacion" name="txtIdentificacion" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+                @*No. Seguro Social*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">No. Seguro Social</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtSeguroSocial" name="txtSeguroSocial" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+                @*Fecha Nacimiento*@
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Fecha Nacimiento</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" id="txtFechaNacimiento" name="txtFechaNacimiento" class="form-control imput-xs input-Required-BackGround" required />
+                        </div>
+                    </div>
+                </div>
+
+                @*Edad / Años / Meses*@
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Años</label>
+                    <div class="col-sm-2">
+                        <input type="number" id="txtAños" name="txtAños" readonly="readonly" class="form-control imput-xs" />
+                    </div>
+
+                    <label class="col-sm-1 control-label ControlsForms">Meses</label>
+                    <div class="col-sm-2">
+                        <input type="number" id="txtMeses" name="txtMeses" readonly="readonly" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+                @*Sexo*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Sexo</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlSexo" name="ddlSexo" class="form-control imput-xs" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                @*Lugar de Nacimiento*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Nacionalidad</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlNacionalidad" name="ddlNacionalidad" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                            <option value="">PANAMA</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                @*Reside en Panama*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Reside en Panamá?</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlESResidente" name="ddlESResidente" class="form-control imput-xs" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                            <option value="">SI</option>
+                            <option value="">NO</option>
+                        </select>
+                    </div>
+                </div>
+
+                @*Teléfono Residencia*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Teléfono Residencia</label>
+                    <div class="col-sm-8 ">
+                        <div class="input-group">
+                            <span class="input-group-addon">(507)</span>
+                            <input type="text" id="txtTelefonoResidencia" name="txtTelefonoResidencia" class="form-control imput-xs input-Required-BackGround" required />
+                        </div>
+                    </div>
+                </div>
+
+                @*Teléfono Celular*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Teléfono Celular</label>
+                    <div class="col-sm-8 ">
+                        <div class="input-group">
+                            <span class="input-group-addon">(507)</span>
+                            <input type="number" id="txtTelefonoCelular" name="txtTelefonoCelular" class="form-control imput-xs" required />
+                        </div>
+                    </div>
+                </div>
+
+                @*Correo Electrónico*@
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Correo Electrónico</label>
+                    <div class="col-sm-8 ">
+                        <div class="input-group">
+                            <span class="input-group-addon">@@</span>
+                            <input type="text" id="txtEmail" name="txtEmail" class="form-control imput-xs" />
+                        </div>
+                    </div>
+                </div>
+
+                @*Tipo Vivienda*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo Vivienda</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlTipoVivienda" name="ddlTipoVivienda" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                            <option value="1">PROPIA / HIPOTECADA</option>
+                            <option value="2">ALQUILADA</option>
+                            <option value="3">VIVE CON FAMILIARES</option>
+                        </select>
+                    </div>
+                </div>
+
+                @*Estado Civil*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Estado Civil</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlEstadoCivil" name="ddlEstadoCivil" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                            <option value="S">Soltero(a)</option>
+                            <option value="C">Casado(a)</option>
+                            <option value="D">Divorciado(a)</option>
+                            <option value="V">Viudo(a)</option>
+                            <option value="U">Unido(a)</option>
+                        </select>
+                    </div>
+                </div>
+
+                @*Escolaridad*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Escolaridad</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlEscolaridad" name="ddlEscolaridad" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                            <option value="DOCT">DOCTORADO</option>
+                            <option value="LICE">LICENCIATURA</option>
+                            <option value="MAES">MAESTRIA</option>
+                            <option value="POSG">POST-GRADO</option>
+                            <option value="PRIM">PRIMARIA</option>
+                            <option value="SECU">SECUNDARIA</option>
+                            <option value="TECN">TECNICO</option>
+                            <option value="UNIV">UNIVERSIDAD</option>
+                        </select>
+                    </div>
+                </div>
+
+                @*No. Dependientes*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">No. Dependientes</label>
+                    <div class="col-sm-4">
+                        <input type="number" id="txtDependientes" name="txtDependientes" class="form-control imput-xs input-Required-BackGround" />
+                    </div>
+                </div>
+
+                @*Cargo Posicion*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Cargo Posición</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlCargoPosicion" name="ddlCargoPosicion" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                        </select>
+                    </div>
+                </div>
+
+                @*Profesion*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Profesión</label>
+                    <div class="col-sm-8 ">
+                        <select id="ddlProfesion" name="ddlProfesion" class="form-control imput-xs input-Required-BackGround" required>
+                            <option value="">&nbsp;&nbsp;SELECCIONE UNA OPCIÓN</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

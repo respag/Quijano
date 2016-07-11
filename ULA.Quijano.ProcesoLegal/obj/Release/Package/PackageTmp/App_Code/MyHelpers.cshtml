@@ -1,0 +1,162 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+
+
+@helper Tabs(string tabActive, UrlHelper Url)
+{
+    <ul class="nav nav-tabs">
+
+        @if (tabActive == "index")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Menu Configuration
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("Index", "FormConfiguration")" style="color:#2a6496;" onclick="LoadMessage();">
+                    <i class="fa fa-circle-o"></i>&nbsp;Menu Configuration
+                </a>
+            </li>
+        }
+
+        @if (tabActive == "processes")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Processes
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("ProcessMaintenance", "FormConfiguration")" style="color:#2a6496;" onclick="LoadMessage();">
+                    <i class="fa fa-circle-o"></i>&nbsp;Processes
+                </a>
+            </li>
+        }
+
+        @if (tabActive == "steps")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Steps
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("StepMaintenance", "FormConfiguration")" style="color:#2a6496;" onclick="LoadMessage();">
+                    <i class="fa fa-circle-o"></i>&nbsp;Steps
+                </a>
+            </li>
+        }
+
+        @if (tabActive == "aplications")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Web Aplications
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("Index", "WebAplication")" style="color:#2a6496;" onclick="LoadMessage();">
+                    <i class="fa fa-circle-o"></i>&nbsp;Web Aplications
+                </a>
+            </li>
+        }
+
+        @if (tabActive == "forms")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Forms
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("FormMaintenance", "FormConfiguration")" style="color:#2a6496;" onclick="LoadMessage();">
+                    <i class="fa fa-circle-o"></i>&nbsp;Forms
+                </a>
+            </li>
+        }
+
+        @if (tabActive == "help")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Help Configuration
+                </a>
+            </li>
+        }
+
+        @if (tabActive == "history")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;History Configuration
+                </a>
+            </li>
+        }
+
+    </ul>
+    
+    <br />
+    
+}
+
+
+@helper TabsAudit(string tabActive, UrlHelper Url)
+{
+    <ul class="nav nav-tabs">
+
+        @if (tabActive == "index")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Audit Configuration
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("Index", "Audit")" style="color:#2a6496;" onclick="LoadMessage();">
+                    <i class="fa fa-circle-o"></i>&nbsp;Audit Configuration
+                </a>
+            </li>
+        }
+
+        @if (tabActive == "connection")
+        {
+            <li class="active">
+                <a style="font-weight: bold;">
+                    <i class="fa fa-circle"></i>&nbsp;Connections
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action("ConnectionConfiguration", "Audit")" style="color:#2a6496;" onclick="LoadMessage();">
+                    <i class="fa fa-circle-o"></i>&nbsp;Connections
+                </a>
+            </li>
+        }
+
+
+    </ul>
+    
+    <br />
+    
+}

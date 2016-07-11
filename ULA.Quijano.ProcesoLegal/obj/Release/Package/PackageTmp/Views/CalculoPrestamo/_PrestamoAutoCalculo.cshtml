@@ -1,0 +1,371 @@
+﻿
+<h3><i class="fa fa-file-text"></i> Cálculos del Préstamo de Auto</h3>
+
+<button type="button" id="btnCalcularPersonal" class="btn btn-info"
+        onclick="">
+    <i class="fa fa-arrow-circle-right"></i>&nbsp;Calcular
+</button>
+
+<button type="button" id="btnEvaluarCalculo" class="btn btn-info"
+        onclick="">
+    <i class="fa fa-arrow-circle-right"></i>&nbsp;Evaluar
+</button>
+
+<button type="button" id="btnGarantiaAuto" class="btn btn-default active" onclick="location.href = '@string.Concat(Url.Action("PrestamoAutoGarantia", "CalculoPrestamo", null), ViewBag.QueryEncripted)?tipoPrestamo=PrestamoAuto'">
+    <i class="fa fa-car"></i>&nbsp;Garantía
+</button>
+
+<button type="button" id="btnCompromisos" class="btn btn-default active" onclick="location.href = '@string.Concat(Url.Action("Compromisos", "Solicitantes", null), ViewBag.QueryEncripted)?retornarVisible=true&tipoPrestamo=PrestamoAuto'">
+    <i class="fa fa-th-list"></i>&nbsp;Compromisos
+</button>
+
+<button type="button" class="btn btn-default active" onclick="location.reload();"><i class="fa fa-refresh"></i>&nbsp;Refrescar Préstamo de Auto</button>
+
+<br />
+<br />
+
+<form id="formCalculoAuto" class="form-horizontal" role="form">
+    <div class="well well-sm wellScroll">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend style="width:94%">&nbsp;&nbsp;Datos del Solicitante</legend>
+
+                            @*Nombre Solicitante*@
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label ControlsForms">Nombre Solicitante</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="txtNombreSolicitante" name="txtNombreSolicitante" class="form-control imput-xs" disabled />
+                                </div>
+                            </div>
+
+                            @*Identificación *@
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label ControlsForms">Identificación</label>
+                                <div class="col-sm-6 ">
+                                    <input type="text" id="txtIdentificacionSolicitante" name="txtIdentificacionSolicitante" class="form-control imput-xs" disabled />
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-sm">
+                    <div class="row">
+
+                        <fieldset>
+                            <legend>&nbsp;&nbsp;Datos del Préstamo</legend>
+
+                            <div class="col-md-6">
+
+                                @*Feria *@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Feria</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtFeria" name="txtFeria" class="form-control imput-xs input-Required-BackGround" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarFeria" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @*Segmento *@
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label ControlsForms">Segmento</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="txtSegmento" name="txtSegmento" class="form-control imput-xs input-Required-BackGround" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarSegmento" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                @*Tipo Préstamo*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Tipo Préstamo</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtTipoPrestamo" name="txtTipoPrestamo" class="form-control imput-xs input-Required-BackGround" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarTipoPrestamo" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                @*Marca del Auto*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Marca del Auto</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtCargoPosicion" name="txtCargoPosicion" class="form-control imput-xs input-Required-BackGround" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarCargoPosicion" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                @*Modelo del Auto*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Modelo del Auto</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtProfesion" name="txtProfesion" class="form-control imput-xs input-Required-BackGround" />
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button type="button" id="btnBuscarProfesion" class="btn btn-info btn-xs">
+                                            <i class="fa fa-search"></i>&nbsp;Buscar
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                @*Año del Auto*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Año del Auto</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtLugarTrabajo" name="txtLugarTrabajo" class="form-control imput-xs input-Required-BackGround" />
+                                    </div>
+
+                                </div>
+
+                                @*Valor del Auto*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Valor del Auto</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs input-Required-BackGround" value="0.00" />
+                                    </div>
+
+                                </div>
+
+                                @*Avaluo*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Avalúo</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs input-Required-BackGround" value="0.00" />
+                                    </div>
+
+                                </div>
+
+
+                                @*Abono*@
+                                <div class="form-group">
+
+                                    <label class="col-md-4 control-label ControlsForms">Abono</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="txtAbono" name="txtAbono" class="form-control imput-xs input-Required-BackGround" value="0.00" />
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <input type="text" id="txtPorcentajeAbono" name="txtPorcentajeAbono" class="form-control imput-xs input-Required-BackGround" value="%" />
+                                    </div>
+                                </div>
+
+                                @*Abono Minimo*@
+                                <div class="form-group">
+
+                                    <label class="col-md-4 control-label ControlsForms">Abono Minimo</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="txtAbono" name="txtAbono" class="form-control imput-xs" value="0.00" disabled="disabled" />
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <input type="text" id="txtPorcentajeAbono" name="txtPorcentajeAbono" class="form-control imput-xs" value="%" disabled="disabled" />
+                                    </div>
+                                </div>
+
+
+                                @*Monto Financiar*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Monto Financiar</label>
+
+                                    <div class="btn-group col-sm-4">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " value="0.00" disabled="disabled" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*Plazo del Crédito (Meses)*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Plazo del Crédito (Meses)</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " value="0" />
+                                    </div>
+
+                                </div>
+
+                                @*Plazo Máximo Crédito (Meses)*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Plazo Máximo Crédito (Meses)</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " disabled="disabled" value="0" />
+                                    </div>
+
+                                </div>
+
+                                @*Con Seguro de Vida*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Con Seguro de Vida</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " disabled="disabled" />
+                                    </div>
+
+                                </div>
+
+                                @*Con Seguro de Auto*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Con Seguro de Auto</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " disabled="disabled" />
+                                    </div>
+
+                                </div>
+
+                                @*Gasto de Manejo*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Gasto de Manejo</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " disabled="disabled" value="0.00" />
+                                    </div>
+
+                                </div>
+
+                                @*Paga FECI*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Paga FECI</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " disabled="disabled" value="0" />
+                                    </div>
+
+                                </div>
+
+                                @*Gastos Administrativos*@
+                                <div class="form-group">
+
+                                    <label class="col-sm-4 control-label ControlsForms">Gastos Administrativos</label>
+
+                                    <div class="btn-group col-sm-6">
+                                        <input type="text" id="txtMontoPrestamo" name="txtMontoPrestamo" class="form-control imput-xs " disabled="disabled" value="0.00" />
+                                    </div>
+
+                                </div>
+
+                                <br />
+
+                                <div class="col-md-10 well well-sm" id="aprobacionEndeudamiento">
+                                    <div class="well well-sm" style="background-color:rgb(186, 231, 137)">
+
+                                        <div class="row">
+                                            <label class="col-sm-4 control-label ControlsForms" style="font-size:20px;margin-left:115px">Aprobado</label>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="well well-sm">
+
+                                        <div class="row">
+
+                                            @*Endeudamiento Vivienda*@
+                                            <div class="form-group">
+
+                                                <label class="col-sm-6 control-label ControlsForms" style="margin-left: 22px;">Endeudamiento Vivienda</label>
+
+                                                <div class="btn-group col-sm-4">
+                                                    <input type="text" id="txtEndeudamiento" name="txtEndeudamiento" class="form-control imput-xs" disabled="disabled" />
+                                                </div>
+
+                                            </div>
+
+                                            @*Endeudamiento Vivienda*@
+                                            <div class="form-group">
+
+                                                <label class="col-sm-6 control-label ControlsForms" style="margin-left: 22px;">Nivel de Endeudamiento Total</label>
+
+                                                <div class="btn-group col-sm-4">
+                                                    <input type="text" id="txtNivelEndeudamientoTotal" name="txtNivelEndeudamientoTotal" class="form-control imput-xs" disabled="disabled" />
+                                                </div>
+
+                                            </div>
+
+                                            @*Nivel de Endeudamiento Con costo de vida*@
+                                            <div class="form-group">
+
+                                                <label class="col-sm-6 control-label ControlsForms" style="margin-left: 22px;">Nivel de Endeudamiento Con costo de vida</label>
+
+                                                <div class="btn-group col-sm-4">
+                                                    <input type="text" id="txtNivelEndeudamientoCosto" name="txtNivelEndeudamientoCosto" class="form-control imput-xs" disabled="disabled" />
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</form>

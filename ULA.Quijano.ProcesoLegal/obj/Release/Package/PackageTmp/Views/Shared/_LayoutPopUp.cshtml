@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+    @*<meta http-equiv="X-UA-Compatible" content="IE=edge">*@
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <title>ReferenciasApc</title>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/awesome")
+    @Styles.Render("~/Content/toastr")
+    @Styles.Render("~/Content/bootstrap-datepicker")
+    @Styles.Render("~/Content/jquery-dataTables")
+    @Styles.Render("~/Content/bonsai")
+</head>
+<body style="padding: 10px 10px 10px 10px; font-size: 9pt;">
+
+    <input type="hidden" id="HiddenDatosGenerales" value="@ViewBag.DatosGenerales" /> @*SOLO PRUEBA*@
+    <input type="hidden" id="hiddenTaskId" value="@ViewBag.TaskId" />
+    <input type="hidden" id="hiddenUserID" value="@ViewBag.UserID" />
+
+    <input type="hidden" id="hiddenProcess" value="@ViewBag.Process" />
+    <input type="hidden" id="hiddenStep" value="@ViewBag.Step" />
+    <input type="hidden" id="hiddenIncident" value="@ViewBag.Incident" />
+
+    <input type="hidden" id="hiddenIpAdress" value="@ViewBag.IpAdress" />
+    <input type="hidden" id="hiddenMachineName" value="@ViewBag.MachineName" />
+    <input type="hidden" id="hiddenActivityType" value="@ViewBag.ActivityType" />
+    <input type="hidden" id="hiddenHostResponse" value="@ViewBag.HostResponse" />
+
+    <input type="hidden" id="hiddenQueryEncripted" value="@ViewBag.QueryEncripted" />
+
+    <input type="hidden" id="hiddenCodigoDeudorPrestamo" value="@ViewBag.CodigoDeudorPrestamo" />
+
+    @RenderBody()
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-migrate")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap-datepicker")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/maskedinput")
+    @Scripts.Render("~/bundles/moneymask")
+    @Scripts.Render("~/bundles/jquery-dataTables")
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/bonsai")
+    @Scripts.Render("~/Scripts/Ultimus-Framework")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

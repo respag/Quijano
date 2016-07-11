@@ -1,0 +1,222 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "PerfilDeCliente";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <center><h3 class="panel-title"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>&nbsp;&nbsp;Status Facturación</h3></center>
+    </div>
+    <div class="panel-body">
+        <table id="tbStatusFundacion" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Engine</th>
+                    <th>Browser</th>
+                    <th>Platform</th>
+                    <th>Version</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>           
+        </table>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon span-input-white" id="basic-addon1"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&nbsp;&nbsp;Monto total</span>
+                    <input type="text" class="form-control "  aria-describedby="basic-addon1" readonly />
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">       
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><center><h3 class="panel-title"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>&nbsp;&nbsp;Status Cumplimiento</h3></center></div>
+            <div class="col-md-4 text-right">
+                <button id="btnPlantillaInstruccion" type="button" class="btn btn-primary btn-sm"><i class="fa fa-file-word-o"></i>&nbsp;&nbsp;Plantilla Instrucción</button>                           
+            </div>                       
+        </div>               
+    </div>
+    <div class="panel-body">
+        <form id="formStatusCumplimiento">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Nuevo Cliente</span>
+                        <select id="ddlNuevoCliente" name="ddlNuevoCliente" class="form-control" aria-label="..." required>
+                            <option></option>
+                            <option value="0">NO</option>
+                            <option value="1">SI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Nueva Sociedad/Fundación</span>
+                        <select id="ddlSocFund" name="ddlSocFund" class="form-control" aria-label="..." required>
+                            <option></option>
+                            <option value="0">NO</option>
+                            <option value="1">SI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" id="basic-addon1">Status Cumplimiento</span>
+                        <select id="ddlStatusCumpl" name="ddlStatusCumpl" class="form-control" aria-label="..." required>
+                            <option></option>
+                            <option value="0">Pendiente</option>
+                            <option value="1">Completado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>        
+    </div>    
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <center><h3 class="panel-title">Lista de Requisitos</h3></center>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-6 col-md-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="checkbox">
+                    <label>
+                        <input id="chkbReqInfoAdic" type="checkbox" /> Requiere información adicional
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-comments"></i>&nbsp;&nbsp;Comentarios:</span>
+                    <textarea id="txtaComentario" class="form-control" rows="3" disabled></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Modals{
+
+   
+}
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-PerfilDeCliente");
+
+}

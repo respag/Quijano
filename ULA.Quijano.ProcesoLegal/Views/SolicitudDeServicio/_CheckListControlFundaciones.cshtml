@@ -1,0 +1,118 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group input-group-sm">
+            <span class="input-group-addon span-input-white" id="basic-addon1">Código de Fundación</span>
+            <input id="txtCLCodigoFundacion" name="txtCLCodigoFundacion" type="text" class="form-control" readonly />
+        </div>
+    </div>
+</div>
+<br />
+
+<form id="formCheckListControlFundacion">
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Corporativos</h3></center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLActaFundacional" name="chkbCLActaFundacional" type="checkbox" /> 1. Acta Fundacional
+                </label>
+            </div>
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLReglamentos" name="chkbCLReglamentos" type="checkbox" />  2. Reglamentos
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLDesignacionProtector" name="chkbCLDesignacionProtector" type="checkbox" /> 3. Designacion de Protector (si aplica)
+                </label>
+            </div>
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLPoderGenEsp" name="chkbCLPoderGenEsp" type="checkbox" /> 4. Poder general/especial (si aplica)
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <br />
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Debida Diligencia (Corresponsal PI/A/EA)</h3></center>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLPINombrePrimerBen" name="chkbCLPINombrePrimerBen" type="checkbox" /> 5. Nombre del primer beneficiario
+                </label>
+            </div>
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLPruebaDomPrimerBen" name="chkbCLPruebaDomPrimerBen" type="checkbox" /> 6. Prueba de domicilio del primer beneficiario
+                </label>
+            </div>
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLCopiaPasIdPrimerBen" name="chkbCLCopiaPasIdPrimerBen" type="checkbox" /> 7. Copia de pasaporte o ID del Primer Beneficiario
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLCartaRefBancaria" name="chkbCLCartaRefBancaria" type="checkbox" /> 8. Carta de referencia bancaria a favor del primer beneficiario
+                </label>
+            </div>
+            <div class="checkbox padding-bottom">
+                <label>
+                    <input id="chkbCLCartaRefProfesional" name="chkbCLCartaRefProfesional" type="checkbox" /> 9. Carta de referencia profesional a favor del primer beneficiario
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class=" input-group padding-bottom form-inline input-group-sm">
+        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Accounting Record Location:</span>
+        <textarea id="txtaCLAccountingRecordLocation" name="txtaCLAccountingRecordLocation" class="form-control" rows="3" required></textarea>
+    </div>
+
+    <br />
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Debida Diligencia (Corresponsal EPI)</h3></center>
+        </div>
+    </div>
+
+    <center class="form-inline">
+        <div class="checkbox padding-bottom">
+            <label>
+                <input id="chkbCLEPINombrePrimerBen" name="chkbCLEPINombrePrimerBen" type="checkbox" /> Nombre del primer beneficiario
+            </label>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="checkbox padding-bottom">
+            <label>
+                <input id="chkbCLDireccionPrimerBen" name="chkbCLDireccionPrimerBen" type="checkbox" /> Dirección del primer beneficiario
+            </label>
+        </div>
+    </center>
+
+</form>

@@ -1,0 +1,198 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel panel-info">
+
+    <!--
+    <div class="panel-heading">
+        <center><h4>Solicitud de Desembolso</h4></center>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-4" style="padding-right: 2px;">
+                        <div class="input-group padding-bottom form-inline input-group-sm">
+                            <span class="input-group-addon" id="basic-addon1">Compañia:</span>
+                            <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-xs-8" style="padding-left: 2px;">
+                        <input type="text" class="form-control input-sm"  aria-describedby="basic-addon1" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Nro. Solicitud:</span>
+                    <input type="text" class="form-control "  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;&nbsp;Fecha:</span>
+                    <input id="txtSolTesFecha" type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Tipo de Desembolso:</span>
+                    <select class="form-control" aria-label="...">
+                        <option></option>
+                        <option value="PA">Nombre 1</option>
+                        <option value="CT">Nombre 2</option>
+                        <option value="NY">Nombre 3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="input-group padding-bottom input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">Concepto:</span>
+                    <select class="form-control" aria-label="...">
+                        <option></option>
+                        <option value="PA">Nombre 1</option>
+                        <option value="CT">Nombre 2</option>
+                        <option value="NY">Nombre 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="checkbox form-inline">
+                    <label>
+                        <input type="checkbox" /> Urgente?
+                    </label>
+                    &nbsp;&nbsp;&nbsp;
+                    <label>
+                        <input type="checkbox" /> Aplica Ganancia Chk Certif.?
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-5">                
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Beneficiario:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>                
+            </div>
+            <div class="col-xs-4">                
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-credit-card"></i>&nbsp;&nbsp;Cédula o RUC:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>                
+            </div>
+            <div class="col-xs-3">                
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1">DV:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&nbsp;&nbsp;Monto:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-6"></div>
+        </div>
+
+        <br />
+
+        <div class="row padding-bottom">
+            <div class="col-xs-6">
+                <label>Observaciones</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <div class="col-xs-6">
+                <label>Detalle de la Solicitud</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+        </div>  
+        
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;De:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Solicitado por:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Revisado por:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="input-group padding-bottom form-inline input-group-sm">
+                    <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Autotizado por:</span>
+                    <input type="text" class="form-control"  aria-describedby="basic-addon1" />
+                </div>
+            </div>
+        </div>
+                
+        <br />
+        -->
+
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Estado de Cuenta</h3>
+    </div>
+
+    <div class="panel-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tipo de Solicitud</th>
+                    <th>Beneficiario</th>
+                    <th>RUC o Cedula</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+                <tr>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+                <tr>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="panel-footer hide">
+        <button type="button" class="btn btn-info btn-lg btn-block">Guardar Solicitud</button>
+    </div>
+</div>
+

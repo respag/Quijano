@@ -1,0 +1,4 @@
+c:\QuijanoAsociados\SlnQuijanoAsociados\Ultimus.Utilidades\bin\Release\Ultimus.Utilidades.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\Ultimus.Utilidades\bin\Release\Ultimus.Utilidades.pdb
+c:\QuijanoAsociados\SlnQuijanoAsociados\Ultimus.Utilidades\obj\Release\Ultimus.Utilidades.dll
+c:\QuijanoAsociados\SlnQuijanoAsociados\Ultimus.Utilidades\obj\Release\Ultimus.Utilidades.pdb

@@ -1,0 +1,11 @@
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\ULA.Quijano.Model.dll.config
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\ULA.Quijano.Model.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\ULA.Quijano.Model.pdb
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\EntityFramework.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\EntityFramework.xml
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\obj\Debug\ULA.Quijano.Model.dll
+C:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.Model\obj\Debug\ULA.Quijano.Model.pdb

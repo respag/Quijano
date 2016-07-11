@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UltimusIntegration" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IUltimusIntegration_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUltimusIntegration_GetTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskByFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskByFilters" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskByFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskByFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTaskWithVariables_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTaskWithVariables" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTaskWithVariables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTaskWithVariablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AbortTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AbortTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AbortTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AbortTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetNodeValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNodeValue" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetNodeValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNodeValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetNodeValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNodeValue" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetNodeValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNodeValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_Autenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Autenticate" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_Autenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignature" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_IsMemberOfGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsMemberOfGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_IsMemberOfGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsMemberOfGroupResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUltimusIntegration">
+    <wsdl:operation name="GetTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTask" message="tns:IUltimusIntegration_GetTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskResponse" message="tns:IUltimusIntegration_GetTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskByFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskByFilters" message="tns:IUltimusIntegration_GetTaskByFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskByFiltersResponse" message="tns:IUltimusIntegration_GetTaskByFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTask" message="tns:IUltimusIntegration_CompleteTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTaskResponse" message="tns:IUltimusIntegration_CompleteTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTaskWithVariables">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTaskWithVariables" message="tns:IUltimusIntegration_CompleteTaskWithVariables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTaskWithVariablesResponse" message="tns:IUltimusIntegration_CompleteTaskWithVariables_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbortTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/AbortTask" message="tns:IUltimusIntegration_AbortTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/AbortTaskResponse" message="tns:IUltimusIntegration_AbortTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNodeValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/SetNodeValue" message="tns:IUltimusIntegration_SetNodeValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/SetNodeValueResponse" message="tns:IUltimusIntegration_SetNodeValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNodeValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetNodeValue" message="tns:IUltimusIntegration_GetNodeValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetNodeValueResponse" message="tns:IUltimusIntegration_GetNodeValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Autenticate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/Autenticate" message="tns:IUltimusIntegration_Autenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/AutenticateResponse" message="tns:IUltimusIntegration_Autenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetSignature" message="tns:IUltimusIntegration_GetSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetSignatureResponse" message="tns:IUltimusIntegration_GetSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsMemberOfGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/IsMemberOfGroup" message="tns:IUltimusIntegration_IsMemberOfGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/IsMemberOfGroupResponse" message="tns:IUltimusIntegration_IsMemberOfGroup_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IUltimusIntegration" type="tns:IUltimusIntegration">
+    <wsp:PolicyReference URI="#WSHttpBinding_IUltimusIntegration_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskByFilters">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetTaskByFilters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/CompleteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTaskWithVariables">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/CompleteTaskWithVariables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbortTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/AbortTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNodeValue">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/SetNodeValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNodeValue">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetNodeValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Autenticate">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/Autenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignature">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetSignature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMemberOfGroup">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/IsMemberOfGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UltimusIntegration">
+    <wsdl:port name="WSHttpBinding_IUltimusIntegration" binding="tns:WSHttpBinding_IUltimusIntegration">
+      <soap12:address location="http://pasapr053.banesco.local.pa/UltimusIntegrationLayer/UltimusIntegration.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://pasapr053.banesco.local.pa/UltimusIntegrationLayer/UltimusIntegration.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>pasapr053.banesco.local.pa</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

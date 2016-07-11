@@ -1,0 +1,211 @@
+﻿<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <personalCustomerInquiryResponse xmlns="http://www.Banesco.com">
+      <personalCustomerInquiryResult xmlns:a="http://schemas.datacontract.org/2004/07/Entidades" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <a:addressLine>421</a:addressLine>
+        <a:addressVerbalRef/>
+        <a:birthDate>24011984</a:birthDate>
+        <a:birthDateDay>24</a:birthDateDay>
+        <a:birthDateMonth>1</a:birthDateMonth>
+        <a:birthDateYear>1984</a:birthDateYear>
+        <a:branch>5</a:branch>
+        <a:building i:nil="true"/>
+
+        <a:businessTypeDesc/>
+        <a:celularPhoneNum>60997335</a:celularPhoneNum>
+        <a:channelType/>
+        <a:channelTypeDesc/>
+        <a:city>PANAMA</a:city>
+        <a:classification/>
+        <a:classificationDesc/>
+        <a:classificationForm>2</a:classificationForm>
+        <a:clientClass/>
+        <a:clientStatus>1</a:clientStatus>
+        <a:clientType>R</a:clientType>
+        <!--información laboral-->
+
+        <!--residencial-->
+        <a:correg>8090</a:correg>
+        <a:corregDesc>24 DE DICIEMBRE</a:corregDesc>
+        <a:country>PANAMA</a:country>
+        <a:countryDesc>PANAMA</a:countryDesc>
+        <a:countryOfBirth/>
+        <a:countryOfBirthDesc/>
+
+        <a:customerNumber>600087896</a:customerNumber>
+        <a:customerType>2</a:customerType>
+        <a:customerTypeSel i:nil="true"/>
+        <a:dataSource>IBS</a:dataSource>
+        <a:debitCard/>
+        <a:dependents>0</a:dependents>
+        <a:discountCompanyCode/>
+        <a:discountCompanyDsc/>
+        <a:discountCompanyName i:nil="true"/>
+        <a:distrit>808</a:distrit>
+        <a:distritDesc>PANAMA</a:distritDesc>
+        <a:educationLevel>UNIV</a:educationLevel>
+        <a:educationLevelDesc>UNIVERSIDAD</a:educationLevelDesc>
+        <a:educationalExpenses>0.00</a:educationalExpenses>
+        <a:email>SIMMONSVILLARREAL@GMAIL.COM</a:email>
+        <a:employeeNumber/>
+
+        <a:familiarRelationType>1</a:familiarRelationType>
+        <a:faxNumber>0</a:faxNumber>
+        <a:firstContactDate i:nil="true"/>
+        <a:firstContactDateDay>26</a:firstContactDateDay>
+        <a:firstContactDateMont>7</a:firstContactDateMont>
+        <a:firstContactDateYear>11</a:firstContactDateYear>
+        <a:firstLastName>SIMMONS</a:firstLastName>
+        <a:firstName>JONATHAN</a:firstName>
+        <a:floorLevel/>
+        <a:fuente i:nil="true"/>
+        <a:groupNumber>0</a:groupNumber>
+        <a:houseNumber>ALTOS DEL ANGEL</a:houseNumber>
+        <a:housePhoneNum>3997672</a:housePhoneNum>
+        <a:idContraloria1/>
+        <a:idContraloria2/>
+        <a:idContraloria3/>
+        <a:idCountry>PA</a:idCountry>
+        <a:idCountry4/>
+        <a:idCountryDesc4/>
+
+        <a:idNumber>08--00773-001899</a:idNumber>
+        <a:idNumber4/>
+        <a:idType>CIP</a:idType>
+        <a:idType4/>
+        <a:idTypeDesc>CEDULA DE IDENTIDAD</a:idTypeDesc>
+        <a:idTypeDesc4/>
+
+
+        <a:indicador/>
+
+        <a:industryCodeDesc>INGENIERO DE SISTEMAS</a:industryCodeDesc>
+        <a:initialCapital>0.00</a:initialCapital>
+        <a:inquiryLevel>0</a:inquiryLevel>
+        <a:legalName>JONATHAN ESTEBAN SIMMONS VILLARREAL</a:legalName>
+        <a:legalStatus>2</a:legalStatus>
+        <a:lenguage i:nil="true"/>
+        <a:longIdCountry>PA</a:longIdCountry>
+        <a:longIdNumber>08--00773-001899</a:longIdNumber>
+        <a:longIdTypeDesc/>
+        <a:mailingCode/>
+        <a:mailingCodeDesc/>
+        <a:mainOfficer>0473</a:mainOfficer>
+        <a:mainOfficerDesc>DIANA CRUZ</a:mainOfficerDesc>
+        <a:marriedName/>
+        <a:municipality>0880</a:municipality>
+        <a:municipalityDesc>0880</a:municipalityDesc>
+        <a:nacionalityDesc>PANAMA</a:nacionalityDesc>
+        <a:nationality>PA</a:nationality>
+
+        <a:otherIncomeSource/>
+        <a:parish>08808</a:parish>
+        <a:parishDesc>08808</a:parishDesc>
+        <a:patrimonyDateDay>0</a:patrimonyDateDay>
+        <a:patrimonyDateMonth>0</a:patrimonyDateMonth>
+        <a:patrimonyDateYear>0</a:patrimonyDateYear>
+        <a:payDay>1</a:payDay>
+        <a:poBox/>
+        <a:position/>
+        <a:positionDesc/>
+
+        <a:previsionTable i:nil="true"/>
+        <a:previusJEntryDate i:nil="true"/>
+        <a:profession>ANST</a:profession>
+        <a:professionDesc>ANALISTA</a:professionDesc>
+        <a:propertyType/>
+        <a:province>08</a:province>
+        <a:provinceDesc>PANAMA</a:provinceDesc>
+        <a:referBy>0002</a:referBy>
+        <a:referByDesc i:nil="true"/>
+        <a:referByName>COLABORADOR</a:referByName>
+        <a:relation>P111</a:relation>
+        <a:relationDesc>CUALQUIERA DE SUS EMPLEADOS</a:relationDesc>
+        <a:relationType>4</a:relationType>
+        <a:rentAmount>0.00</a:rentAmount>
+        <a:rentType>1</a:rentType>
+        <a:residencyCountry>PA</a:residencyCountry>
+        <a:residencyCountryDesc>PANAMA</a:residencyCountryDesc>
+        <a:resident>1</a:resident>
+        <a:riskLevel>RMED</a:riskLevel>
+        <a:riskLevelDesc>RIESGO MEDIO</a:riskLevelDesc>
+        <a:salesChannel>0387</a:salesChannel>
+        <a:salesChannelDesc>ARILIS TRISTAN</a:salesChannelDesc>
+        <a:secondIdCountry/>
+        <a:secondIdCountryDesc/>
+        <a:secondIdNumber/>
+        <a:secondIdType/>
+        <a:secondIdTypeDesc/>
+        <a:secondLastName>VILLARREAL</a:secondLastName>
+        <a:secondName>ESTEBAN</a:secondName>
+        <a:secondOfficer>1004</a:secondOfficer>
+        <a:secondOfficerDesc>DAMARIS CONCEPCION</a:secondOfficerDesc>
+        <a:sex>M</a:sex>
+        <a:shortIdCountry>PA</a:shortIdCountry>
+        <a:shortIdNumber>8-773-1899</a:shortIdNumber>
+        <a:shortIdType>CIP</a:shortIdType>
+        <a:shortName>SIMMONS,JONATHA</a:shortName>
+        <a:socialSecurityNumber>0</a:socialSecurityNumber>
+        <a:specialInstructions xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        <a:street>O</a:street>
+        <a:taxes>N</a:taxes>
+        <a:thirdIdCountry/>
+        <a:thirdIdCountryDesc/>
+        <a:thirdIdNumber/>
+        <a:thirdIdType/>
+        <a:thirdIdTypeDesc/>
+        <a:user>BPPDATAPRO</a:user>
+        <a:userCode6Desc/>
+        <a:zipCode>0819</a:zipCode>
+
+        <!--Información Laboral-->
+
+        <a:currentIncome>0</a:currentIncome>
+        <a:currentJEntryDate>0</a:currentJEntryDate>
+        <a:currentJEntryDay>0</a:currentJEntryDay>
+        <a:currentJEntryMonth>0</a:currentJEntryMonth>
+        <a:currentJEntryYear>0</a:currentJEntryYear>
+        <a:companyAddress>CASA MATRIZ BANESCO</a:companyAddress>
+        <a:companyCharges>ANST</a:companyCharges>
+        <a:companyInfo/>
+
+        <a:companyRuc/>
+        <a:companyType>BCOF</a:companyType>
+        <a:contractType>2</a:contractType>
+
+        <a:companyName>BANESCO SA</a:companyName>
+
+        <a:officeNumber i:nil="true"/>
+        <a:officePhoneNum>2822000</a:officePhoneNum>
+
+        <a:netPatrimony>0.00</a:netPatrimony>
+
+        <a:otherExpenses>0.00</a:otherExpenses>
+        <a:otherIncome>0.00</a:otherIncome>
+
+        <a:incomeLevel>6</a:incomeLevel>
+        <a:incomeSource>APRI</a:incomeSource>
+        <a:incomeSourceDesc>ASALARIADO EMPRESA PRIVADA</a:incomeSourceDesc>
+
+        <a:businessCode>OING</a:businessCode>
+        <a:businessCodeDesc>INGENIERO</a:businessCodeDesc>
+        <a:businessType>OALS</a:businessType>
+        <a:industryCode>ISIS</a:industryCode>
+
+
+        <a:employmentTime>0</a:employmentTime>
+
+        <a:previousJEndDay>0</a:previousJEndDay>
+        <a:previousJEndMonth>0</a:previousJEndMonth>
+        <a:previousJEndYear>0</a:previousJEndYear>
+        <a:previousJEntryDate i:nil="true"/>
+        <a:previousJEntryDay>0</a:previousJEntryDay>
+        <a:previousJEntryMonth>0</a:previousJEntryMonth>
+        <a:previousJEntryYear>0</a:previousJEntryYear>
+
+        <a:incomeType>M</a:incomeType>
+
+      </personalCustomerInquiryResult>
+    </personalCustomerInquiryResponse>
+  </s:Body>
+</s:Envelope>

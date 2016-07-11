@@ -1,0 +1,874 @@
+﻿@section ButtonOption {
+
+
+
+    <button type="button" class="btn btn-default btn-sm" id="btnGuardarDetalleCalculo" disabled><i class="fa fa-floppy-o"></i>&nbsp;Guardar Datos del Préstamo</button>
+
+    <button type="button" id="btnGarantia" class="btn btn-default btn-sm" onclick="location.href = '@string.Concat(Url.Action("PrestamoHipotecaGarantia", "CalculoPrestamo", null), ViewBag.QueryEncripted)?tipoPrestamo=PrestamoHipoteca'"><i class="fa fa-home"></i>&nbsp;Garantía</button>
+    <button type="button" id="btnCompromisos" class="btn btn-default btn-sm" onclick="location.href = '@string.Concat(Url.Action("Compromisos", "Solicitantes", null), ViewBag.QueryEncripted)?retornarVisible=true&tipoPrestamo=PrestamoHipoteca'"><i class="fa fa-th-list"></i>&nbsp;Compromisos</button>
+    <button type="button" id="btnCalcularHipoteca" class="btn btn-success btn-sm"><i class="fa fa-calculator"></i>&nbsp;Calcular Hipoteca</button>
+
+
+}
+
+<h3><i class="fa fa-file-text"></i> Cálculos del Préstamo de Hipoteca</h3>
+
+<form id="formCalculoHipoteca" class="form-horizontal" role="form">
+
+    <div class="well well-sm">
+
+        <div class="row">
+
+
+
+            <div class="col-md-6">
+                <input type="hidden" id="hiddenEmpresa" />
+                <input type="hidden" id="hiddenProfesion" />
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Referido</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodReferido" />
+                        <input type="text" id="txtReferido" name="txtReferido" class="form-control imput-xs" readonly data-role="btnBuscarReferido" />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarReferido" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+                @*<div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Segmento</label>
+                    <div class="col-sm-8">
+                        <select id="ddlSegmento" name="ddlSegmento" class="form-control imput-xs " required></select>
+                    </div>
+                </div>
+
+                <div class="form-group hidden" id="divTipoSegmento">
+                    <label class="col-sm-4 control-label ControlsForms">Tipo Segmento</label>
+                    <div class="col-sm-8">
+                        <select id="ddlTipoSegmento" name="ddlTipoSegmento" class="form-control imput-xs"></select>
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Feria</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodFeria" />
+                        <input type="text" id="txtFeria" name="txtFeria" class="form-control imput-xs"
+                               readonly data-role="btnBuscarFeria" required />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarFeria" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Producto</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodProducto" />
+                        <input type="text" id="txtProducto" name="txtProducto" class="form-control imput-xs" readonly data-role="btnBuscarProducto" required />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarProducto" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Tipo Préstamo</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodPrestamo" />
+                        <input type="text" id="txtTipoPrestamo" name="txtTipoPrestamo" class="form-control imput-xs" readonly data-role="btnBuscarTipoPrestamo" required />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarTipoPrestamo" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Promotora</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodPromotora" />
+                        <input type="text" id="txtPromotora" name="txtPromotora" class="form-control imput-xs" readonly data-role="btnBuscarPromotora" />
+                        <textarea class="form-control imput-xs hidden" id="txtPromotoraOtros" rows="2"></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarPromotora" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Proyecto</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodProyecto" />
+                        <input type="text" id="txtProyecto" name="txtProyecto" class="form-control imput-xs" readonly data-role="btnBuscarProyecto" />
+                        <textarea class="form-control imput-xs hidden" id="txtProyectoOtros" rows="2"></textarea>
+
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarProyecto" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">Forma de Pago</label>
+                    <div class="col-sm-8">
+                        <select id="ddlFormaPago" name="ddlFormaPago" class="form-control imput-xs" required></select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Propietario</label>
+
+                    <div class="btn-group col-sm-8">
+                        <input type="text" id="txtPropietario" name="txtPropietario" class="form-control imput-xs" required />
+                    </div>
+
+                </div>
+
+
+                @*<div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Vendedor</label>
+
+                    <div class="btn-group col-sm-8">
+                        <input type="text" id="txtVendedor" name="txtVendedor" class="form-control imput-xs " required />
+                    </div>
+
+                </div>*@
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Fecha de Entrega</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" id="txtFechaEntrega" name="txtFechaEntrega" class="form-control imput-xs" />
+                        </div>
+                    </div>
+
+                    <label id="lblEntregaInmediata" class="hidden" style=" color: red; ">ENTREGA INMEDIATA</label>
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Precio de Venta</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtPrecioVenta" name="txtPrecioVenta" class="form-control imput-xs" required />
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Valor de Mejoras</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtValorMejoras" name="txtValorMejoras" class="form-control imput-xs" />
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Avalúo</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtAvaluo" name="txtAvaluo"
+                               class="form-control imput-xs" />
+                    </div>
+                    <label class="control-label ControlsForms"><input type="checkbox" id="chkAvaluo" />Avalúo Gratis</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Abono</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtAbono" name="txtAbono" class="form-control imput-xs" required data-role="txtPorcentajeAbono" />
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input type="text" id="txtPorcentajeAbono" name="txtPorcentajeAbono" class="form-control imput-xs" required />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-md-4 control-label ControlsForms">Monto a Financiar</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtMontoFinanciar" name="txtMontoFinanciar" class="form-control imput-xs" onblur="ValidOnBlur('#txtMontoFinanciar')" readonly />
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input type="text" id="txtPorcentajeMontoFinanciar" name="txtPorcentajeMontoFinanciar" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Porcentaje Máximo a Financiar</label>
+
+                    <div class="btn-group col-md-4">
+                        <input type="text" id="txtPorcentajeMaxFinanciar" name="txtPorcentajeMaxFinanciar" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+                <div class="form-group labelHighlight">
+
+                    <label class="col-sm-4 control-label ControlsForms">Tasa</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtTasa" name="txtTasa" class="form-control imput-xs ControlHighlight" readonly />
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms"><input type="checkbox" id="chkNegociacion" /> Negociación</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtNegociacion" name="txtNegociacion" readonly="readonly" class="form-control imput-xs" />
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="col-md-6">
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-CheckBox"><input type="checkbox" class="" id="chkFeria" />&nbsp;Feria</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-CheckBox"><input type="checkbox" id="chkSeguroVida" />&nbsp;Seguro de Vida</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-8 control-CheckBox"><input type="checkbox" id="chkSeguroIncendio" />&nbsp;Seguro de Incendio</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-CheckBox"><input type="checkbox" id="chkFeci" />&nbsp;FECI</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-CheckBox"><input type="checkbox" id="chkPenalizacion" />&nbsp;Incluye Penalización?</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtPenalizacion" name="txtPenalizacion" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-5 control-label ControlsForms">Mensualidades</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtMensualidades" name="txtMensualidades" class="form-control imput-xs" />
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-5 control-label ControlsForms">Total</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtTotal" name="txtTotal" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+                <br />
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-file-text"></i> Desglose de Gastos Legales</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-12 control-CheckBox"><input type="checkbox" id="chkGastosFinanciar" />&nbsp;Gastos a Financiar?</label>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label class="col-sm-5 control-label ControlsForms">Gastos Legales Aproximados</label>
+
+                            <div class="btn-group col-sm-4">
+                                <input type="text" id="txtGastosAproximados" name="txtGastosAproximados" class="form-control imput-xs" readonly />
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label class="col-sm-5 control-label ControlsForms">Regalo Banesco</label>
+
+                            <div class="btn-group col-sm-4">
+                                <input type="text" id="txtRegaloBanesco" name="txtRegaloBanesco" class="form-control imput-xs" readonly />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="col-sm-5 control-label ControlsForms">Gastos Pagados por el cliente (aprox.)</label>
+
+                            <div class="btn-group col-sm-4">
+                                <input type="text" id="txtGastosPagadosCliente" name="txtGastosPagadosCliente" class="form-control imput-xs" readonly />
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label class="col-sm-5 control-label ControlsForms">Confección de Escritura</label>
+
+                            <div class="btn-group col-sm-4">
+                                <input type="text" id="txtConfeccionEscritura" name="txtConfeccionEscritura" class="form-control imput-xs" readonly />
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="well well-sm">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h4><i class="fa fa-file-text"></i> Cálculos del Préstamo de Hipoteca</h4>
+
+
+                <div class="form-group">
+
+                    <label class="col-md-3 control-label ControlsForms">Plazos (años)</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtPlazos" name="txtPlazos" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="radio" id="rdOpcion1" />
+                        <input type="text" id="txtPlazos1" name="txtPlazos1" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="radio" id="rdOpcion2" />
+                        <input type="text" id="txtPlazos2" name="txtPlazos2" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="radio" id="rdOpcion3" />
+                        <input type="text" id="txtPlazos3" name="txtPlazos3" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+
+                @*No. Pagos*@
+                <div class="form-group">
+
+                    <label class="col-md-3 control-label ControlsForms">No. Pagos</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtNumeroPagos" name="txtNumeroPagos" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="text" id="txtNumeroPagos1" name="txtNumeroPagos1" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="text" id="txtNumeroPagos2" name="txtNumeroPagos2" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="text" id="txtNumeroPagos3" name="txtNumeroPagos3" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-12">
+
+
+                <div class="form-group">
+
+                    <label class="col-md-3 control-label ControlsForms">Tasa Efectiva</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="txtTasaEfectiva" name="txtTasaEfectiva" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="text" id="txtTasaEfectiva1" name="txtTasaEfectiva1" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="text" id="txtTasaEfectiva2" name="txtTasaEfectiva2" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="radio col-sm-2">
+                        <input type="text" id="txtTasaEfectiva3" name="txtTasaEfectiva3" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+
+
+                <div class="form-group">
+
+                    <label class="col-md-3 control-label ControlsForms">Capital e Intereses</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtCapitalInteres" name="txtCapitalInteres" class="form-control  imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtCapitalInteres1" name="txtCapitalInteres1" class="form-control  imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtCapitalInteres2" name="txtCapitalInteres2" class="form-control  imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+
+                        <input type="text" id="txtCapitalInteres3" name="txtCapitalInteres3" class="form-control  imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-md-3 control-label ControlsForms">Seguro de Vida</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtSeguroVida" name="txtSeguroVida" class="form-control  imput-xs " readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtSeguroVida1" name="txtSeguroVida1" class="form-control  imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtSeguroVida2" name="txtSeguroVida2" class="form-control   imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+
+                        <input type="text" id="txtSeguroVida3" name="txtSeguroVida3" class="form-control  imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-md-3 control-label ControlsForms">Seguro de Incendio</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtSeguroIncendio" name="txtSeguroIncendio" class="form-control imput-xs " readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+
+                        <input type="text" id="txtSeguroIncendio1" name="txtSeguroIncendio1" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtSeguroIncendio2" name="txtSeguroIncendio2" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+
+                        <input type="text" id="txtSeguroIncendio3" name="txtSeguroIncendio3" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-md-3 control-label ControlsForms">Gasto de Manejo</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtGastoManejo" name="txtGastoManejo" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+
+                        <input type="text" id="txtGastoManejo1" name="txtGastoManejo1" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtGastoManejo2" name="txtGastoManejo2" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+
+                        <input type="text" id="txtGastoManejo3" name="txtGastoManejo3" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group labelHighlight">
+
+                    <label class="col-md-3 control-label ControlsForms">Mensualidad Total</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtMensualidad" name="txtMensualidad" class="form-control imput-xs  ControlHighlight" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+
+                        <input type="text" id="txtMensualidad1" name="txtMensualidad1" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtMensualidad2" name="txtMensualidad2" class="form-control imput-xs" readonly />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="text" id="txtMensualidad3" name="txtMensualidad3" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" id="chkSegundaHipoteca" />Agregar Segunda Hipoteca
+        </label>
+    </div>
+
+    <div id="segundaHipoteca" class="well well-sm hidden">
+        <div class="row">
+            <div class="col-md-6">
+
+                <h4><i class="fa fa-home"></i> Datos Préstamo 2da Hipoteca </h4>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ControlsForms">FECI 2da. Hipoteca</label>
+                    <input type="checkbox" id="chkSegundaHipoteca" class="col-sm-1" />
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Producto</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodProducto2HP" />
+                        <input type="text" id="txtProductoSegundaHipoteca" name="txtProductoSegundaHipoteca" class="form-control imput-xs" readonly data-role="btnBuscarProductoSegundaHipoteca" />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarProductoSegundaHipoteca" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Tipo Préstamo</label>
+
+                    <div class="btn-group col-sm-6">
+                        <input type="hidden" id="hiddenCodPrestamo2HP" />
+                        <input type="text" id="txtTipoPrestamoSegundaHipoteca" name="txtTipoPrestamoSegundaHipoteca" class="form-control imput-xs" readonly data-role="btnBuscarTipoPrestamoSegundaHipoteca" />
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" id="btnBuscarTipoPrestamoSegundaHipoteca" class="btn btn-info btn-xs">
+                            <i class="fa fa-search"></i>&nbsp;Buscar
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Monto a Financiar</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="txtMontoFinanciarSegundaHipoteca" name="txtMontoFinanciarSegundaHipoteca" class="form-control imput-xs" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Porcentaje Máximo Financiar</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtPorcentajeMaxFinanciarSegundaHipoteca" name="txtPorcentajeMaxFinanciarSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label ControlsForms">Plazos (años)</label>
+                    <div class="col-sm-3">
+                        <input type="number" id="txtPlazosSegundaHipoteca" name="txtPlazosSegundaHipoteca" class="form-control imput-xs" />
+                    </div>
+                    <label class="col-sm-2 control-label ControlsForms">No. Pagos</label>
+                    <div class="col-sm-3">
+                        <input type="text" id="txtNumeroPagosSegundaHipoteca" name="txtNumeroPagosSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Tasa</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtTasaSegundaHipoteca" name="txtTasaSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms"><input type="checkbox" id="chkNegociacioSegundaHP" />Negociación</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="number" id="txtNegociacionSegundaHipoteca" name="txtNegociacionSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Tasa Efectiva</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtTasaEfectivaSegundaHipoteca" name="txtTasaEfectivaSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+
+
+                <h4><i class="fa fa-th-list"></i> Desglose Mensualidad 2da Hipoteca </h4>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Capital e Interés</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtCapitalInteresSegundaHipoteca" name="txtCapitalInteresSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Seguro de Vida</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="number" id="txtSeguroVidaSegundaHipoteca" name="txtSeguroVidaSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Gasto de Manejo</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtGastoManejoSegundaHipoteca" name="txtGastoManejoSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+                @*Mensualidad Total*@
+                <div class="form-group">
+
+                    <label class="col-sm-4 control-label ControlsForms">Mensualidad Total</label>
+
+                    <div class="btn-group col-sm-4">
+                        <input type="text" id="txtMensualidadSegundaHipoteca" name="txtMensualidadSegundaHipoteca" class="form-control imput-xs" readonly />
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<div id="ucBtnSeleccionar" style="display:none;">
+    <button type="button" id="btnSeleccionar" class="btn btn-default btn-xs"
+            onclick="javascript: SeleccionarOpcion('[$id]', '[$description]', '[$controlID]', '[$controlDescription]', '[$modal]', '[$form]'); CalculoParametros('[$controlDescription]');">
+        <i class="fa fa-check"></i>&nbsp;&nbsp;...
+    </button>
+</div>
+
+@section Modals{
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCalendarioFechaDescuento" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Calendario Para la Fecha de Primer Descuento</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="formCalendarioFechaDescuento" class="form-horizontal" role="form">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="tableFechaDescuento" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th nowrap="nowrap">Fecha Inicio</th>
+                                            <th nowrap="nowrap">Fecha Fin</th>
+                                            <th nowrap="nowrap">Fecha Efectiva</th>
+                                            <th nowrap="nowrap">Fecha de Pago</th>
+                                            <th>Año</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div id="ucBtnSeleccionarFecha" style="display:none;">
+            <button type="button" class="btn btn-default btn-xs">
+                <i class="fa fa-check"></i>&nbsp;&nbsp;...
+            </button>
+        </div>*@
+
+    @* modal agregar descripción*@
+    <div class="modal fade" id="modalAgregarDescripcion" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btnModalClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="CatalogosPrestamoHipoteca">Catalogo</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="formAgregarDescripcion" class="form-horizontal" role="form">
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <table id="tableResultadoCatalogo" class="display stripe hover row-border">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Código</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+
+                            </div>
+
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section scripts
+ {
+    @Scripts.Render("~/Scripts/Ultimus-CalculoHipoteca")
+
+}

@@ -1,0 +1,909 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UltimusIntegration" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IUltimusIntegration_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/UltimusIntegrationLayer" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUltimusIntegration_GetTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskWithVariables_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskWithVariables" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskWithVariables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskWithVariablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskByFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskByFilters" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskByFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskByFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUltimusNativeTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUltimusNativeTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUltimusNativeTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUltimusNativeTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUltimusNativeIncident_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUltimusNativeIncident" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUltimusNativeIncident_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUltimusNativeIncidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTaskWithVariables_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTaskWithVariables" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_CompleteTaskWithVariables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteTaskWithVariablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AbortTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AbortTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AbortTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AbortTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_ReturnTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_ReturnTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetIncidentNodeValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentNodeValue" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetIncidentNodeValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentNodeValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetNodeValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNodeValue" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetNodeValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNodeValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetNodeValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNodeValue" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetNodeValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNodeValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_Autenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Autenticate" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_Autenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignature" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_IsMemberOfGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsMemberOfGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_IsMemberOfGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsMemberOfGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_IsMemberOfJobFunctionGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsMemberOfJobFunctionGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_IsMemberOfJobFunctionGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsMemberOfJobFunctionGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AddMemberInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AddMemberInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetGroupsForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsForUser" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetGroupsForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetVariablesForActiveTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetVariablesForActiveTasks" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetVariablesForActiveTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetVariablesForActiveTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_ReassignAllActiveTasksWithVariables_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReassignAllActiveTasksWithVariables" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_ReassignAllActiveTasksWithVariables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReassignAllActiveTasksWithVariablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetVariablesForIncident_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetVariablesForIncident" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetVariablesForIncident_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetVariablesForIncidentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AbortAllActiveTasksWithFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:AbortAllActiveTasksWithFilters" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AbortAllActiveTasksWithFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AbortAllActiveTasksWithFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUserInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformation" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUserInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_FindUserSupervisor_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserSupervisor" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_FindUserSupervisor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserSupervisorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetExclusionDays_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExclusionDays" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetExclusionDays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExclusionDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetGroupUserMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupUserMembers" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetGroupUserMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupUserMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAllOCMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOCMembers" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAllOCMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOCMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetIncidentInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentInformation" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetIncidentInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIncidentInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetJobFunctionGroupMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobFunctionGroupMembers" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetJobFunctionGroupMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobFunctionGroupMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUserForJobFunction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserForJobFunction" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUserForJobFunction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserForJobFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetOffDays_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffDays" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetOffDays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOffDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetIsLogued_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsLogued" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetIsLogued_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIsLoguedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_Initiate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Initiate" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_Initiate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitiateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_DevuelveRutaForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevuelveRutaForm" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_DevuelveRutaForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevuelveRutaFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetSessionId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionId" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetSessionId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetDatos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatos" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetDatos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetFilterQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilterQueue" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetFilterQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilterQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAssignQueuedTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignQueuedTask" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAssignQueuedTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignQueuedTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskInitiate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskInitiate" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetTaskInitiate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskInitiateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAsociados_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAsociados" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAsociados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAsociadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_SetEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAsocia_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAsocia" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetAsocia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAsociaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_ReasignaTarea_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReasignaTarea" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_ReasignaTarea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReasignaTareaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetImageBytes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageBytes" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_GetImageBytes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AsignaTareasFuturas_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsignaTareasFuturas" />
+  </wsdl:message>
+  <wsdl:message name="IUltimusIntegration_AsignaTareasFuturas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsignaTareasFuturasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUltimusIntegration">
+    <wsdl:operation name="GetTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTask" message="tns:IUltimusIntegration_GetTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskResponse" message="tns:IUltimusIntegration_GetTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskWithVariables">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskWithVariables" message="tns:IUltimusIntegration_GetTaskWithVariables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskWithVariablesResponse" message="tns:IUltimusIntegration_GetTaskWithVariables_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskByFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskByFilters" message="tns:IUltimusIntegration_GetTaskByFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskByFiltersResponse" message="tns:IUltimusIntegration_GetTaskByFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimusNativeTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUltimusNativeTask" message="tns:IUltimusIntegration_GetUltimusNativeTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUltimusNativeTaskResponse" message="tns:IUltimusIntegration_GetUltimusNativeTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimusNativeIncident">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUltimusNativeIncident" message="tns:IUltimusIntegration_GetUltimusNativeIncident_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUltimusNativeIncidentResponse" message="tns:IUltimusIntegration_GetUltimusNativeIncident_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTask" message="tns:IUltimusIntegration_CompleteTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTaskResponse" message="tns:IUltimusIntegration_CompleteTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTaskWithVariables">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTaskWithVariables" message="tns:IUltimusIntegration_CompleteTaskWithVariables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/CompleteTaskWithVariablesResponse" message="tns:IUltimusIntegration_CompleteTaskWithVariables_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbortTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/AbortTask" message="tns:IUltimusIntegration_AbortTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/AbortTaskResponse" message="tns:IUltimusIntegration_AbortTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/ReturnTask" message="tns:IUltimusIntegration_ReturnTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/ReturnTaskResponse" message="tns:IUltimusIntegration_ReturnTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentNodeValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetIncidentNodeValue" message="tns:IUltimusIntegration_GetIncidentNodeValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetIncidentNodeValueResponse" message="tns:IUltimusIntegration_GetIncidentNodeValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNodeValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetNodeValue" message="tns:IUltimusIntegration_GetNodeValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetNodeValueResponse" message="tns:IUltimusIntegration_GetNodeValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNodeValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/SetNodeValue" message="tns:IUltimusIntegration_SetNodeValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/SetNodeValueResponse" message="tns:IUltimusIntegration_SetNodeValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Autenticate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/Autenticate" message="tns:IUltimusIntegration_Autenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/AutenticateResponse" message="tns:IUltimusIntegration_Autenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetSignature" message="tns:IUltimusIntegration_GetSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetSignatureResponse" message="tns:IUltimusIntegration_GetSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsMemberOfGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/IsMemberOfGroup" message="tns:IUltimusIntegration_IsMemberOfGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/IsMemberOfGroupResponse" message="tns:IUltimusIntegration_IsMemberOfGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsMemberOfJobFunctionGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/IsMemberOfJobFunctionGroup" message="tns:IUltimusIntegration_IsMemberOfJobFunctionGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/IsMemberOfJobFunctionGroupResponse" message="tns:IUltimusIntegration_IsMemberOfJobFunctionGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/AddMemberInGroup" message="tns:IUltimusIntegration_AddMemberInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/AddMemberInGroupResponse" message="tns:IUltimusIntegration_AddMemberInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetGroupsForUser" message="tns:IUltimusIntegration_GetGroupsForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetGroupsForUserResponse" message="tns:IUltimusIntegration_GetGroupsForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVariablesForActiveTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/SetVariablesForActiveTasks" message="tns:IUltimusIntegration_SetVariablesForActiveTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/SetVariablesForActiveTasksResponse" message="tns:IUltimusIntegration_SetVariablesForActiveTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReassignAllActiveTasksWithVariables">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/ReassignAllActiveTasksWithVariables" message="tns:IUltimusIntegration_ReassignAllActiveTasksWithVariables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/ReassignAllActiveTasksWithVariablesResponse" message="tns:IUltimusIntegration_ReassignAllActiveTasksWithVariables_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVariablesForIncident">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/SetVariablesForIncident" message="tns:IUltimusIntegration_SetVariablesForIncident_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/SetVariablesForIncidentResponse" message="tns:IUltimusIntegration_SetVariablesForIncident_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbortAllActiveTasksWithFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/AbortAllActiveTasksWithFilters" message="tns:IUltimusIntegration_AbortAllActiveTasksWithFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/AbortAllActiveTasksWithFiltersResponse" message="tns:IUltimusIntegration_AbortAllActiveTasksWithFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUserInformation" message="tns:IUltimusIntegration_GetUserInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUserInformationResponse" message="tns:IUltimusIntegration_GetUserInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUserSupervisor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/FindUserSupervisor" message="tns:IUltimusIntegration_FindUserSupervisor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/FindUserSupervisorResponse" message="tns:IUltimusIntegration_FindUserSupervisor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExclusionDays">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetExclusionDays" message="tns:IUltimusIntegration_GetExclusionDays_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetExclusionDaysResponse" message="tns:IUltimusIntegration_GetExclusionDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUserMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetGroupUserMembers" message="tns:IUltimusIntegration_GetGroupUserMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetGroupUserMembersResponse" message="tns:IUltimusIntegration_GetGroupUserMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOCMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAllOCMembers" message="tns:IUltimusIntegration_GetAllOCMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAllOCMembersResponse" message="tns:IUltimusIntegration_GetAllOCMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetIncidentInformation" message="tns:IUltimusIntegration_GetIncidentInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetIncidentInformationResponse" message="tns:IUltimusIntegration_GetIncidentInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobFunctionGroupMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetJobFunctionGroupMembers" message="tns:IUltimusIntegration_GetJobFunctionGroupMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetJobFunctionGroupMembersResponse" message="tns:IUltimusIntegration_GetJobFunctionGroupMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForJobFunction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUserForJobFunction" message="tns:IUltimusIntegration_GetUserForJobFunction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUserForJobFunctionResponse" message="tns:IUltimusIntegration_GetUserForJobFunction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffDays">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetOffDays" message="tns:IUltimusIntegration_GetOffDays_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetOffDaysResponse" message="tns:IUltimusIntegration_GetOffDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIsLogued">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetIsLogued" message="tns:IUltimusIntegration_GetIsLogued_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetIsLoguedResponse" message="tns:IUltimusIntegration_GetIsLogued_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Initiate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/Initiate" message="tns:IUltimusIntegration_Initiate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/InitiateResponse" message="tns:IUltimusIntegration_Initiate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevuelveRutaForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/DevuelveRutaForm" message="tns:IUltimusIntegration_DevuelveRutaForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/DevuelveRutaFormResponse" message="tns:IUltimusIntegration_DevuelveRutaForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetSessionId" message="tns:IUltimusIntegration_GetSessionId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetSessionIdResponse" message="tns:IUltimusIntegration_GetSessionId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetDatos" message="tns:IUltimusIntegration_GetDatos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetDatosResponse" message="tns:IUltimusIntegration_GetDatos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilterQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetFilterQueue" message="tns:IUltimusIntegration_GetFilterQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetFilterQueueResponse" message="tns:IUltimusIntegration_GetFilterQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignQueuedTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAssignQueuedTask" message="tns:IUltimusIntegration_GetAssignQueuedTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAssignQueuedTaskResponse" message="tns:IUltimusIntegration_GetAssignQueuedTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskInitiate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskInitiate" message="tns:IUltimusIntegration_GetTaskInitiate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetTaskInitiateResponse" message="tns:IUltimusIntegration_GetTaskInitiate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsociados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAsociados" message="tns:IUltimusIntegration_GetAsociados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAsociadosResponse" message="tns:IUltimusIntegration_GetAsociados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/SetEmail" message="tns:IUltimusIntegration_SetEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/SetEmailResponse" message="tns:IUltimusIntegration_SetEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsocia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAsocia" message="tns:IUltimusIntegration_GetAsocia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetAsociaResponse" message="tns:IUltimusIntegration_GetAsocia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUsers" message="tns:IUltimusIntegration_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetUsersResponse" message="tns:IUltimusIntegration_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReasignaTarea">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/ReasignaTarea" message="tns:IUltimusIntegration_ReasignaTarea_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/ReasignaTareaResponse" message="tns:IUltimusIntegration_ReasignaTarea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageBytes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/GetImageBytes" message="tns:IUltimusIntegration_GetImageBytes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/GetImageBytesResponse" message="tns:IUltimusIntegration_GetImageBytes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignaTareasFuturas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUltimusIntegration/AsignaTareasFuturas" message="tns:IUltimusIntegration_AsignaTareasFuturas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUltimusIntegration/AsignaTareasFuturasResponse" message="tns:IUltimusIntegration_AsignaTareasFuturas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IUltimusIntegration" type="tns:IUltimusIntegration">
+    <wsp:PolicyReference URI="#WSHttpBinding_IUltimusIntegration_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskWithVariables">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetTaskWithVariables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskByFilters">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetTaskByFilters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimusNativeTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetUltimusNativeTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimusNativeIncident">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetUltimusNativeIncident" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/CompleteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTaskWithVariables">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/CompleteTaskWithVariables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbortTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/AbortTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/ReturnTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentNodeValue">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetIncidentNodeValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNodeValue">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetNodeValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNodeValue">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/SetNodeValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Autenticate">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/Autenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignature">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetSignature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMemberOfGroup">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/IsMemberOfGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMemberOfJobFunctionGroup">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/IsMemberOfJobFunctionGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberInGroup">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/AddMemberInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForUser">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetGroupsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVariablesForActiveTasks">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/SetVariablesForActiveTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReassignAllActiveTasksWithVariables">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/ReassignAllActiveTasksWithVariables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVariablesForIncident">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/SetVariablesForIncident" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbortAllActiveTasksWithFilters">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/AbortAllActiveTasksWithFilters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetUserInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserSupervisor">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/FindUserSupervisor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExclusionDays">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetExclusionDays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUserMembers">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetGroupUserMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOCMembers">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetAllOCMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentInformation">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetIncidentInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobFunctionGroupMembers">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetJobFunctionGroupMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForJobFunction">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetUserForJobFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffDays">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetOffDays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIsLogued">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetIsLogued" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Initiate">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/Initiate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevuelveRutaForm">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/DevuelveRutaForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionId">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetSessionId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatos">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetDatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilterQueue">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetFilterQueue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignQueuedTask">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetAssignQueuedTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskInitiate">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetTaskInitiate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsociados">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetAsociados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmail">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/SetEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsocia">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetAsocia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReasignaTarea">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/ReasignaTarea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageBytes">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/GetImageBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignaTareasFuturas">
+      <soap12:operation soapAction="http://tempuri.org/IUltimusIntegration/AsignaTareasFuturas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UltimusIntegration">
+    <wsdl:port name="WSHttpBinding_IUltimusIntegration" binding="tns:WSHttpBinding_IUltimusIntegration">
+      <soap12:address location="http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://ultimussystemde.quijano.local/Ultimus.UltimusIntegrationLayer/UltimusIntegration.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

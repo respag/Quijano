@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <center><h4>Parametros de Riesgo</h4></center>
+    </div>
+    <div class="col-md-4 text-right">
+        <button id="btnEvaluarCliente" type="button" class="btn btn-success btn-sm"><i class="fa fa-check"></i>&nbsp;&nbsp;Evaluar Cliente</button>
+    </div>
+</div>
+
+<hr />
+<br />
+
+<form id="formEvaluacionRiesgo">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-suitcase"></i>&nbsp;&nbsp;Sector Económico:</span>
+                <select id="ddlSectorEconomico" name="ddlSectorEconomico" class="form-control" aria-label="..." required>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">País:</span>
+                <select id="ddlPais" name="ddlPais" class="form-control" aria-label="..." required>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">PEP?:</span>
+                <select id="ddlPEP" name="ddlPEP" class="form-control" aria-label="..." required>
+                    <option></option>
+                    <option value="0">si</option>
+                    <option value="1">no</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Segmentación Cliente:</span>
+                <select id="ddlSegCliente" name="ddlSegCliente" class="form-control" aria-label="..." required>
+                    <option></option>
+                    <option value="PA">Nombre 1</option>
+                    <option value="CT">Nombre 2</option>
+                    <option value="NY">Nombre 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Scoring:</span>
+                <input type="text" class="form-control inp-green"  aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-cube"></i>&nbsp;&nbsp;Nivel de Riesgo:</span>
+                <input type="text" class="form-control inp-green"  aria-describedby="basic-addon1" />
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="input-group padding-bottom input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Desición:</span>
+                <input id="txtDesicion" name="txtDesicion" type="text" class="form-control"  aria-describedby="basic-addon1" required />
+            </div>
+            <br />
+            <button class="btn btn-primary btn-sm" type="submit">Crear Cliente Gensys</button>
+        </div>
+        <div class="col-xs-8">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-comments-o"></i>&nbsp;&nbsp;Comentarios:</span>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/Ultimus-EvaluacionDelCliente");
+
+}

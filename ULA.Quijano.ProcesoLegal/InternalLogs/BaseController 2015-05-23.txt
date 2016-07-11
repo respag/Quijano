@@ -1,0 +1,52 @@
+05/23/2015 10:24:41|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 10:43:30|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 10:44:48|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 10:45:21|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 12:35:16|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 12:36:05|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 12:38:15|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 12:39:08|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 12:40:22|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 12:45:26|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 12:45:31|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 18:13:35|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 18:14:02|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 18:14:50|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 18:16:37|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 20:31:23|ULASP20|Trace|BaseController||ViewBag.QueryEncripted=?UserID=96B7STr1yraWaUw1KUGromUBlMjSgThrP 1eJrpDd5c=&TaskID=pOREuUXxUMBRag3z5KvEuBzclM0TKnvyIsldMGbrAbs=&Process=VUuKMeL6kg2hHNzkD6TC7Q==&Step=8oUPBUBu1MPH6Gvgug4Qnw==&Incident=dq6ZkK5u5wc=&JobFunction=P 1eJrpDd5c=&UserFullName=BDnzYTh/Y8l1vAO3xOz44w==&UserEmail=&Supervisor=P 1eJrpDd5c=&SupervisorFullName=&TaskStatus=wmJOgbc/QUk=&sol_co_solicitud=0
+05/23/2015 20:31:34|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 20:52:07|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 20:54:20|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 20:55:24|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 20:58:01|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:00:09|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:14:27|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:16:51|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:17:41|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:18:40|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:19:42|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:20:36|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:21:26|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:22:12|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210
+05/23/2015 21:25:31|ULASP20|Trace|BaseController||Error TareaJson=System.Exception: TaskID or UserID is null
+   at ULA.Quijano.ProcesoLegal.Controllers.BaseController.LeerTarea() in c:\QuijanoAsociados\SlnQuijanoAsociados\ULA.Quijano.ProcesoLegal\Controllers\BaseController.cs:line 210

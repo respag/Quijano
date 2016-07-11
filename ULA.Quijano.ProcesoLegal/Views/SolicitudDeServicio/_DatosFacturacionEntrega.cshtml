@@ -1,0 +1,135 @@
+﻿@{
+    Layout = null;
+}
+
+<br />
+<br />
+
+<form id="formInstSocDatosFactEntrega" style="font-size: 12px !important;">
+    <div class="row">
+        @*<div>
+                <button id="btnGuardarDatosFacturacionSoc" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>&nbsp;&nbsp;Guardar datos</button>
+            </div>*@
+        <div class="col-xs-2" style="padding-right: 2px;">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Cliente:</span>
+                <input id="txtInstSocCodCliente" name="txtInstSocCodCliente" type="text" class="form-control " aria-describedby="basic-addon1" />
+            </div>
+        </div>
+        <div class="col-xs-10" style="padding-left: 2px;">
+            <input id="txtInstSocCliente" name="txtInstSocCliente" type="text" class="form-control input-sm" aria-describedby="basic-addon1" required />
+        </div>
+    </div>
+
+    <div class=" input-group padding-bottom form-inline input-group-sm">
+        <span class="input-group-addon" id="basic-addon1">Tipo Fact. As:</span>
+        <select id="ddlInstSocTipoFact" name="ddlInstSocTipoFact" class="form-control" data-original-title="" title="" aria-label="..." required>
+            <option value=""></option>
+        </select>
+    </div>
+
+    <p>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Forma de pago</label>&nbsp;
+                <input id="rbInstSocFormaPagoCre" type="radio" name="rbInstSocFormaPago" value="cre" required />Credito&nbsp;
+                <input id="rbInstSocFormaPagoCon" type="radio" name="rbInstSocFormaPago" value="con" required />Contado
+            </div>
+            <div class="col-md-2">
+                <label>Proforma</label>&nbsp;
+                <input id="rbInstSocProformaSi" type="radio" name="rbInstSocProforma" value="1" required />Si&nbsp;
+                <input id="rbInstSocProformaNo" type="radio" name="rbInstSocProforma" value="0" required />No
+            </div>
+            <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td><label>Moneda</label>&nbsp;</td>
+                        <td>
+                            <select class="form-control" id="ddlInstSocMoneda" style="width: 150px;" required>
+                                <option></option>
+                                <option value="7">EURO</option>
+                                <option value="0">DOLLAR</option>
+                                <option value="2">LIBRAS</option>
+                                <option value="100">YEN</option>
+                                <option value="6">FRANCOS SUIZOS</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <label>Tipo de Factura</label>&nbsp;
+                <input id="rbInstSocTipoFacturaGlo" type="radio" name="rbInstSocTipoFactura" value="glo" required />Global&nbsp;
+                <input id="rbInstSocTipoFacturaDet" type="radio" name="rbInstSocTipoFactura" value="det" required />Detallada
+            </div>
+        </div>
+    </p>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Referencia:</span>
+                <input id="txtInstSocReferencia" name="txtInstSocReferencia" type="text" class="form-control" aria-describedby="basic-addon1" required />
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Nombre de la factura:</span>
+                <input id="txtInstSocNombreFactura" name="txtInstSocNombreFactura" type="text" class="form-control" aria-describedby="basic-addon1" required />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10">
+            <div class=" input-group padding-bottom form-inline input-group-sm">
+                <span class="input-group-addon" id="basic-addon1">Dirección de Factura:</span>
+                <textarea id="txtInstSocDireccionFactura" name="txtInstSocDireccionFactura" class="form-control" style="height: 70px;" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button id="btnInstSocConsultar" type="button" class="btn btn-primary btn-sm">Libreta de Direcciones</button>
+        </div>
+    </div>
+
+    <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Leyenda de Factura</label>
+    <textarea id="txtInstSocLeyendaFactura" name="txtInstSocLeyendaFactura" class="form-control" rows="3"></textarea>
+
+    <br />
+
+    <div class="row">
+        <div class="col-xs-6">
+            <label>Responsable de Notificar Cliente</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="rbInstSocRespNotiAbog" type="radio" name="rbInstSocRespNoti" value="abo" required />Abogado&nbsp;&nbsp;&nbsp;
+            <input id="rbInstSocRespNotiAsistLeg" type="radio" name="rbInstSocRespNoti" value="asi" required />Gestor
+        </div>
+        <div class="col-xs-6">
+            <label>Forma de Envío del Paquete</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @*<input id="chkbInstSocCurrier" type="checkbox" name="currier" value="1" onchange="if ($('#chkbInstSocCurrier').is(':checked') || $('#chkbInstSocMensajeria').is(':checked')) $('#divInstSocDireccionEnvio').show(500); else $('#divInstSocDireccionEnvio').hide(300); if ($('#chkbInstSocCurrier').is(':checked')) $('#divSocNumeroGuia').show(500); else $('#divSocNumeroGuia').hide(300);" />Currier&nbsp;&nbsp;&nbsp;*@
+            <input id="chkInstSocCurrier" type="checkbox" name="chkInstSocCurrier" />Courier&nbsp;&nbsp;&nbsp;
+            <input id="chkInstSocEmail" type="checkbox" name="chkInstSocEmail" />E-mail&nbsp;&nbsp;&nbsp;
+            <input id="chkInstSocPersonal" type="checkbox" name="chkInstSocPersonal" />Recepción&nbsp;&nbsp;&nbsp;
+            @*<input id="chkbInstSocMensajeria" type="checkbox" name="personal" value="1" onchange="if ($('#chkbInstSocMensajeria').is(':checked')) $('#divSocNumeroSolicitud').show(500); else $('#divSocNumeroSolicitud').hide(300);" />Mensajería*@
+            <input id="chkInstSocMensajeria" type="checkbox" name="chkInstSocMensajeria" />Mensajería
+        </div>
+    </div>
+    <br />
+    <div id="divInstSocNumeroSolicitud" style="display:none">
+        <div class="input-group padding-bottom form-inline input-group-sm">
+            <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Numero de Solicitud:</label>
+            <input id="txtInstSocNroSolicitud" name="txtInstSocNroSolicitud" type="text" class="form-control" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+    <div id="divInstSocNumeroGuia" style="display:none">
+        <div class="input-group padding-bottom form-inline input-group-sm">
+            <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Numero de Guia:</label>
+            <input id="txtInstSocNroGuia" name="txtInstSocNroGuia" type="text" class="form-control" aria-describedby="basic-addon1" />
+        </div>
+    </div>
+    <div id="divInstSocDireccionEnvio" style="display:none">
+        <label><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Dirección de envío:</label>
+        <textarea id="txtInstSocDireccionEnvio" name="txtInstSocDireccionEnvio" class="form-control" rows="3"></textarea>
+    </div>
+
+
+</form>

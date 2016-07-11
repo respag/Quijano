@@ -1,0 +1,251 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <center><h3 class="panel-title">Instrucciones</h3></center>
+    </div>
+    <div class="panel-body">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-1">
+
+                </div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div>
+                                <input id="chkTraduccion" type="checkbox" /> Traducción
+                            </div>
+                            <div>
+                                <input id="chkAutenticacion" type="checkbox" /> Autenticación
+                            </div>
+                            <div>
+                                &nbsp;&nbsp;&nbsp;
+                                <input id="chkNotaria" type="checkbox" /> Notaria
+                            </div>
+                            <div>
+                                &nbsp;&nbsp;&nbsp;
+                                <input id="chkApostilla" type="checkbox" /> Apostilla
+                            </div>
+                            <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input id="chkMinrexGobJustici" type="checkbox" /> MINREX / Gobierno y Justicia
+                            </div>
+                            <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input id="chkConsulado" type="checkbox" /> Consulado
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div>
+                                <input id="chkSeInscribe" type="checkbox" /> Se Inscribe
+                            </div>
+                            <div>
+                                <input id="chkAlteracionTurno" type="checkbox" /> Alteración de Turno
+                            </div>
+                            <div>
+                                <input id="chkAperturaCuenta" type="checkbox" /> Apertura de cuenta
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1">
+
+                </div>
+            </div>
+
+            <br />
+                
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-2">
+                    <input id="chkUrgente" type="checkbox" /> <strong>Urgente</strong>
+                </div>
+            </div>
+
+            <form id="formUrgente">
+                <div id="divUrgente" class="row" style="display:none">
+                    <div class="col-xs-1">
+                    </div>
+                    <div class="col-xs-7">
+                        <input id="txtUrgencia" name="txtUrgencia" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="input-group padding-bottom">
+                            <span class="input-group-addon">Fecha Límite de Entrega</span>
+                            <input id="txtFechaLimite" name="txtFechaLimite" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<form id="formTraduccion">
+    <div id="divTraduccion" class="panel panel-info" style="display:none">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Traducción</h3></center>
+        </div>
+        <div class="panel-body">
+            <textarea id="txtaTraduccion" name="txtaTraduccion" class="form-control" rows="3" aria-describedby="basic-addon1" required></textarea>
+        </div>
+    </div>
+</form>
+
+<form id="formNotaria">
+    <div id="divNotaria" class="panel panel-info" style="display:none">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Notaría</h3></center>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="input-group padding-bottom">
+                        <span class="input-group-addon">Protocoliza</span>
+                        <input id="txtProtocoliza" name="txtProtocoliza" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="input-group padding-bottom">
+                        <span class="input-group-addon">Notaría</span>
+                        <select id="ddlNotaria" name="ddlNotaria" class="form-control" aria-label="..." required>
+                            <option value=""></option>
+                            <option value="1">Primera</option>
+                            <option value="2">Segunda</option>
+                            <option value="3">Tercera</option>
+                            <option value="4">Cuarta</option>
+                            <option value="5">Quinta</option>
+                            <option value="6">Sexta</option>
+                            <option value="7">S&eacute;ptima</option>
+                            <option value="8">Octava</option>
+                            <option value="9">Novena</option>
+                            <option value="10">D&eacute;cima</option>
+                            <option value="11">Decimoprimera</option>
+                            <option value="12">Decimosegunda</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="input-group padding-bottom">
+                        <span class="input-group-addon">Sección</span>
+                        <input id="txtSeccion" name="txtSeccion" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="input-group padding-bottom">
+                        <span class="input-group-addon">Modelo</span>
+                        <select id="ddlModelo" name="ddlModelo" class="form-control" aria-label="..." required>
+                            <option value=""></option>
+                            <option value="0">Especial</option>
+                            <option value="1">Est&aacute;ndar</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="input-group padding-bottom">
+                        <span class="input-group-addon">Comparece</span>
+                        <input id="txtComparece" name="txtComparece" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="input-group padding-bottom">
+                        <span class="input-group-addon">Refrenda</span>
+                        <input id="txtRefrenda" name="txtRefrenda" type="text" class="form-control" aria-describedby="basic-addon1" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="input-group padding-bottom">
+                        <span class="input-group-addon">Otros</span>
+                        <textarea id="txtOtros" name="txtOtros" class="form-control" rows="3" aria-describedby="basic-addon1" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<form id="formTesoreria">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <center><h3 class="panel-title">Tesorería</h3></center>
+        </div>
+        <div class="panel-body">
+
+            <table id="tbTesoreria" class="table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Solicitud</th>
+                        <th>Beneficiario</th>
+                        <th>JC/Cedu</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+    </div>
+</form>
+
+    @*
+        <div class="input-group padding-bottom input-group-sm">
+            <span class="input-group-addon text-left"><input id="chkNotaria" type="checkbox" name="currie" value="cre" /> Notaría&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <textarea id="txtaNotaria" class="form-control custom-control txta-otros-depto" rows="3" style="resize:none" disabled></textarea>
+            <span id="btnSolTra" class="input-group-addon btn btn-primary">Solic. Notaría</span>
+        </div>
+        <div id="solicitudNotariaTraduccion" style="display: none">
+            @Html.Partial("~/Views/SolicitudDeServicio/_SolicitudNotariaTraduccion.cshtml")
+        </div>
+
+        <div class="input-group padding-bottom input-group-sm">
+            <span class="input-group-addon"><input id="chkTraduccion" type="checkbox" name="currie" value="cre" /> Traducción</span>
+            <textarea id="txtaTraduccion" class="form-control custom-control txta-otros-depto" rows="3" style="resize:none" disabled></textarea>
+            <span id="btnSolTra2" class="input-group-addon btn btn-primary">Solic. Traducción</span>
+        </div>
+        <div id="solicitudNotariaTraduccion2" style="display: none">
+            @Html.Partial("~/Views/SolicitudDeServicio/_SolicitudNotariaTraduccion.cshtml")
+        </div>
+
+        <div class="input-group padding-bottom input-group-sm">
+            <span class="input-group-addon"><input id="chkTesoreria" type="checkbox" name="currie" value="cre" /> Tesorería&nbsp;&nbsp;&nbsp;</span>
+            <textarea id="txtaTesoreria" class="form-control custom-control txta-otros-depto" rows="3" style="resize:none" disabled></textarea>
+            <span id="btnTesoreria" class="input-group-addon btn btn-primary" style="width:143px;">Solic. Tesorería</span>
+        </div>
+        <div id="solicitudDeTesoreria" style="display: none">
+            @Html.Partial("~/Views/SolicitudDeServicio/_SolicitudDeTesoreria.cshtml")
+        </div>
+
+        <div class="input-group input-group-sm">
+            <span class="input-group-addon"><input type="checkbox" name="currie" value="cre" />Otros&nbsp;</span>
+            <textarea class="form-control custom-control txta-otros-depto" rows="3" style="resize:none"></textarea>
+        </div>
+    *@
+
+    @section scripts{
+
+        @Scripts.Render("~/Scripts/Ultimus-InsOtrosDepartamentos")
+
+    }

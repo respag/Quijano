@@ -1,0 +1,203 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Datos Específicos</h3>
+    </div>
+    <div class="panel-body">
+
+        <div role="tabpanel">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs pestanias" role="tablist">
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation" class="active">
+                        <a href="#homeMar" aria-controls="home" role="tab" data-toggle="tab" class="nav-active">Datos de la Marca</a>
+                    </li>
+                }
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                    <li role="presentation">
+                        <a href="#profileMar" aria-controls="profile" role="tab" data-toggle="tab">Datos de Facturación</a>
+                    </li>
+                }
+
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                    <li role="presentation" @if (ViewBag.Step == "Monitoreo") { @("class=active") } >
+                        <a href="#asuntosMar" aria-controls="abrirAsuntos" role="tab" data-toggle="tab" @if (ViewBag.Step == "Monitoreo") { @("class=nav-active") } >Abrir Asunto</a>
+                    </li>
+                }
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                <div role="tabpanel" class="tab-pane active" id="homeMar">
+                    <br />
+                    <form id="formInstMarDatosMarcas">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                
+                                <div class="row">
+
+                                    <div class="col-xs-6">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Tipo de Solicitud Marca:</span>
+                                            <select id="ddlDatMarTipoSolicitudMarca" name="ddlDatMarTipoSolicitudMarca" class="form-control" aria-describedby="basic-addon1" required></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6">
+                                        <div class="input-group padding-bottom form-inline input-group-sm">
+                                            <span class="input-group-addon" id="basic-addon1">Tipo de registro:</span>
+                                            <select id="ddlDatMarTipoRegistro" name="ddlDatMarTipoRegistro" class="form-control" aria-describedby="basic-addon1" required></select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <br />
+
+                                <div id="divMarcas1" style="display:none">
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar1Poder" type="checkbox" value="">&nbsp;&nbsp;Poder
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <input id="ckbDatMar1Cheque" type="checkbox" value="">&nbsp;&nbsp;Cheque:
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar1Etiquetas" type="checkbox" value="">&nbsp;&nbsp;2 - Etiquetas (7x7)
+                                        </div>
+                                        <div class="col-xs-4">
+                                            $$$ (128.50)
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar1Declaracion" type="checkbox" value="">&nbsp;&nbsp;Declaración Jurada
+                                        </div>
+                                        <div class="col-xs-4">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar1Formulario" type="checkbox" value="">&nbsp;&nbsp;Formulario de Solicitud
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <input id="ckbDatMar1Otros" type="checkbox" value="">&nbsp;&nbsp;Otros
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div id="divMarcas2" style="display:none">
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar2Formulario" type="checkbox" value="">&nbsp;&nbsp;Formulario
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <input id="ckbDatMar2Cheque" type="checkbox" value="">&nbsp;&nbsp;Pagos / Cheque:
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar2Anexos" type="checkbox" value="">&nbsp;&nbsp;Anexos
+                                        </div>
+                                        <div class="col-xs-4">
+                                            $$$ (12.50)
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                        </div>
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar2Otros" type="checkbox" value="">&nbsp;&nbsp;Otros
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div id="divMarcas3" style="display:none">
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            Número de registro <input id="txtDatMar3NumeroRegistro" type="text" class="form-control" style="width:100px; display:inline;" />-01
+                                        </div>
+                                        <div class="col-xs-4">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar3Poder" type="checkbox" value="">&nbsp;&nbsp;Poder
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <input id="ckbDatMar3Cheque" type="checkbox" value="">&nbsp;&nbsp;Pagos / Cheque:
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar3Peticion" type="checkbox" value="">&nbsp;&nbsp;Hoja de Petición
+                                        </div>
+                                        <div class="col-xs-4">
+                                            $$$ (122.00)
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                        </div>
+                                        <div class="col-xs-offset-2 col-xs-4">
+                                            <input id="ckbDatMar3Otros" type="checkbox" value="">&nbsp;&nbsp;Otros
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                }
+                
+                @if (ViewBag.Step == "RegistrarSolicitud" || ViewBag.Step == "AnalisisLegal" || ViewBag.Step == "InstruccionAbogadoGestor" || ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Entrega")
+                {
+                <div role="tabpanel" class="tab-pane" id="profileMar">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_DatosFacturacionEntregaMar.cshtml")
+                </div>
+                }
+
+                @if (ViewBag.Step == "EjecutarInstruccion" || ViewBag.Step == "Monitoreo")
+                {
+                <div role="tabpanel" class="@if (ViewBag.Step == "Monitoreo") { @("tab-pane active") } else { @("tab-pane") }" id="asuntosMar">
+                    @Html.Partial("~/Views/SolicitudDeServicio/_AbrirAsuntoMar.cshtml")
+                </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>

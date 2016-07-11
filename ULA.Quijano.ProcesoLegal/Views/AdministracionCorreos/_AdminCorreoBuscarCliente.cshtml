@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="modal modal-popup fade" id="modalBuscarCliente" style="overflow:auto;" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-search"></i> Buscar Cliente</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseBuscarCliente" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+            <div class="modal-body-popup">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="chkbClienteNuevo" name="chkbClienteNuevo" /> Cliente Nuevo
+                    </label>
+                </div>
+
+                <div class="input-group input-group-sm">
+                    <input id="txtModalBuscarCliente" type="text" class="form-control upper-case" name="txtModalBuscarCliente" />
+                    <span class="input-group-btn">
+                        <button id="btnModalBuscarCliente" class="btn btn-success" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+                </div><!-- /input-group -->
+
+                <br />
+
+                <div id="divIncidentesActivos">
+                    <center><h3 class="panel-title p-subtitle">Incidente Activo Relacionado:</h3></center>
+                    <table id="tblIncidentesActivos" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>NÚMERO INCIDENTE</th>
+                                <th>SUMARIO</th>
+                                <th>SELECCIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4 text-right">
+                        <button id="btnModalBuscarClienteGuardar" type="button" class="btn btn-success">
+                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>&nbsp;&nbsp;Seleccionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+<div class="modal-popup fade" id="modalClientesEncontrados" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header-popup">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8"><center><h5 class="modal-title-popup"><i class="fa fa-user"></i>&nbsp;&nbsp;Clientes Encontrados</h5></center> </div>
+                    <div class="col-md-2"><button id="btnCloseClientesEncontrados" type="button" class="close-btn-popup"><span aria-hidden="true">&times;</span></button></div>
+                </div>
+            </div>
+    <div class="modal-body-popup">
+        <div id="formModalClientesEncontrados">
+            <table id="tbClientesEncontrados" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID CLIENTE</th>
+                        <th>NOMBRE DE CLIENTE</th>
+                        <th style="display:none;">EMAIL</th>
+                    </tr>
+                </thead>
+            </table>
+            <input type="hidden" id="hiddenEmailCliente" name="hiddenEmailCliente" />
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-8 text-right">
+                * Doble click para seleccionar cliente
+            </div>
+        </div>
+        <br />
+    </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div>
+
